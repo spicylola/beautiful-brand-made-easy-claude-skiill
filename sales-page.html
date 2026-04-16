@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beautiful Brand Design Made Easy — A Claude Skill by Lola</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Prata&family=Karla:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --gray: #f7f7f7;
+    --border: #e8e8e8;
+    --muted: #888888;
+    --green: #3D7A5A;
+    --green-tint: #EEF5F1;
+  }
+
+  body { background: var(--white); color: var(--black); font-family: 'Karla', sans-serif; }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px; border-bottom: 0.5px solid var(--border);
+    position: sticky; top: 0; background: var(--white); z-index: 100;
+  }
+  .nav-logo { font-family: 'Prata', serif; font-size: 18px; color: var(--black); text-decoration: none; }
+  .nav-cta {
+    background: var(--green); color: var(--white); border: none;
+    padding: 9px 22px; border-radius: 6px; font-family: 'Karla', sans-serif;
+    font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none;
+    display: inline-block;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 100px 48px 80px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green); margin-bottom: 24px;
+  }
+  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .hero-headline {
+    font-family: 'Prata', serif;
+    font-size: clamp(42px, 7vw, 80px);
+    line-height: 1.04;
+    color: var(--black);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+  .hero-headline em { font-style: italic; color: var(--green); }
+  .hero-sub {
+    font-size: 18px; color: var(--muted); line-height: 1.7;
+    font-weight: 300; max-width: 560px; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-big {
+    background: var(--black); color: var(--white); border: none;
+    padding: 16px 36px; border-radius: 8px; font-family: 'Karla', sans-serif;
+    font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none;
+    display: inline-block; letter-spacing: 0.02em;
+  }
+  .btn-big.green { background: var(--green); }
+  .hero-price {
+    font-size: 13px; color: var(--muted);
+  }
+  .hero-price strong { color: var(--black); font-size: 18px; }
+
+  /* PROOF BAR */
+  .proof-bar {
+    background: var(--black); padding: 20px 48px;
+    display: flex; gap: 48px; align-items: center; flex-wrap: wrap;
+  }
+  .proof-item { display: flex; flex-direction: column; gap: 2px; }
+  .proof-num { font-family: 'Prata', serif; font-size: 22px; color: var(--white); }
+  .proof-label { font-size: 11px; color: #444444; letter-spacing: 0.05em; }
+
+  /* PREVIEW */
+  .preview {
+    padding: 80px 48px;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--gray);
+  }
+  .preview-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+  .preview-headline { font-family: 'Prata', serif; font-size: 36px; color: var(--black); margin-bottom: 12px; }
+  .preview-sub { font-size: 14px; color: var(--muted); font-weight: 300; margin-bottom: 48px; max-width: 480px; line-height: 1.7; }
+  .preview-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+  }
+  .preview-card { background: var(--white); padding: 28px 24px; }
+  .preview-card-num { font-family: 'Prata', serif; font-size: 32px; color: var(--green); margin-bottom: 12px; }
+  .preview-card-title { font-family: 'Prata', serif; font-size: 16px; color: var(--black); margin-bottom: 8px; }
+  .preview-card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+  /* HOW IT WORKS */
+  .how { padding: 80px 48px; border-bottom: 0.5px solid var(--border); max-width: 960px; margin: 0 auto; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+  .section-headline { font-family: 'Prata', serif; font-size: 38px; color: var(--black); margin-bottom: 48px; line-height: 1.15; }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex; gap: 32px; align-items: flex-start;
+    padding: 32px 0; border-bottom: 0.5px solid var(--border);
+  }
+  .step:last-child { border: none; }
+  .step-num {
+    font-family: 'Prata', serif; font-size: 48px; color: var(--border);
+    line-height: 1; min-width: 60px; flex-shrink: 0;
+  }
+  .step-content { flex: 1; padding-top: 8px; }
+  .step-title { font-family: 'Prata', serif; font-size: 20px; color: var(--black); margin-bottom: 8px; }
+  .step-desc { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .step-tag {
+    display: inline-block; margin-top: 10px; font-size: 10px;
+    letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 8px;
+    border-radius: 4px; background: var(--green-tint); color: var(--green);
+  }
+
+  /* WHAT YOU GET */
+  .get { padding: 80px 48px; background: var(--black); }
+  .get-inner { max-width: 960px; margin: 0 auto; }
+  .get .section-eyebrow { color: #3D7A5A; }
+  .get .section-headline { color: var(--white); margin-bottom: 48px; }
+  .get-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; }
+  .get-card { background: #1a1a1a; padding: 28px 24px; }
+  .get-check { font-size: 20px; color: var(--green); margin-bottom: 12px; }
+  .get-card-title { font-family: 'Prata', serif; font-size: 16px; color: var(--white); margin-bottom: 8px; }
+  .get-card-desc { font-size: 13px; color: #555555; line-height: 1.65; font-weight: 300; }
+
+  /* FOR WHO */
+  .who { padding: 80px 48px; border-bottom: 0.5px solid var(--border); }
+  .who-inner { max-width: 960px; margin: 0 auto; }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; margin-top: 0; }
+  .who-card { background: var(--gray); padding: 28px 24px; }
+  .who-emoji { font-size: 24px; margin-bottom: 14px; }
+  .who-title { font-family: 'Prata', serif; font-size: 16px; color: var(--black); margin-bottom: 8px; }
+  .who-desc { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+  /* TESTIMONIAL */
+  .testimonial {
+    padding: 80px 48px; background: var(--green-tint);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .testimonial-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .testimonial-quote {
+    font-family: 'Prata', serif; font-size: 28px; color: var(--black);
+    line-height: 1.4; margin-bottom: 24px; font-style: italic;
+  }
+  .testimonial-attr { font-size: 12px; color: var(--muted); letter-spacing: 0.5px; }
+
+  /* CTA */
+  .cta { padding: 100px 48px; border-bottom: 0.5px solid var(--border); }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-headline { font-family: 'Prata', serif; font-size: clamp(32px, 5vw, 56px); color: var(--black); margin-bottom: 16px; line-height: 1.1; }
+  .cta-headline em { font-style: italic; color: var(--green); }
+  .cta-sub { font-size: 16px; color: var(--muted); font-weight: 300; margin-bottom: 40px; line-height: 1.7; }
+  .cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .cta-note { font-size: 12px; color: var(--muted); margin-top: 20px; }
+
+  /* FAQ */
+  .faq { padding: 80px 48px; border-bottom: 0.5px solid var(--border); }
+  .faq-inner { max-width: 720px; margin: 0 auto; }
+  .faq-item { padding: 24px 0; border-bottom: 0.5px solid var(--border); }
+  .faq-item:last-child { border: none; }
+  .faq-q { font-family: 'Prata', serif; font-size: 18px; color: var(--black); margin-bottom: 10px; }
+  .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-logo { font-family: 'Prata', serif; font-size: 16px; color: var(--black); }
+  .footer-meta { font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Luhlah</a>
+  <a href="#buy" class="nav-cta">Get it for $9 →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow"><div class="eyebrow-dot"></div>A Claude Skill by Lola</div>
+  <h1 class="hero-headline">Beautiful brand design.<br><em>Made easy.</em></h1>
+  <p class="hero-sub">Stop paying thousands for a brand designer. This Claude skill walks you through your entire brand identity — colors, fonts, voice, logo — and generates a stunning HTML brand kit in under 30 minutes.</p>
+  <div class="hero-actions">
+    <a href="#buy" class="btn-big green">Get Beautiful Brand Design Made Easy</a>
+    <div class="hero-price"><strong>$9</strong> · one-time · instant download</div>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item"><div class="proof-num">30 min</div><div class="proof-label">Average time to a full brand kit</div></div>
+  <div class="proof-item"><div class="proof-num">$0</div><div class="proof-label">Design tools required</div></div>
+  <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Yours to keep, edit, and share</div></div>
+  <div class="proof-item"><div class="proof-num">1 file</div><div class="proof-label">Complete brand kit, zero clutter</div></div>
+</div>
+
+<!-- WHAT'S INSIDE -->
+<div class="preview">
+  <p class="preview-label">What Claude builds for you</p>
+  <h2 class="preview-headline">One conversation.<br>A complete brand kit.</h2>
+  <p class="preview-sub">Claude asks the right questions, then generates a beautiful, fully styled HTML brand kit file — ready to share with your team, hand to a developer, or present to a client.</p>
+  <div class="preview-grid">
+    <div class="preview-card">
+      <div class="preview-card-num">01</div>
+      <div class="preview-card-title">Color Palette</div>
+      <div class="preview-card-desc">Every color with hex codes, names, and usage notes. No more guessing what shade goes where.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-card-num">02</div>
+      <div class="preview-card-title">Typography System</div>
+      <div class="preview-card-desc">Headline and body font pairing with full size scale — display, heading, body, label, caption.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-card-num">03</div>
+      <div class="preview-card-title">Wordmark</div>
+      <div class="preview-card-desc">Your brand name styled beautifully in three treatments — primary, reversed, and accent.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-card-num">04</div>
+      <div class="preview-card-title">UI Components</div>
+      <div class="preview-card-desc">Buttons, tags, and pills — the building blocks of any digital product or website.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-card-num">05</div>
+      <div class="preview-card-title">Voice & Tone</div>
+      <div class="preview-card-desc">A do/don't guide so everyone on your team writes and sounds like your brand — consistently.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-card-num">06</div>
+      <div class="preview-card-title">One Beautiful File</div>
+      <div class="preview-card-desc">Everything lives in a single `.html` file. Open it in any browser. Share it anywhere. No apps needed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how">
+  <p class="section-eyebrow">How it works</p>
+  <h2 class="section-headline">Paste. Answer. Download.<br>That's the whole process.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Open Claude and paste the skill</div>
+        <div class="step-desc">Copy the skill prompt from your download and paste it into Claude.ai (free) or Claude Code. Claude instantly becomes your personal brand designer.</div>
+        <span class="step-tag">Works on free Claude plan</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Answer Claude's questions</div>
+        <div class="step-desc">Claude asks you one question at a time — your brand name, audience, vibe, colors, fonts. Share moodboards, images, or websites you love. The more you share, the better the result.</div>
+        <span class="step-tag">No design experience needed</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Review and confirm your brand direction</div>
+        <div class="step-desc">Before building anything, Claude summarizes your entire brand brief and asks if you're happy. You can tweak anything — colors, fonts, tone — before it generates your kit.</div>
+        <span class="step-tag">You stay in control</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Get your HTML brand kit</div>
+        <div class="step-desc">Claude generates your complete, fully styled brand kit as a single HTML file. Copy it, save it as a `.html` file, and open it in any browser. Done.</div>
+        <span class="step-tag">Ready in under 30 minutes</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="get">
+  <div class="get-inner">
+    <p class="section-eyebrow">What's in your download</p>
+    <h2 class="section-headline">Everything you need.<br>Nothing you don't.</h2>
+    <div class="get-grid">
+      <div class="get-card">
+        <div class="get-check">✓</div>
+        <div class="get-card-title">The Skill Prompt</div>
+        <div class="get-card-desc">The SKILL.md file — the core prompt that activates Claude as your brand designer. Copy, paste, and go.</div>
+      </div>
+      <div class="get-card">
+        <div class="get-check">✓</div>
+        <div class="get-card-title">Example Brand Kit</div>
+        <div class="get-card-desc">A real HTML brand kit generated by this skill so you know exactly what you're getting before you start.</div>
+      </div>
+      <div class="get-card">
+        <div class="get-check">✓</div>
+        <div class="get-card-title">Setup Guide</div>
+        <div class="get-card-desc">Step-by-step instructions for Claude.ai (beginners) and Claude Code (developers). Never used Claude? No problem.</div>
+      </div>
+      <div class="get-card">
+        <div class="get-check">✓</div>
+        <div class="get-card-title">README</div>
+        <div class="get-card-desc">A clear map of everything in the zip so you always know what you're looking at and where to start.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<div class="who">
+  <div class="who-inner">
+    <p class="section-eyebrow">Who this is for</p>
+    <h2 class="section-headline" style="margin-bottom:32px;">If you've ever said any of these,<br>this skill is for you.</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-emoji">🚀</div>
+        <div class="who-title">Founders & Startups</div>
+        <div class="who-desc">"I need to look professional but I can't afford a branding agency right now."</div>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">🎨</div>
+        <div class="who-title">Creators & Freelancers</div>
+        <div class="who-desc">"I've been putting off my brand for months because I don't know where to start."</div>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">💼</div>
+        <div class="who-title">Small Business Owners</div>
+        <div class="who-desc">"My brand is all over the place — different colors everywhere, no consistency."</div>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">👩‍💻</div>
+        <div class="who-title">Developers & Builders</div>
+        <div class="who-desc">"I can build the product but I always struggle with the design and brand side."</div>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">🌱</div>
+        <div class="who-title">Side Project Builders</div>
+        <div class="who-desc">"I have a new project idea and I want it to look good from day one."</div>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">✨</div>
+        <div class="who-title">Anyone Rebranding</div>
+        <div class="who-desc">"My current brand doesn't feel like me anymore and I need a fresh start."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial">
+  <div class="testimonial-inner">
+    <div class="testimonial-quote">"I built my entire brand kit in one afternoon. I kept expecting it to feel cheap — it didn't. It looked like something a studio would charge $3,000 for."</div>
+    <div class="testimonial-attr">— Early user · Founder, Lagos</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta" id="buy">
+  <div class="cta-inner">
+    <h2 class="cta-headline">Your brand kit is<br><em>30 minutes away.</em></h2>
+    <p class="cta-sub">For the cost of a coffee, get a brand identity system that used to take weeks and thousands of dollars. One purchase. Yours forever.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-big green">Get Beautiful Brand Design Made Easy — $9</a>
+    </div>
+    <p class="cta-note">Instant download · Works with free Claude.ai · No design experience needed · One-time payment</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <div class="faq-inner">
+    <p class="section-eyebrow">Questions</p>
+    <h2 class="section-headline" style="font-size:32px; margin-bottom:32px;">Frequently asked</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to pay for Claude?</div>
+      <div class="faq-a">No — Claude.ai has a free plan that's more than enough to use this skill. You only need a free account at claude.ai.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I've never used Claude before. Will I be able to do this?</div>
+      <div class="faq-a">Absolutely. The setup guide walks you through everything from creating a free account to pasting the skill and saving your file. It takes about 5 minutes to get set up.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does the HTML file actually look like?</div>
+      <div class="faq-a">Open the `example-brand-kit.html` file included in your download and see for yourself. It's a fully styled, beautiful brand reference document — not a template, not a PDF. A real, live webpage.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I use this for a client's brand?</div>
+      <div class="faq-a">Yes. You can run this skill for any brand — yours, a client's, a side project. There's no limit on how many brand kits you generate.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I don't like what Claude generates?</div>
+      <div class="faq-a">Just tell Claude what to change. "Make the palette warmer." "Try a different font." "The voice feels too formal." Claude will iterate until it's right. You're in control the whole time.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this a subscription?</div>
+      <div class="faq-a">No. $9 once. You own the skill file forever and can use it as many times as you like.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Luhlah</div>
+  <div class="footer-meta">Beautiful Brand Design Made Easy · by Lola · $9 · 2026</div>
+</footer>
+
+</body>
+</html>

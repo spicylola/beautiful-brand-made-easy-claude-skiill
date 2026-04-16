@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luhlah — Brand Kit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Prata&family=Karla:wght@300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: 'Karla', sans-serif;
+    padding: 60px 40px;
+  }
+
+  header {
+    margin-bottom: 72px;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 {
+    font-family: 'Prata', serif;
+    font-size: clamp(24px, 3.5vw, 44px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #111111;
+  }
+  header p { font-size: 10px; letter-spacing: 0.18em; color: #bbbbbb; text-transform: uppercase; }
+
+  .section { margin-bottom: 64px; }
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #bbbbbb;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  /* COLORS */
+  .color-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2px; }
+  .color-card { display: flex; flex-direction: column; }
+  .color-swatch { height: 120px; width: 100%; }
+  .color-info { padding: 14px 16px; background: #f7f7f7; }
+  .color-name { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #111111; margin-bottom: 4px; }
+  .color-hex { font-size: 9px; letter-spacing: 0.1em; color: #3D7A5A; font-family: monospace; }
+  .color-role { font-size: 8px; letter-spacing: 0.1em; color: #aaaaaa; margin-top: 4px; text-transform: uppercase; }
+
+  /* TYPOGRAPHY */
+  .type-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+  .type-card { background: #f7f7f7; padding: 36px 32px; }
+  .type-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #aaaaaa; margin-bottom: 20px; }
+  .type-specimen-serif { font-family: 'Prata', serif; font-size: 48px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #111111; margin-bottom: 16px; }
+  .type-specimen-sans { font-family: 'Karla', sans-serif; font-size: 14px; font-weight: 300; line-height: 1.8; letter-spacing: 0.02em; color: #111111; margin-bottom: 16px; }
+  .type-meta { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #aaaaaa; margin-top: 16px; padding-top: 14px; border-top: 1px solid #e8e8e8; }
+  .type-sizes { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .type-size-row { display: flex; align-items: baseline; gap: 16px; }
+  .size-label { font-size: 8px; letter-spacing: 0.15em; color: #aaaaaa; text-transform: uppercase; width: 70px; flex-shrink: 0; }
+
+  /* WORDMARK */
+  .logo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .logo-card { background: #f7f7f7; padding: 48px 28px 32px; display: flex; flex-direction: column; align-items: center; gap: 24px; position: relative; }
+  .note-badge { position: absolute; top: 14px; right: 16px; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaaaaa; border: 1px solid #e8e8e8; padding: 3px 7px; }
+  .wordmark-lg { font-family: 'Prata', serif; font-size: 40px; font-weight: 400; letter-spacing: -0.02em; color: #111111; }
+  .wordmark-lg .green { color: #3D7A5A; }
+  .lockup-tagline { font-family: 'Karla', sans-serif; font-size: 9px; letter-spacing: 0.2em; color: #aaaaaa; text-transform: uppercase; }
+  .logo-name { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #aaaaaa; text-align: center; }
+
+  /* COMPONENTS */
+  .component-section { margin-bottom: 36px; }
+  .component-title { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #aaaaaa; margin-bottom: 14px; }
+  .component-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+
+  .btn { display: inline-block; padding: 9px 20px; border-radius: 6px; font-family: 'Karla', sans-serif; font-size: 12px; font-weight: 500; cursor: default; letter-spacing: 0.02em; border: none; }
+  .btn-primary { background: #111111; color: #ffffff; }
+  .btn-ghost { background: transparent; color: #111111; border: 0.5px solid #cccccc; }
+  .btn-accent { background: #3D7A5A; color: #ffffff; }
+
+  .tag { display: inline-block; font-size: 11px; padding: 5px 13px; border-radius: 20px; border: 0.5px solid #dddddd; color: #888888; font-family: 'Karla', sans-serif; }
+  .tag-active { border-color: #3D7A5A; color: #3D7A5A; background: #EEF5F1; }
+
+  .pill { display: inline-block; font-size: 9px; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; font-family: 'Karla', sans-serif; }
+  .pill-dark { background: #111111; color: #ffffff; }
+  .pill-green { background: #EEF5F1; color: #3D7A5A; }
+
+  /* STATS BAR */
+  .stats-demo { background: #111111; display: flex; padding: 24px 32px; gap: 48px; }
+  .stat-num { font-family: 'Prata', serif; font-size: 28px; color: #ffffff; }
+  .stat-label { font-size: 10px; color: #444444; letter-spacing: 0.08em; margin-top: 3px; }
+
+  /* CARDS */
+  .card-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
+  .demo-card { background: #f7f7f7; }
+  .demo-cover { height: 150px; overflow: hidden; background: #e8e8e8; }
+  .demo-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .demo-body { padding: 14px 16px 16px; }
+  .demo-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .demo-seller { display: flex; align-items: center; gap: 6px; }
+  .demo-avatar { width: 22px; height: 22px; border-radius: 50%; background: #111111; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #ffffff; font-weight: 600; }
+  .demo-name { font-size: 10px; color: #888888; }
+  .demo-price { font-size: 12px; font-weight: 600; color: #111111; }
+  .demo-price-free { font-size: 12px; font-weight: 500; color: #3D7A5A; }
+  .demo-title { font-family: 'Prata', serif; font-size: 14px; color: #111111; margin: 8px 0; line-height: 1.25; }
+  .demo-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e8e8e8; padding-top: 9px; margin-top: 10px; }
+  .demo-stars { font-size: 11px; color: #3D7A5A; }
+  .demo-meta { font-size: 9px; color: #cccccc; }
+
+  /* VOICE */
+  .voice-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .voice-card { padding: 28px 32px; background: #f7f7f7; }
+  .voice-card.do { background: #EEF5F1; }
+  .voice-card-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; color: #aaaaaa; }
+  .voice-card.do .voice-card-label { color: #3D7A5A; }
+  .voice-item { font-size: 13px; color: #111111; line-height: 1.6; margin-bottom: 8px; font-weight: 300; display: flex; gap: 8px; }
+
+  footer { margin-top: 80px; font-size: 9px; letter-spacing: 0.18em; color: #cccccc; text-transform: uppercase; text-align: center; padding-top: 24px; border-top: 1px solid #e8e8e8; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Luhlah — Brand Kit</h1>
+  <p>Colors · Typography · Wordmark · Components · Voice</p>
+</header>
+
+<!-- 01 COLORS -->
+<div class="section">
+  <p class="section-label">01 — Color Palette</p>
+  <div class="color-row">
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#111111;"></div>
+      <div class="color-info">
+        <p class="color-name">Black</p>
+        <p class="color-hex">#111111</p>
+        <p class="color-role">Primary Text · Buttons · Nav · Dark Bar</p>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FFFFFF; border:1px solid #e8e8e8;"></div>
+      <div class="color-info">
+        <p class="color-name">White</p>
+        <p class="color-hex">#FFFFFF</p>
+        <p class="color-role">Primary Background</p>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#F7F7F7;"></div>
+      <div class="color-info">
+        <p class="color-name">Light Gray</p>
+        <p class="color-hex">#F7F7F7</p>
+        <p class="color-role">Secondary Surface · Card Background</p>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#E8E8E8;"></div>
+      <div class="color-info">
+        <p class="color-name">Border</p>
+        <p class="color-hex">#E8E8E8</p>
+        <p class="color-role">Card Borders · Dividers · Rules</p>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#888888;"></div>
+      <div class="color-info">
+        <p class="color-name">Muted</p>
+        <p class="color-hex">#888888</p>
+        <p class="color-role">Secondary Text · Metadata · Nav Links</p>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#3D7A5A;"></div>
+      <div class="color-info">
+        <p class="color-name">Forest Green</p>
+        <p class="color-hex">#3D7A5A</p>
+        <p class="color-role">Primary Accent · CTA · Links · Stars · Free</p>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#EEF5F1;"></div>
+      <div class="color-info">
+        <p class="color-name">Green Tint</p>
+        <p class="color-hex">#EEF5F1</p>
+        <p class="color-role">Active Tag Fill · Free Pill Background</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 02 TYPOGRAPHY -->
+<div class="section">
+  <p class="section-label">02 — Typography</p>
+  <div class="type-row">
+
+    <div class="type-card">
+      <p class="type-label">Display — Prata</p>
+      <div class="type-specimen-serif">Luhlah</div>
+      <div class="type-specimen-serif" style="font-style:italic; font-size:32px; color:#888888;">Skills that make Claude yours</div>
+      <div class="type-sizes">
+        <div class="type-size-row">
+          <span class="size-label">Hero</span>
+          <span style="font-family:'Prata',serif; font-size:36px; color:#111111;">Aa</span>
+        </div>
+        <div class="type-size-row">
+          <span class="size-label">Section</span>
+          <span style="font-family:'Prata',serif; font-size:22px; color:#111111;">Browse skills</span>
+        </div>
+        <div class="type-size-row">
+          <span class="size-label">Card</span>
+          <span style="font-family:'Prata',serif; font-size:14px; color:#111111;">Flask API Scaffolder</span>
+        </div>
+        <div class="type-size-row">
+          <span class="size-label">Wordmark</span>
+          <span style="font-family:'Prata',serif; font-size:22px; color:#111111; letter-spacing:-0.02em;">Luhlah</span>
+        </div>
+      </div>
+      <p class="type-meta">Prata · Regular 400 · Headlines · Wordmark · Card Titles · Section Titles</p>
+    </div>
+
+    <div class="type-card">
+      <p class="type-label">Body — Karla</p>
+      <div class="type-specimen-sans">Buy and sell reusable Claude skills — from builders who live inside the tools, to anyone who wants to work smarter.</div>
+      <div class="type-specimen-sans" style="font-size:11px; color:#888888; letter-spacing:0.05em;">Browse · Sell · Docs · Sign up · $12 · 214 sales · lola.dev</div>
+      <div class="type-sizes">
+        <div class="type-size-row">
+          <span class="size-label">Body</span>
+          <span style="font-family:'Karla',sans-serif; font-size:14px; font-weight:300; color:#111111;">Light 300 — long-form copy</span>
+        </div>
+        <div class="type-size-row">
+          <span class="size-label">UI</span>
+          <span style="font-family:'Karla',sans-serif; font-size:12px; font-weight:400; color:#111111;">Regular 400 — general UI text</span>
+        </div>
+        <div class="type-size-row">
+          <span class="size-label">Label</span>
+          <span style="font-family:'Karla',sans-serif; font-size:12px; font-weight:500; color:#111111;">Medium 500 — buttons, labels</span>
+        </div>
+        <div class="type-size-row">
+          <span class="size-label">Eyebrow</span>
+          <span style="font-family:'Karla',sans-serif; font-size:10px; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; color:#3D7A5A;">The Claude Skills Marketplace</span>
+        </div>
+      </div>
+      <p class="type-meta">Karla · Light / Regular / Medium · Body · Nav · Buttons · Labels · Metadata</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- 03 WORDMARK -->
+<div class="section">
+  <p class="section-label">03 — Wordmark</p>
+  <div class="logo-row">
+
+    <div class="logo-card">
+      <span class="note-badge">Primary</span>
+      <div class="wordmark-lg">Luhlah</div>
+      <div class="lockup-tagline">Skills that make Claude yours</div>
+      <p class="logo-name">Black on White</p>
+    </div>
+
+    <div class="logo-card" style="background:#111111;">
+      <span class="note-badge" style="color:#333333; border-color:#222222;">Reversed</span>
+      <div class="wordmark-lg" style="color:#ffffff;">Luhlah</div>
+      <div class="lockup-tagline" style="color:#333333;">Skills that make Claude yours</div>
+      <p class="logo-name" style="color:#333333;">White on Black</p>
+    </div>
+
+    <div class="logo-card">
+      <span class="note-badge">Accent</span>
+      <div class="wordmark-lg">Luh<span class="green">lah</span></div>
+      <div class="lockup-tagline">Skills that make Claude yours</div>
+      <p class="logo-name">Black + Green Split</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- 04 COMPONENTS -->
+<div class="section">
+  <p class="section-label">04 — UI Components</p>
+
+  <div class="component-section">
+    <p class="component-title">Buttons</p>
+    <div class="component-row">
+      <button class="btn btn-primary">Browse skills</button>
+      <button class="btn btn-ghost">Start selling</button>
+      <button class="btn btn-accent">Sign up</button>
+    </div>
+  </div>
+
+  <div class="component-section">
+    <p class="component-title">Tags</p>
+    <div class="component-row">
+      <span class="tag tag-active">All</span>
+      <span class="tag">Coding</span>
+      <span class="tag">Writing</span>
+      <span class="tag">Research</span>
+      <span class="tag">Data</span>
+      <span class="tag">Claude Code</span>
+      <span class="tag">Free</span>
+    </div>
+  </div>
+
+  <div class="component-section">
+    <p class="component-title">Category Pills</p>
+    <div class="component-row">
+      <span class="pill pill-dark">Claude Code</span>
+      <span class="pill pill-dark">Writing</span>
+      <span class="pill pill-dark">Data</span>
+      <span class="pill pill-green">Research</span>
+      <span class="pill pill-green">Free</span>
+    </div>
+  </div>
+
+  <div class="component-section">
+    <p class="component-title">Stats Bar</p>
+    <div class="stats-demo">
+      <div><div class="stat-num">1,240</div><div class="stat-label">Skills listed</div></div>
+      <div><div class="stat-num">$124k</div><div class="stat-label">Paid to sellers</div></div>
+      <div><div class="stat-num">4.8</div><div class="stat-label">Avg rating</div></div>
+      <div><div class="stat-num">90%</div><div class="stat-label">Goes to sellers</div></div>
+    </div>
+  </div>
+
+  <div class="component-section">
+    <p class="component-title">Skill Cards</p>
+    <div class="card-row">
+
+      <div class="demo-card">
+        <div class="demo-cover">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="" onerror="this.style.background='#e8e8e8'">
+        </div>
+        <div class="demo-body">
+          <div class="demo-top">
+            <div class="demo-seller"><div class="demo-avatar">LO</div><span class="demo-name">lola.dev</span></div>
+            <span class="demo-price">$12</span>
+          </div>
+          <span class="pill pill-dark">Claude Code</span>
+          <div class="demo-title">Flask API Scaffolder</div>
+          <div class="demo-footer"><span class="demo-stars">★★★★★</span><span class="demo-meta">214 sales</span></div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-cover">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=200&fit=crop" alt="" onerror="this.style.background='#e8e8e8'">
+        </div>
+        <div class="demo-body">
+          <div class="demo-top">
+            <div class="demo-seller"><div class="demo-avatar">AK</div><span class="demo-name">amara.k</span></div>
+            <span class="demo-price">$8</span>
+          </div>
+          <span class="pill pill-dark">Writing</span>
+          <div class="demo-title">Newsletter Voice Coach</div>
+          <div class="demo-footer"><span class="demo-stars">★★★★☆</span><span class="demo-meta">87 sales</span></div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-cover">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="" onerror="this.style.background='#e8e8e8'">
+        </div>
+        <div class="demo-body">
+          <div class="demo-top">
+            <div class="demo-seller"><div class="demo-avatar">RM</div><span class="demo-name">r.mensah</span></div>
+            <span class="demo-price-free">Free</span>
+          </div>
+          <span class="pill pill-green">Research</span>
+          <div class="demo-title">Deep Dive Summariser</div>
+          <div class="demo-footer"><span class="demo-stars">★★★★★</span><span class="demo-meta">1.2k downloads</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 05 VOICE -->
+<div class="section">
+  <p class="section-label">05 — Voice & Tone</p>
+  <div class="voice-row">
+
+    <div class="voice-card do">
+      <p class="voice-card-label">Do</p>
+      <div class="voice-item">✓&nbsp; Write in sentence case — never ALL CAPS in running copy</div>
+      <div class="voice-item">✓&nbsp; Lead with the seller benefit — "90% goes to you. Always."</div>
+      <div class="voice-item">✓&nbsp; Use "skills" not "prompts" or "templates"</div>
+      <div class="voice-item">✓&nbsp; Keep copy short and direct</div>
+      <div class="voice-item">✓&nbsp; Be warm and inclusive — for everyone, not just developers</div>
+      <div class="voice-item">✓&nbsp; Use green sparingly — it should pop when it appears</div>
+    </div>
+
+    <div class="voice-card">
+      <p class="voice-card-label">Don't</p>
+      <div class="voice-item">✗&nbsp; Don't use more than one accent color</div>
+      <div class="voice-item">✗&nbsp; Don't use Prata below 12px or in bold</div>
+      <div class="voice-item">✗&nbsp; Don't add gradients, shadows, or decorative effects</div>
+      <div class="voice-item">✗&nbsp; Don't make it feel like a developer tool</div>
+      <div class="voice-item">✗&nbsp; Don't introduce new colors without design review</div>
+      <div class="voice-item">✗&nbsp; Don't use green as a large area background fill</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>Luhlah · Brand Kit · Version 1.0 · April 2026 · Confidential</footer>
+
+</body>
+</html>
