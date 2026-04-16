@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitAF — Brand Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --midnight: #0A0E1A;
+    --navy: #141D2E;
+    --ice: #4A90D9;
+    --frost: #C8D8E8;
+    --offwhite: #F0F4F8;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--midnight); font-family:var(--sans); color:var(--offwhite); }
+
+  header {
+    padding: 72px 80px 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 88px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--offwhite);
+    line-height: 1;
+  }
+  .wordmark span { color: var(--ice); }
+  .header-right { text-align: right; }
+  .tagline {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--frost);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+  .header-meta {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    line-height: 2.2;
+  }
+
+  section {
+    padding: 80px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  section:nth-child(even) { background: rgba(255,255,255,0.015); }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ice);
+    margin-bottom: 52px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* COLORS */
+  .color-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+  .color-card { flex: 1; min-width: 140px; }
+  .color-swatch {
+    height: 200px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .color-swatch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .color-name { font-family: var(--serif); font-size: 20px; font-weight: 300; margin-bottom: 6px; }
+  .color-hex { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 8px; font-family: monospace; }
+  .color-use { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+
+  /* TYPOGRAPHY */
+  .type-section { display: flex; flex-direction: column; gap: 56px; }
+  .font-block { display: flex; gap: 48px; align-items: flex-start; }
+  .font-meta { min-width: 180px; padding-top: 8px; }
+  .font-meta-name { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ice); margin-bottom: 8px; }
+  .font-meta-style { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.8; }
+  .font-specimen-serif {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    color: var(--offwhite);
+  }
+  .font-specimen-serif em { color: var(--ice); font-style: italic; }
+  .font-specimen-sans {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--frost);
+    line-height: 1.8;
+    max-width: 480px;
+    letter-spacing: 0.02em;
+  }
+  .type-scale {
+    border-left: 1px solid rgba(74,144,217,0.3);
+    padding-left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .scale-row { display: flex; align-items: baseline; gap: 28px; }
+  .scale-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); min-width: 70px; }
+
+  /* LOGO */
+  .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .logo-card {
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .logo-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
+  .logo-mark { font-family: var(--serif); font-weight: 300; letter-spacing: 0.14em; }
+
+  /* UI COMPONENTS */
+  .comp-grid { display: flex; flex-direction: column; gap: 48px; }
+  .comp-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .comp-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); min-width: 80px; }
+
+  .btn-primary {
+    background: var(--ice);
+    color: var(--midnight);
+    border: none;
+    padding: 14px 36px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--offwhite);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 13px 34px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ice);
+    border: 1px solid var(--ice);
+    padding: 13px 34px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 100px;
+  }
+  .pill-ice { background: rgba(74,144,217,0.15); color: var(--ice); border: 1px solid rgba(74,144,217,0.3); }
+  .pill-frost { background: rgba(200,216,232,0.08); color: var(--frost); border: 1px solid rgba(200,216,232,0.15); }
+  .pill-white { background: rgba(240,244,248,0.06); color: var(--offwhite); border: 1px solid rgba(240,244,248,0.12); }
+
+  /* stat card */
+  .stat-card {
+    background: var(--navy);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    padding: 24px 28px;
+    min-width: 140px;
+  }
+  .stat-num { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--offwhite); line-height: 1; margin-bottom: 6px; }
+  .stat-num span { color: var(--ice); }
+  .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+  /* VOICE & TONE */
+  .vt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .vt-card { padding: 40px; }
+  .vt-do { background: var(--navy); }
+  .vt-dont { background: rgba(255,255,255,0.02); }
+  .vt-heading { font-family: var(--serif); font-size: 28px; font-weight: 300; margin-bottom: 28px; letter-spacing: 0.06em; }
+  .vt-do .vt-heading { color: var(--ice); }
+  .vt-dont .vt-heading { color: rgba(255,255,255,0.2); }
+  .vt-item { display: flex; gap: 14px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; letter-spacing: 0.02em; align-items: flex-start; }
+  .vt-do .vt-item { color: var(--frost); }
+  .vt-dont .vt-item { color: rgba(255,255,255,0.3); }
+  .vt-icon { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+  .vt-do .vt-icon { background: rgba(74,144,217,0.2); color: var(--ice); }
+  .vt-dont .vt-icon { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.2); }
+
+  footer {
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  footer span { color: var(--ice); }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="wordmark">Fit<span>AF</span></div>
+  </div>
+  <div class="header-right">
+    <div class="tagline">You deserve your dream body.</div>
+    <div class="header-meta">
+      Brand Kit · Version 1.0<br>
+      2026 · Confidential
+    </div>
+  </div>
+</header>
+
+<!-- 01: COLORS -->
+<section>
+  <div class="section-label">01 — Color Palette</div>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:#0A0E1A;"></div>
+      <div class="color-name">Midnight</div>
+      <div class="color-hex">#0A0E1A</div>
+      <div class="color-use">Primary background. The foundation everything lives on.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#141D2E;"></div>
+      <div class="color-name">Deep Navy</div>
+      <div class="color-hex">#141D2E</div>
+      <div class="color-use">Cards, surfaces, elevated UI elements.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#4A90D9;"></div>
+      <div class="color-name">Ice Blue</div>
+      <div class="color-hex">#4A90D9</div>
+      <div class="color-use">Primary accent. CTAs, highlights, data viz, links.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#C8D8E8; border:1px solid rgba(255,255,255,0.08);"></div>
+      <div class="color-name">Frost</div>
+      <div class="color-hex">#C8D8E8</div>
+      <div class="color-use">Secondary text, captions, supporting copy.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#F0F4F8; border:1px solid rgba(255,255,255,0.1);"></div>
+      <div class="color-name">Off White</div>
+      <div class="color-hex">#F0F4F8</div>
+      <div class="color-use">Headlines, primary text on dark backgrounds.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02: TYPOGRAPHY -->
+<section>
+  <div class="section-label">02 — Typography</div>
+  <div class="type-section">
+
+    <div class="font-block">
+      <div class="font-meta">
+        <div class="font-meta-name">Cormorant Garamond</div>
+        <div class="font-meta-style">Display · Headlines<br>Wordmark · Serifs<br>Weight: 300–400</div>
+      </div>
+      <div class="font-specimen-serif">Your body.<br><em>Reimagined.</em></div>
+    </div>
+
+    <div class="font-block">
+      <div class="font-meta">
+        <div class="font-meta-name">DM Sans</div>
+        <div class="font-meta-style">Body · UI Labels<br>Buttons · Data<br>Weight: 300–500</div>
+      </div>
+      <div class="font-specimen-sans">FitAF uses your body scan data to build a precision fitness and nutrition plan that's entirely yours. No guesswork. No generic programmes. Just science, applied to you.</div>
+    </div>
+
+    <div class="type-scale">
+      <div class="scale-row">
+        <div class="scale-label">Display</div>
+        <div style="font-family:var(--serif);font-size:60px;font-weight:300;letter-spacing:0.08em;line-height:1;">FitAF</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Heading</div>
+        <div style="font-family:var(--serif);font-size:36px;font-weight:300;letter-spacing:0.06em;">Your Dream Body</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Subheading</div>
+        <div style="font-family:var(--sans);font-size:18px;font-weight:400;color:var(--frost);">Scan · Analyse · Transform</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Body</div>
+        <div style="font-family:var(--sans);font-size:15px;font-weight:300;color:var(--frost);letter-spacing:0.02em;">Precision fitness for the person who refuses to settle.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Label</div>
+        <div style="font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ice);">Body Fat · 18.4% · Optimal</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Caption</div>
+        <div style="font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:0.08em;color:rgba(255,255,255,0.3);">Last scan: Today · 07:42 AM</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03: LOGO / WORDMARK -->
+<section>
+  <div class="section-label">03 — Wordmark</div>
+  <div class="logo-grid">
+
+    <div class="logo-card" style="background:var(--midnight); border:1px solid rgba(255,255,255,0.05);">
+      <div class="logo-label">Primary</div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:52px;font-weight:300;letter-spacing:0.14em;color:var(--offwhite);">Fit<span style="color:var(--ice);">AF</span></div>
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:6px;">You deserve your dream body.</div>
+      </div>
+      <div class="logo-label">Dark background</div>
+    </div>
+
+    <div class="logo-card" style="background:#F0F4F8;">
+      <div class="logo-label" style="color:rgba(10,14,26,0.3);">Reversed</div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:52px;font-weight:300;letter-spacing:0.14em;color:var(--midnight);">Fit<span style="color:#2A6DB0;">AF</span></div>
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(10,14,26,0.3);margin-top:6px;">You deserve your dream body.</div>
+      </div>
+      <div class="logo-label" style="color:rgba(10,14,26,0.3);">Light background</div>
+    </div>
+
+    <div class="logo-card" style="background:var(--ice);">
+      <div class="logo-label" style="color:rgba(10,14,26,0.4);">Accent</div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--serif);font-size:52px;font-weight:300;letter-spacing:0.14em;color:var(--midnight);">FitAF</div>
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(10,14,26,0.4);margin-top:6px;">You deserve your dream body.</div>
+      </div>
+      <div class="logo-label" style="color:rgba(10,14,26,0.4);">Ice blue bg</div>
+    </div>
+
+    <!-- Monogram / icon mark -->
+    <div class="logo-card" style="background:var(--navy); border:1px solid rgba(255,255,255,0.05);">
+      <div class="logo-label">Icon mark</div>
+      <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="34" fill="none" stroke="rgba(74,144,217,0.3)" stroke-width="1"/>
+        <circle cx="36" cy="36" r="28" fill="none" stroke="rgba(74,144,217,0.15)" stroke-width="0.5"/>
+        <text x="36" y="46" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="28" font-weight="300" fill="#F0F4F8" letter-spacing="2">F<tspan fill="#4A90D9">A</tspan></text>
+      </svg>
+      <div class="logo-label">App icon / favicon</div>
+    </div>
+
+    <div class="logo-card" style="background:var(--midnight); border:1px solid rgba(255,255,255,0.05); grid-column: span 2;">
+      <div class="logo-label">Wordmark only — minimal</div>
+      <div style="font-family:var(--serif);font-size:72px;font-weight:300;letter-spacing:0.18em;color:var(--offwhite);">FIT<span style="color:var(--ice);">AF</span></div>
+      <div class="logo-label">All caps · spaced · editorial</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 04: UI COMPONENTS -->
+<section>
+  <div class="section-label">04 — UI Components</div>
+  <div class="comp-grid">
+
+    <div class="comp-row">
+      <div class="comp-label">Buttons</div>
+      <button class="btn-primary">Start Scan</button>
+      <button class="btn-outline">View Report</button>
+      <button class="btn-ghost">Learn More</button>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-label">Tags</div>
+      <span class="pill pill-ice">Body Scan</span>
+      <span class="pill pill-frost">Nutrition Plan</span>
+      <span class="pill pill-white">Exercise</span>
+      <span class="pill pill-ice">Progress</span>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-label">Stats</div>
+      <div class="stat-card">
+        <div class="stat-num">18<span>.4%</span></div>
+        <div class="stat-label">Body Fat</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">74<span>kg</span></div>
+        <div class="stat-label">Lean Mass</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2<span>,180</span></div>
+        <div class="stat-label">Daily Calories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">87<span>%</span></div>
+        <div class="stat-label">Goal Progress</div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="comp-row" style="flex-direction:column; align-items:flex-start; gap:12px;">
+      <div class="comp-label">Progress</div>
+      <div style="width:100%; max-width:500px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Weekly Goal</span>
+          <span style="font-size:12px;color:var(--ice);">87%</span>
+        </div>
+        <div style="height:2px;background:rgba(255,255,255,0.06);border-radius:1px;">
+          <div style="height:2px;width:87%;background:var(--ice);border-radius:1px;"></div>
+        </div>
+      </div>
+      <div style="width:100%; max-width:500px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Nutrition</span>
+          <span style="font-size:12px;color:var(--frost);">62%</span>
+        </div>
+        <div style="height:2px;background:rgba(255,255,255,0.06);border-radius:1px;">
+          <div style="height:2px;width:62%;background:var(--frost);border-radius:1px;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 05: VOICE & TONE -->
+<section>
+  <div class="section-label">05 — Voice &amp; Tone</div>
+  <div class="vt-grid">
+    <div class="vt-card vt-do">
+      <div class="vt-heading">Do</div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Speak with quiet authority — confident, not loud. The brand knows what it's doing.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Be precise. Use data to back everything up. Numbers build trust with this audience.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Inspire without preaching. "You deserve this" — not "you need to do this."</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Acknowledge the struggle. Corporate burnout is real. Meet them where they are.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Keep copy lean. Every word earns its place. Silence is also a design choice.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Use the tagline like a mantra — repeat it until they believe it.</div></div>
+    </div>
+    <div class="vt-card vt-dont">
+      <div class="vt-heading">Don't</div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't shout. No excessive exclamation marks. FitAF doesn't need to beg for attention.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't shame. This is about aspiration, not guilt. Never use language that punishes.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't use bro-culture fitness clichés. "No pain no gain" is not FitAF.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't over-explain. Trust the user's intelligence. They're corporate — they're smart.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't use generic wellness language like "holistic journey" or "wellness ecosystem."</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't be cold or clinical. Precision with warmth — not a doctor's report.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>FitAF</span> &nbsp;·&nbsp; Brand Kit &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Confidential
+</footer>
+
+</body>
+</html>

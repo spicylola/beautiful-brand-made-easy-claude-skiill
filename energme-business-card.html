@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnergME — Business Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #FF4FA3;
+    --spearmint: #2ECFB0;
+    --peachy: #FF7A4B;
+    --blush: #FFF0F7;
+    --navy: #1A1A2E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f0edf0;
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    gap: 60px;
+  }
+
+  .page-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    color: var(--navy);
+    text-align: center;
+  }
+
+  .page-title span { color: var(--hot-pink); }
+
+  .page-sub {
+    font-size: 12px;
+    color: rgba(26,26,46,0.4);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  /* CARD PAIR */
+  .card-pair {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.3);
+    font-weight: 700;
+  }
+
+  /* Business card: 3.5in x 2in @ 200ppi = 700 x 400 */
+  .card {
+    width: 700px;
+    height: 400px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Bleed guide */
+  .bleed {
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .bleed-dark {
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed rgba(26,26,46,0.15);
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* FRONT - Navy with pink accent */
+  .card-front {
+    background: var(--navy);
+  }
+
+  .front-accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 12px;
+    background: var(--hot-pink);
+  }
+
+  .front-circles {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--hot-pink);
+    opacity: 0.05;
+    top: -80px; right: -80px;
+  }
+
+  .front-circle2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--spearmint);
+    opacity: 0.04;
+    bottom: -60px; left: 80px;
+  }
+
+  .front-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px 0 48px;
+  }
+
+  .front-logo {
+    font-family: 'Fredoka One', cursive;
+    font-size: 52px;
+    color: white;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .front-logo span { color: var(--hot-pink); }
+
+  .front-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .front-dots {
+    position: absolute;
+    bottom: 36px;
+    left: 48px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* BACK - Blush/white clean */
+  .card-back {
+    background: var(--blush);
+  }
+
+  .back-top-bar {
+    position: absolute;
+    left: 0; top: 0; right: 0;
+    height: 10px;
+    background: var(--hot-pink);
+  }
+
+  .back-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    padding: 36px 52px 36px 52px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .back-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .back-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .back-title {
+    font-size: 13px;
+    color: var(--hot-pink);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .back-brand {
+    font-size: 11px;
+    color: rgba(26,26,46,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .back-divider {
+    width: 1px;
+    height: 120px;
+    background: rgba(26,26,46,0.1);
+    flex-shrink: 0;
+  }
+
+  .back-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-icon {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(26,26,46,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .contact-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .back-bottom {
+    position: absolute;
+    bottom: 20px;
+    right: 52px;
+    font-size: 10px;
+    color: rgba(26,26,46,0.2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* VARIANT 2 - All pink front */
+  .card-front-pink {
+    background: var(--hot-pink);
+  }
+
+  .print-note {
+    font-size: 11px;
+    color: rgba(26,26,46,0.3);
+    letter-spacing: 0.08em;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .section-divider {
+    width: 100%;
+    max-width: 800px;
+    height: 1px;
+    background: rgba(26,26,46,0.08);
+  }
+
+  footer {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.2);
+    text-align: center;
+  }
+
+  footer span { color: var(--hot-pink); }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="page-title">Energ<span>ME</span> — Business Card</div>
+  <div class="page-sub">3.5 × 2 in · Print Ready · Front &amp; Back</div>
+</div>
+
+<!-- VARIANT 1: Navy Front -->
+<div class="card-pair">
+
+  <div class="card-wrap">
+    <div class="card-label">Front</div>
+    <div class="card card-front">
+      <div class="bleed"></div>
+      <div class="front-accent-bar"></div>
+      <div class="front-circles"></div>
+      <div class="front-circle2"></div>
+      <div class="front-content">
+        <div class="front-logo">Energ<span>ME</span></div>
+        <div class="front-tagline">Feel good, every sip.</div>
+      </div>
+      <div class="front-dots">
+        <div class="dot" style="background:var(--hot-pink);"></div>
+        <div class="dot" style="background:var(--spearmint);"></div>
+        <div class="dot" style="background:var(--peachy);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card-label">Back</div>
+    <div class="card card-back">
+      <div class="bleed-dark"></div>
+      <div class="back-top-bar"></div>
+      <div class="back-content">
+        <div class="back-left">
+          <div class="back-name">Your Name</div>
+          <div class="back-title">Founder & CEO</div>
+          <div class="back-brand">EnergME</div>
+        </div>
+        <div class="back-divider"></div>
+        <div class="back-right">
+          <div class="contact-row">
+            <div class="contact-icon">@</div>
+            <div class="contact-text">hello@energme.com</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">☎</div>
+            <div class="contact-text">+1 (555) 000-0000</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-text">energme.com</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📱</div>
+            <div class="contact-text">@energme</div>
+          </div>
+        </div>
+      </div>
+      <div class="back-bottom">energme.com</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="print-note">Variant 1 · Navy &amp; Blush</div>
+<div class="section-divider"></div>
+
+<!-- VARIANT 2: All Pink Front -->
+<div class="card-pair">
+
+  <div class="card-wrap">
+    <div class="card-label">Front · Variant 2</div>
+    <div class="card card-front-pink">
+      <div class="bleed"></div>
+      <!-- White circle decoration -->
+      <div style="position:absolute;width:260px;height:260px;border-radius:50%;background:white;opacity:0.08;top:-80px;right:-80px;"></div>
+      <div style="position:absolute;width:160px;height:160px;border-radius:50%;background:white;opacity:0.06;bottom:-40px;left:40px;"></div>
+      <!-- Content -->
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 56px;">
+        <div style="font-family:'Fredoka One',cursive;font-size:56px;color:white;line-height:1;margin-bottom:8px;">Energ<span style="color:var(--navy);">ME</span></div>
+        <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:700;">Feel good, every sip.</div>
+      </div>
+      <!-- Bottom right mint dot -->
+      <div style="position:absolute;bottom:28px;right:48px;width:36px;height:36px;border-radius:50%;background:var(--spearmint);display:flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:14px;color:var(--navy);">ME</div>
+    </div>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card-label">Back · Variant 2</div>
+    <div class="card" style="background:var(--navy);">
+      <div class="bleed"></div>
+      <!-- Pink top stripe -->
+      <div style="position:absolute;top:0;left:0;right:0;height:10px;background:var(--hot-pink);"></div>
+      <!-- Content -->
+      <div style="position:absolute;inset:0;display:flex;padding:40px 56px;gap:48px;align-items:center;">
+        <div style="flex-shrink:0;">
+          <div style="font-family:'Fredoka One',cursive;font-size:26px;color:white;line-height:1;margin-bottom:4px;">Your Name</div>
+          <div style="font-size:12px;color:var(--hot-pink);font-weight:700;letter-spacing:0.06em;margin-bottom:4px;">Founder &amp; CEO</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">EnergME</div>
+        </div>
+        <div style="width:1px;height:110px;background:rgba(255,255,255,0.08);flex-shrink:0;"></div>
+        <div style="display:flex;flex-direction:column;gap:10px;flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,79,163,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--hot-pink);flex-shrink:0;">@</div>
+            <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">hello@energme.com</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,79,163,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--hot-pink);flex-shrink:0;">☎</div>
+            <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">+1 (555) 000-0000</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(46,207,176,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--spearmint);flex-shrink:0;">🌐</div>
+            <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">energme.com</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:rgba(46,207,176,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--spearmint);flex-shrink:0;">📱</div>
+            <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">@energme</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="print-note">Variant 2 · Pink &amp; Navy</div>
+
+<div class="print-note" style="margin-top:8px;">Print at 300dpi · 3.5 × 2 in · Bleed: 3mm · Use browser File → Print → Save as PDF</div>
+
+<footer>
+  <span>EnergME</span> · Business Card · Version 1.0 · 2026 · Confidential
+</footer>
+
+</body>
+</html>

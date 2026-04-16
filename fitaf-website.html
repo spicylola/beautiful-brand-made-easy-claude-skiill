@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitAF — You deserve your dream body.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --midnight: #0A0E1A;
+    --navy: #141D2E;
+    --ice: #4A90D9;
+    --frost: #C8D8E8;
+    --offwhite: #F0F4F8;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--midnight); font-family:var(--sans); color:var(--offwhite); overflow-x:hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    padding: 24px 72px;
+    display: flex; align-items:center; justify-content:space-between;
+    background: rgba(10,14,26,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .nav-logo { font-family:var(--serif); font-size:28px; font-weight:300; letter-spacing:0.14em; color:var(--offwhite); text-decoration:none; }
+  .nav-logo span { color:var(--ice); }
+  .nav-links { display:flex; gap:40px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none; font-weight:400; }
+  .nav-cta {
+    background:var(--ice); color:var(--midnight); border:none;
+    padding:11px 28px; font-family:var(--sans); font-size:12px;
+    font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
+    cursor:pointer; border-radius:2px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 140px 72px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute;
+    width:600px; height:600px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(74,144,217,0.08) 0%, transparent 70%);
+    top:-100px; right:-100px;
+    pointer-events:none;
+  }
+  .hero::after {
+    content:'';
+    position:absolute;
+    width:1px; height:60%;
+    background: linear-gradient(to bottom, transparent, rgba(74,144,217,0.3), transparent);
+    left:50%; top:20%;
+  }
+  .hero-eyebrow {
+    font-size:11px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--ice); margin-bottom:28px; font-weight:400;
+    display:flex; align-items:center; gap:14px;
+  }
+  .hero-eyebrow::before { content:''; width:32px; height:1px; background:var(--ice); }
+  .hero-headline {
+    font-family:var(--serif); font-size:86px; font-weight:300;
+    line-height:1.0; letter-spacing:0.04em; margin-bottom:24px;
+  }
+  .hero-headline em { font-style:italic; color:var(--ice); }
+  .hero-sub {
+    font-size:15px; color:var(--frost); line-height:1.8;
+    max-width:400px; margin-bottom:48px; font-weight:300; letter-spacing:0.02em;
+  }
+  .hero-buttons { display:flex; gap:16px; align-items:center; }
+  .btn-hero {
+    background:var(--ice); color:var(--midnight); border:none;
+    padding:16px 40px; font-family:var(--sans); font-size:12px;
+    font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
+    cursor:pointer; border-radius:2px;
+  }
+  .btn-hero-ghost {
+    background:transparent; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.15);
+    padding:15px 36px; font-family:var(--sans); font-size:12px;
+    font-weight:400; letter-spacing:0.14em; text-transform:uppercase;
+    cursor:pointer; border-radius:2px;
+  }
+  .hero-stats {
+    display:flex; gap:48px; margin-top:64px; padding-top:48px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+  .hero-stat-num { font-family:var(--serif); font-size:36px; font-weight:300; color:var(--offwhite); line-height:1; }
+  .hero-stat-num span { color:var(--ice); }
+  .hero-stat-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-top:6px; }
+
+  /* Hero visual — phone mockup SVG */
+  .hero-visual { display:flex; justify-content:center; align-items:center; position:relative; z-index:1; }
+
+  /* HOW IT WORKS */
+  .how { padding:120px 72px; }
+  .section-eyebrow {
+    font-size:11px; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--ice); margin-bottom:20px; font-weight:400;
+    display:flex; align-items:center; gap:14px;
+  }
+  .section-eyebrow::before { content:''; width:24px; height:1px; background:var(--ice); }
+  .section-title { font-family:var(--serif); font-size:60px; font-weight:300; line-height:1.1; letter-spacing:0.04em; margin-bottom:72px; }
+  .section-title em { font-style:italic; color:var(--ice); }
+
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+  .step {
+    background:var(--navy); padding:48px 40px;
+    border-top:1px solid rgba(74,144,217,0);
+    transition: border-color 0.3s;
+  }
+  .step:hover { border-top:1px solid var(--ice); }
+  .step-num {
+    font-family:var(--serif); font-size:64px; font-weight:300;
+    color:rgba(74,144,217,0.15); line-height:1; margin-bottom:28px;
+  }
+  .step-title { font-family:var(--serif); font-size:26px; font-weight:300; letter-spacing:0.04em; margin-bottom:16px; }
+  .step-desc { font-size:14px; color:var(--frost); line-height:1.8; font-weight:300; }
+
+  /* FEATURES */
+  .features { padding:120px 72px; background:rgba(255,255,255,0.01); }
+  .features-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:0; }
+  .feature-card {
+    padding:56px 48px;
+    border:1px solid rgba(255,255,255,0.04);
+    position:relative; overflow:hidden;
+  }
+  .feature-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:1px;
+    background:linear-gradient(to right, transparent, rgba(74,144,217,0.4), transparent);
+  }
+  .feature-icon {
+    width:40px; height:40px; border-radius:50%;
+    border:1px solid rgba(74,144,217,0.3);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:28px; font-size:16px;
+  }
+  .feature-title { font-family:var(--serif); font-size:28px; font-weight:300; letter-spacing:0.04em; margin-bottom:14px; }
+  .feature-desc { font-size:14px; color:var(--frost); line-height:1.8; font-weight:300; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding:120px 72px; }
+  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:72px; }
+  .testi-card { background:var(--navy); padding:40px; border-top:1px solid rgba(255,255,255,0.06); }
+  .testi-quote { font-family:var(--serif); font-size:18px; font-weight:300; font-style:italic; line-height:1.7; color:var(--frost); margin-bottom:28px; letter-spacing:0.02em; }
+  .testi-author { display:flex; align-items:center; gap:14px; }
+  .testi-avatar {
+    width:36px; height:36px; border-radius:50%;
+    border:1px solid rgba(74,144,217,0.3);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:500; color:var(--ice);
+    letter-spacing:0.05em;
+  }
+  .testi-name { font-size:13px; font-weight:500; letter-spacing:0.04em; }
+  .testi-role { font-size:11px; color:rgba(255,255,255,0.25); letter-spacing:0.06em; margin-top:2px; }
+
+  /* CTA */
+  .cta-section {
+    padding:140px 72px; text-align:center;
+    border-top:1px solid rgba(255,255,255,0.04);
+    position:relative; overflow:hidden;
+  }
+  .cta-section::before {
+    content:'';
+    position:absolute; width:800px; height:800px; border-radius:50%;
+    background: radial-gradient(circle, rgba(74,144,217,0.05) 0%, transparent 70%);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+  }
+  .cta-headline { font-family:var(--serif); font-size:72px; font-weight:300; line-height:1.1; letter-spacing:0.04em; margin-bottom:20px; position:relative; }
+  .cta-headline em { font-style:italic; color:var(--ice); }
+  .cta-sub { font-size:15px; color:var(--frost); margin-bottom:48px; font-weight:300; position:relative; }
+  .btn-cta { background:var(--ice); color:var(--midnight); border:none; padding:18px 56px; font-family:var(--sans); font-size:13px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; border-radius:2px; position:relative; }
+
+  /* FOOTER */
+  footer {
+    background:var(--navy); padding:60px 72px;
+    display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px;
+    border-top:1px solid rgba(255,255,255,0.04);
+  }
+  .footer-logo { font-family:var(--serif); font-size:32px; font-weight:300; letter-spacing:0.14em; margin-bottom:16px; }
+  .footer-logo span { color:var(--ice); }
+  .footer-tagline { font-family:var(--serif); font-style:italic; font-size:14px; color:rgba(255,255,255,0.3); margin-bottom:0; }
+  .footer-col-title { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .footer-links a { font-size:13px; color:rgba(255,255,255,0.35); text-decoration:none; font-weight:300; }
+  .footer-bottom {
+    background:var(--navy); padding:20px 72px;
+    border-top:1px solid rgba(255,255,255,0.03);
+    display:flex; justify-content:space-between;
+    font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.15);
+  }
+  .footer-bottom span { color:var(--ice); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Fit<span>AF</span></a>
+  <ul class="nav-links">
+    <li><a href="#">How It Works</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Science</a></li>
+  </ul>
+  <button class="nav-cta">Download App</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Body Intelligence Platform</div>
+    <h1 class="hero-headline">
+      You deserve<br>
+      your <em>dream</em><br>
+      body.
+    </h1>
+    <p class="hero-sub">FitAF scans your body in 60 seconds, runs a full health assessment, then builds your exact workout and nutrition plan. No guesswork. Just you, optimised.</p>
+    <div class="hero-buttons">
+      <button class="btn-hero">Start Free Scan</button>
+      <button class="btn-hero-ghost">Watch How It Works</button>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">60<span>s</span></div>
+        <div class="hero-stat-label">Full body scan</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">94<span>%</span></div>
+        <div class="hero-stat-label">Accuracy rate</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">2M<span>+</span></div>
+        <div class="hero-stat-label">Transformations</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phone Mockup -->
+  <div class="hero-visual">
+    <svg width="300" height="580" viewBox="0 0 300 580" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="phone-body" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E2A3E"/>
+          <stop offset="100%" stop-color="#0D1525"/>
+        </linearGradient>
+        <linearGradient id="screen-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#0A0E1A"/>
+          <stop offset="100%" stop-color="#0D1525"/>
+        </linearGradient>
+        <clipPath id="screen-clip">
+          <rect x="20" y="50" width="260" height="480" rx="8"/>
+        </clipPath>
+        <filter id="phone-glow">
+          <feDropShadow dx="0" dy="30" stdDeviation="30" flood-color="rgba(74,144,217,0.25)"/>
+        </filter>
+      </defs>
+
+      <!-- Phone chassis -->
+      <rect x="0" y="20" width="300" height="540" rx="40" fill="url(#phone-body)" filter="url(#phone-glow)"/>
+      <!-- Phone edge highlight -->
+      <rect x="0" y="20" width="300" height="540" rx="40" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <!-- Side button -->
+      <rect x="296" y="140" width="4" height="60" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <!-- Volume buttons -->
+      <rect x="0" y="120" width="4" height="44" rx="2" fill="rgba(255,255,255,0.08)"/>
+      <rect x="0" y="176" width="4" height="44" rx="2" fill="rgba(255,255,255,0.08)"/>
+
+      <!-- Screen -->
+      <rect x="12" y="30" width="276" height="520" rx="32" fill="#0A0E1A"/>
+      <!-- Notch / dynamic island -->
+      <rect x="110" y="38" width="80" height="20" rx="10" fill="#000"/>
+
+      <!-- Screen content clipped -->
+      <g clip-path="url(#screen-clip)">
+        <!-- Status bar -->
+        <rect x="20" y="50" width="260" height="480" fill="url(#screen-bg)"/>
+
+        <!-- Top greeting area -->
+        <text x="36" y="90" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.35)" letter-spacing="1">GOOD MORNING</text>
+        <text x="36" y="112" font-family="'Cormorant Garamond',serif" font-size="22" fill="#F0F4F8" font-weight="300" letter-spacing="1">Marcus</text>
+
+        <!-- Scan button center -->
+        <circle cx="150" cy="220" r="70" fill="rgba(74,144,217,0.06)" stroke="rgba(74,144,217,0.15)" stroke-width="1"/>
+        <circle cx="150" cy="220" r="52" fill="rgba(74,144,217,0.08)" stroke="rgba(74,144,217,0.2)" stroke-width="0.5"/>
+        <circle cx="150" cy="220" r="36" fill="rgba(74,144,217,0.15)" stroke="rgba(74,144,217,0.4)" stroke-width="1"/>
+        <!-- Scan icon -->
+        <!-- Body silhouette simplified -->
+        <circle cx="150" cy="202" r="8" fill="rgba(74,144,217,0.6)"/>
+        <path d="M136,212 Q136,240 150,240 Q164,240 164,212 Z" fill="rgba(74,144,217,0.4)"/>
+        <text x="150" y="270" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="rgba(255,255,255,0.4)" letter-spacing="1.5">TAP TO SCAN</text>
+
+        <!-- Stats row -->
+        <rect x="28" y="300" width="108" height="70" rx="8" fill="rgba(20,29,46,0.9)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+        <text x="40" y="322" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="1">BODY FAT</text>
+        <text x="40" y="346" font-family="'Cormorant Garamond',serif" font-size="24" fill="#F0F4F8" font-weight="300">18<tspan font-size="14" fill="#4A90D9">.4%</tspan></text>
+        <text x="40" y="362" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(74,144,217,0.7)" letter-spacing="0.5">Optimal</text>
+
+        <rect x="164" y="300" width="108" height="70" rx="8" fill="rgba(20,29,46,0.9)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+        <text x="176" y="322" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="1">LEAN MASS</text>
+        <text x="176" y="346" font-family="'Cormorant Garamond',serif" font-size="24" fill="#F0F4F8" font-weight="300">74<tspan font-size="14" fill="#4A90D9">kg</tspan></text>
+        <text x="176" y="362" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(74,144,217,0.7)" letter-spacing="0.5">+2.1kg</text>
+
+        <!-- Today's plan -->
+        <text x="36" y="398" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.25)" letter-spacing="1.5">TODAY'S PLAN</text>
+        <rect x="28" y="408" width="244" height="48" rx="8" fill="rgba(74,144,217,0.1)" stroke="rgba(74,144,217,0.2)" stroke-width="0.5"/>
+        <circle cx="52" cy="432" r="12" fill="rgba(74,144,217,0.2)" stroke="rgba(74,144,217,0.4)" stroke-width="0.5"/>
+        <text x="52" y="436" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="#4A90D9">↗</text>
+        <text x="74" y="427" font-family="'DM Sans',sans-serif" font-size="11" fill="#F0F4F8" font-weight="400">Upper Body Strength</text>
+        <text x="74" y="442" font-family="'DM Sans',sans-serif" font-size="10" fill="rgba(255,255,255,0.3)">45 min · 6 exercises</text>
+        <text x="252" y="436" text-anchor="end" font-family="'DM Sans',sans-serif" font-size="10" fill="rgba(255,255,255,0.3)">›</text>
+
+        <!-- Nutrition bar -->
+        <text x="36" y="476" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.25)" letter-spacing="1.5">CALORIES</text>
+        <text x="256" y="476" text-anchor="end" font-family="'DM Sans',sans-serif" font-size="9" fill="#4A90D9">1,840 / 2,180</text>
+        <rect x="28" y="483" width="244" height="2" rx="1" fill="rgba(255,255,255,0.06)"/>
+        <rect x="28" y="483" width="206" height="2" rx="1" fill="#4A90D9"/>
+
+        <!-- Nav bar -->
+        <rect x="20" y="510" width="260" height="1" fill="rgba(255,255,255,0.04)"/>
+        <text x="66" y="528" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#4A90D9" letter-spacing="0.5">HOME</text>
+        <text x="122" y="528" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.2)" letter-spacing="0.5">SCAN</text>
+        <text x="178" y="528" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.2)" letter-spacing="0.5">PLAN</text>
+        <text x="234" y="528" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="rgba(255,255,255,0.2)" letter-spacing="0.5">PROFILE</text>
+      </g>
+
+      <!-- Screen glass reflection -->
+      <rect x="12" y="30" width="276" height="520" rx="32" fill="url(#screen-bg)" opacity="0" />
+    </svg>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-eyebrow">How It Works</div>
+  <h2 class="section-title">Three steps to<br><em>everything.</em></h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Scan Your Body</div>
+      <p class="step-desc">Open FitAF, stand in front of your camera for 60 seconds. Our AI maps 200+ body metrics — fat distribution, muscle composition, posture, metabolic rate — with 94% clinical accuracy.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Get Your Report</div>
+      <p class="step-desc">Receive a complete health assessment: body composition, hormonal indicators, recovery capacity, and your personalised caloric and macro targets. In plain English, not medical jargon.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Train & Eat Smart</div>
+      <p class="step-desc">Your workout and nutrition plan is built entirely around your scan data. Updated every week as your body changes. The plan that fits your life, your schedule, your goals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-eyebrow">Features</div>
+  <h2 class="section-title">Built for the person<br>who <em>means it.</em></h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">◎</div>
+      <div class="feature-title">AI Body Scan</div>
+      <p class="feature-desc">Camera-based body composition analysis. No wearables, no gym equipment, no lab visits. Just your phone and 60 seconds.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">◈</div>
+      <div class="feature-title">Precision Nutrition</div>
+      <p class="feature-desc">Macro and calorie targets calculated from your exact metabolic rate. Meal plans that work with your food preferences, not against them.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">◇</div>
+      <div class="feature-title">Adaptive Training</div>
+      <p class="feature-desc">Workout plans that evolve weekly. When your body changes, your plan changes. No plateaus. No wasted sessions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">○</div>
+      <div class="feature-title">Progress Intelligence</div>
+      <p class="feature-desc">Weekly scan comparisons show exactly what's changing and why. Data you can see, goals you can track, progress that actually means something.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-eyebrow">Real People</div>
+  <h2 class="section-title">They showed up<br>for <em>themselves.</em></h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-quote">"I'd tried everything. FitAF was the first thing that felt like it actually knew my body instead of giving me someone else's plan."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DK</div>
+        <div>
+          <div class="testi-name">David K.</div>
+          <div class="testi-role">Finance Director · Lost 18kg</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">"The scan results were shocking — I thought I was healthy. Six months later, I actually am. Best thing I've done for myself in a decade."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SA</div>
+        <div>
+          <div class="testi-name">Simone A.</div>
+          <div class="testi-role">Senior Consultant · -12% body fat</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">"I travel constantly. FitAF adapts my plan to wherever I am. Hotel gym, airport, home — it doesn't matter. I'm the fittest I've been since my 20s."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div>
+          <div class="testi-name">Michael R.</div>
+          <div class="testi-role">Partner, Law Firm · +8kg muscle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-headline">Your dream body<br>is <em>waiting.</em></h2>
+  <p class="cta-sub">Download FitAF. Scan today. Transform for good.</p>
+  <button class="btn-cta">Download Free</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Fit<span>AF</span></div>
+    <div class="footer-tagline">You deserve your dream body.</div>
+  </div>
+  <div>
+    <div class="footer-col-title">Product</div>
+    <ul class="footer-links">
+      <li><a href="#">How It Works</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Download</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Science</div>
+    <ul class="footer-links">
+      <li><a href="#">Our Research</a></li>
+      <li><a href="#">Clinical Studies</a></li>
+      <li><a href="#">Accuracy</a></li>
+      <li><a href="#">Team</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Company</div>
+    <ul class="footer-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Press</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <div><span>FitAF</span> · You deserve your dream body. · © 2026</div>
+  <div>Built for the person who means it.</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnergME — Brand Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #FF4FA3;
+    --spearmint: #2ECFB0;
+    --peachy: #FF7A4B;
+    --blush: #FFF0F7;
+    --navy: #1A1A2E;
+    --display: 'Fredoka One', cursive;
+    --body: 'Nunito', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--blush);
+    font-family: var(--body);
+    color: var(--navy);
+  }
+
+  /* HEADER */
+  header {
+    background: var(--navy);
+    padding: 60px 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .wordmark {
+    font-family: var(--display);
+    font-size: 80px;
+    color: var(--hot-pink);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .wordmark span { color: var(--spearmint); }
+
+  .header-meta {
+    text-align: right;
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    font-family: var(--body);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .tagline-display {
+    font-family: var(--body);
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px;
+    border-top: 1px solid rgba(26,26,46,0.1);
+  }
+
+  section:nth-child(even) {
+    background: white;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.35);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(26,26,46,0.1);
+  }
+
+  /* COLORS */
+  .color-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .color-card {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .color-swatch {
+    height: 180px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .color-swatch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .color-name {
+    font-family: var(--display);
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .color-hex {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(26,26,46,0.45);
+    margin-bottom: 6px;
+    font-family: monospace;
+  }
+
+  .color-use {
+    font-size: 11px;
+    color: rgba(26,26,46,0.5);
+    line-height: 1.5;
+  }
+
+  /* TYPOGRAPHY */
+  .type-section { display: flex; flex-direction: column; gap: 48px; }
+
+  .type-specimen-display {
+    font-family: var(--display);
+    font-size: 72px;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .type-specimen-display .accent { color: var(--hot-pink); }
+
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-left: 3px solid var(--hot-pink);
+    padding-left: 24px;
+  }
+
+  .scale-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+
+  .scale-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.35);
+    min-width: 60px;
+  }
+
+  .font-meta {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 24px 32px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .font-meta-name {
+    font-family: var(--display);
+    font-size: 28px;
+    color: var(--spearmint);
+  }
+
+  .font-meta-use {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* WORDMARK */
+  .wordmark-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .wm-card {
+    border-radius: 16px;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .wm-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  .wm-text {
+    font-family: var(--display);
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  /* UI COMPONENTS */
+  .components-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .comp-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .comp-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.35);
+    min-width: 80px;
+  }
+
+  .btn-primary {
+    background: var(--hot-pink);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 14px 32px;
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--hot-pink);
+    border: 2px solid var(--hot-pink);
+    border-radius: 100px;
+    padding: 12px 30px;
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    border-radius: 100px;
+    padding: 12px 30px;
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .btn-mint {
+    background: var(--spearmint);
+    color: var(--navy);
+    border: none;
+    border-radius: 100px;
+    padding: 14px 32px;
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .pill {
+    display: inline-block;
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .pill-pink { background: var(--hot-pink); color: white; }
+  .pill-mint { background: var(--spearmint); color: var(--navy); }
+  .pill-peach { background: var(--peachy); color: white; }
+  .pill-outline { background: transparent; border: 2px solid var(--navy); color: var(--navy); }
+
+  /* VOICE & TONE */
+  .vt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .vt-card {
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .vt-do { background: var(--navy); }
+  .vt-dont { background: #f5f5f5; }
+
+  .vt-heading {
+    font-family: var(--display);
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .vt-do .vt-heading { color: var(--spearmint); }
+  .vt-dont .vt-heading { color: rgba(26,26,46,0.3); }
+
+  .vt-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    align-items: flex-start;
+  }
+
+  .vt-do .vt-item { color: rgba(255,255,255,0.8); }
+  .vt-dont .vt-item { color: rgba(26,26,46,0.6); }
+
+  .vt-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .vt-do .vt-icon { background: var(--spearmint); color: var(--navy); }
+  .vt-dont .vt-icon { background: rgba(26,26,46,0.15); color: rgba(26,26,46,0.4); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  footer span { color: var(--hot-pink); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div>
+    <div class="wordmark">Energ<span>ME</span></div>
+    <div class="tagline-display">Feel good, every sip.</div>
+  </div>
+  <div class="header-meta">
+    Brand Kit<br>
+    Version 1.0<br>
+    2026 · Confidential
+  </div>
+</header>
+
+<!-- SECTION 01: COLOR PALETTE -->
+<section>
+  <div class="section-label">01 — Color Palette</div>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FF4FA3;"></div>
+      <div class="color-name" style="color:#FF4FA3;">Hot Pink</div>
+      <div class="color-hex">#FF4FA3</div>
+      <div class="color-use">Primary accent. CTAs, headlines, logo. The main event.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#2ECFB0;"></div>
+      <div class="color-name" style="color:#2ECFB0;">Spearmint</div>
+      <div class="color-hex">#2ECFB0</div>
+      <div class="color-use">Secondary accent. Highlights, tags, success states.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FF7A4B;"></div>
+      <div class="color-name" style="color:#FF7A4B;">Peachy</div>
+      <div class="color-hex">#FF7A4B</div>
+      <div class="color-use">Warm accent. Flavor callouts, packaging pops.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FFF0F7; border: 1px solid #FFD6EC;"></div>
+      <div class="color-name" style="color:#FF4FA3;">Blush White</div>
+      <div class="color-hex">#FFF0F7</div>
+      <div class="color-use">Background. Keeps things light, airy, and fresh.</div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#1A1A2E;"></div>
+      <div class="color-name" style="color:#1A1A2E;">Deep Navy</div>
+      <div class="color-hex">#1A1A2E</div>
+      <div class="color-use">Text, dark backgrounds, grounding element.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02: TYPOGRAPHY -->
+<section>
+  <div class="section-label">02 — Typography</div>
+  <div class="type-section">
+
+    <div class="font-meta">
+      <div>
+        <div class="font-meta-name">Fredoka One</div>
+        <div class="font-meta-use">Display / Headlines / Wordmark</div>
+      </div>
+      <div style="font-family:'Fredoka One',cursive; font-size:36px; color:var(--hot-pink);">Big. Bold. Fun.</div>
+    </div>
+
+    <div class="type-specimen-display">
+      Feel <span class="accent">good,</span><br>every sip.
+    </div>
+
+    <div class="font-meta">
+      <div>
+        <div class="font-meta-name" style="font-family:'Nunito',sans-serif; font-weight:800;">Nunito</div>
+        <div class="font-meta-use">Body / Labels / UI</div>
+      </div>
+      <div style="font-family:'Nunito',sans-serif; font-size:15px; color:rgba(255,255,255,0.6); max-width:320px; line-height:1.6;">Vitamins that actually taste good? Yes, that's us. EnergME is the drink that makes feeling good feel like a whole vibe.</div>
+    </div>
+
+    <div class="type-scale">
+      <div class="scale-row">
+        <div class="scale-label">Display</div>
+        <div style="font-family:'Fredoka One',cursive; font-size:56px; line-height:1;">EnergME</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Heading</div>
+        <div style="font-family:'Fredoka One',cursive; font-size:36px; line-height:1;">Feel Good Drinks</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Body</div>
+        <div style="font-family:'Nunito',sans-serif; font-size:16px; font-weight:600;">Your daily vitamins, bottled up and delicious.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Label</div>
+        <div style="font-family:'Nunito',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Vitamin C · Vitamin D · Melatonin</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-label">Caption</div>
+        <div style="font-family:'Nunito',sans-serif; font-size:11px; color:rgba(26,26,46,0.45); letter-spacing:0.1em; text-transform:uppercase;">12 fl oz · naturally flavored · no added sugar</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 03: WORDMARK -->
+<section>
+  <div class="section-label">03 — Wordmark</div>
+  <div class="wordmark-grid">
+
+    <div class="wm-card" style="background: var(--blush); border: 1px solid #FFD6EC;">
+      <div class="wm-label">Primary</div>
+      <div class="wm-text" style="color: var(--navy);">Energ<span style="color:var(--hot-pink);">ME</span></div>
+      <div class="wm-label">Dark on light</div>
+    </div>
+
+    <div class="wm-card" style="background: var(--navy);">
+      <div class="wm-label" style="color:rgba(255,255,255,0.3);">Reversed</div>
+      <div class="wm-text" style="color: white;">Energ<span style="color:var(--hot-pink);">ME</span></div>
+      <div class="wm-label" style="color:rgba(255,255,255,0.3);">Light on dark</div>
+    </div>
+
+    <div class="wm-card" style="background: var(--hot-pink);">
+      <div class="wm-label" style="color:rgba(255,255,255,0.5);">Accent</div>
+      <div class="wm-text" style="color: white;">Energ<span style="color:var(--navy);">ME</span></div>
+      <div class="wm-label" style="color:rgba(255,255,255,0.5);">All pink</div>
+    </div>
+
+    <div class="wm-card" style="background: var(--spearmint); grid-column: span 1;">
+      <div class="wm-label" style="color:rgba(26,26,46,0.4);">Mint</div>
+      <div class="wm-text" style="color: var(--navy);">Energ<span style="color:var(--hot-pink);">ME</span></div>
+      <div class="wm-label" style="color:rgba(26,26,46,0.4);">On mint</div>
+    </div>
+
+    <div class="wm-card" style="background: var(--peachy); grid-column: span 2;">
+      <div class="wm-label" style="color:rgba(255,255,255,0.5);">Warm</div>
+      <div class="wm-text" style="color: white; font-size:56px;">Energ<span style="color:var(--navy);">ME</span></div>
+      <div class="wm-label" style="color:rgba(255,255,255,0.5);">On peachy</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 04: UI COMPONENTS -->
+<section>
+  <div class="section-label">04 — UI Components</div>
+  <div class="components-grid">
+
+    <div class="comp-row">
+      <div class="comp-label">Buttons</div>
+      <button class="btn-primary">Shop Now</button>
+      <button class="btn-mint">Learn More</button>
+      <button class="btn-secondary">See Flavors</button>
+      <button class="btn-ghost">About Us</button>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-label">Tags</div>
+      <span class="pill pill-pink">Vitamin C</span>
+      <span class="pill pill-mint">Melatonin</span>
+      <span class="pill pill-peach">Vitamin D</span>
+      <span class="pill pill-outline">Multivitamin</span>
+      <span class="pill" style="background:var(--navy); color:white;">New Drop</span>
+    </div>
+
+    <div class="comp-row" style="flex-wrap: nowrap; gap: 16px; overflow-x: auto;">
+      <div class="comp-label" style="flex-shrink:0;">Cards</div>
+      <!-- Flavor card -->
+      <div style="background:var(--navy); border-radius:16px; padding:24px; min-width:160px; text-align:center; flex-shrink:0;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--hot-pink);margin:0 auto 12px;"></div>
+        <div style="font-family:'Fredoka One',cursive;color:white;font-size:18px;margin-bottom:4px;">Berry Bliss</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Vitamin C · 500mg</div>
+        <span class="pill pill-pink" style="font-size:11px;">Shop</span>
+      </div>
+      <div style="background:var(--spearmint); border-radius:16px; padding:24px; min-width:160px; text-align:center; flex-shrink:0;">
+        <div style="width:48px;height:48px;border-radius:50%;background:white;margin:0 auto 12px;"></div>
+        <div style="font-family:'Fredoka One',cursive;color:var(--navy);font-size:18px;margin-bottom:4px;">Mint Dream</div>
+        <div style="font-size:12px;color:rgba(26,26,46,0.5);margin-bottom:12px;">Melatonin · 5mg</div>
+        <span class="pill" style="background:var(--navy);color:white;font-size:11px;">Shop</span>
+      </div>
+      <div style="background:var(--peachy); border-radius:16px; padding:24px; min-width:160px; text-align:center; flex-shrink:0;">
+        <div style="width:48px;height:48px;border-radius:50%;background:white;margin:0 auto 12px;"></div>
+        <div style="font-family:'Fredoka One',cursive;color:white;font-size:18px;margin-bottom:4px;">Peach Pop</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:12px;">Vitamin D · 1000IU</div>
+        <span class="pill" style="background:white;color:var(--peachy);font-size:11px;">Shop</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 05: VOICE & TONE -->
+<section>
+  <div class="section-label">05 — Voice &amp; Tone</div>
+  <div class="vt-grid">
+    <div class="vt-card vt-do">
+      <div class="vt-heading">Do ✓</div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Sound like a fun friend who actually knows their stuff — warm, confident, knowledgeable.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Use short, punchy sentences. Gen Z doesn't have time for essays.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Make vitamins feel exciting, not clinical. "Berry Bliss" not "Ascorbic Acid Formula."</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Own the fun — be a little cheeky, a little bold. This brand has personality.</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Speak directly to the person: "you," "your," "you're going to love this."</div></div>
+      <div class="vt-item"><div class="vt-icon">✓</div><div>Celebrate feeling good — the vibe, the energy, the glow-up.</div></div>
+    </div>
+    <div class="vt-card vt-dont">
+      <div class="vt-heading">Don't ✗</div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't sound like a pharmacy label. No jargon, no clinical language, no fine print energy.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't be preachy about health. We're not lecturing — we're vibing.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't use dull, corporate language like "optimize your wellness journey."</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't over-explain. If it needs three sentences, cut it to one.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't be generic. Every word should feel like it could only come from EnergME.</div></div>
+      <div class="vt-item"><div class="vt-icon">✗</div><div>Don't ignore the fun. Even serious topics (sleep, immunity) get the EnergME treatment.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>EnergME</span> &nbsp;·&nbsp; Brand Kit &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Confidential
+</footer>
+
+</body>
+</html>

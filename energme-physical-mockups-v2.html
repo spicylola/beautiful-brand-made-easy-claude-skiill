@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnergME — Physical Mockups</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #FF4FA3;
+    --spearmint: #2ECFB0;
+    --peachy: #FF7A4B;
+    --blush: #FFF0F7;
+    --navy: #1A1A2E;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #1a1520;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    padding: 60px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .logo { font-family:'Fredoka One',cursive; font-size:40px; color:white; }
+  .logo span { color: var(--hot-pink); }
+  .meta { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); text-align:right; line-height:2; }
+
+  .section-label {
+    font-size:11px; letter-spacing:0.25em; text-transform:uppercase;
+    color:rgba(255,255,255,0.2); margin-bottom:48px; font-weight:700;
+    display:flex; align-items:center; gap:16px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.06); }
+
+  .mockup-section { margin-bottom:96px; }
+
+  /* BOTTLES */
+  .bottles-row {
+    display: flex;
+    gap: 48px;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px 0;
+  }
+
+  .bottle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  .bottle-name {
+    font-family:'Fredoka One',cursive;
+    font-size:18px;
+    letter-spacing:0.02em;
+  }
+  .bottle-sub {
+    font-size:11px;
+    color:rgba(255,255,255,0.35);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-top:-12px;
+  }
+
+  /* TSHIRT */
+  .tshirt-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .tshirt-item {
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:24px;
+    padding:48px 32px;
+  }
+  .tshirt-label {
+    font-size:13px; font-weight:700; color:rgba(255,255,255,0.5);
+    letter-spacing:0.05em;
+  }
+
+  /* MUG + TOTE */
+  .accessories-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .accessory-item {
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:24px;
+    padding:60px 40px;
+  }
+  .accessory-label {
+    font-size:13px; font-weight:700; color:rgba(255,255,255,0.4);
+    letter-spacing:0.05em; text-transform:uppercase;
+  }
+
+  footer {
+    margin-top:64px; padding-top:32px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    text-align:center; font-size:11px;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(255,255,255,0.15);
+  }
+  footer span { color:var(--hot-pink); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Energ<span>ME</span></div>
+  <div class="meta">Physical Mockups · v2.0<br>2026 · Confidential</div>
+</header>
+
+<!-- BOTTLES -->
+<div class="mockup-section">
+  <div class="section-label">01 — Product Bottles · Realistic Packaging</div>
+  <div class="bottles-row">
+
+    <!-- BERRY BLISS - Pink bottle -->
+    <div class="bottle-item">
+      <svg width="130" height="340" viewBox="0 0 130 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Main bottle gradient - left dark, center bright, right dark = cylinder -->
+          <linearGradient id="pink-body" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8B1A4A"/>
+            <stop offset="18%" stop-color="#CC2E73"/>
+            <stop offset="42%" stop-color="#FF4FA3"/>
+            <stop offset="58%" stop-color="#FF6FB8"/>
+            <stop offset="75%" stop-color="#E83A8A"/>
+            <stop offset="100%" stop-color="#7A1440"/>
+          </linearGradient>
+          <!-- Top darker section gradient -->
+          <linearGradient id="pink-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6B1238"/>
+            <stop offset="20%" stop-color="#A82060"/>
+            <stop offset="45%" stop-color="#D93A85"/>
+            <stop offset="60%" stop-color="#E84D95"/>
+            <stop offset="80%" stop-color="#C02E72"/>
+            <stop offset="100%" stop-color="#5A0F30"/>
+          </linearGradient>
+          <!-- Cap gradient -->
+          <linearGradient id="pink-cap" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4A0D25"/>
+            <stop offset="30%" stop-color="#8B1A4A"/>
+            <stop offset="55%" stop-color="#AA2060"/>
+            <stop offset="80%" stop-color="#7A1440"/>
+            <stop offset="100%" stop-color="#3A0A1C"/>
+          </linearGradient>
+          <!-- Shine overlay -->
+          <linearGradient id="pink-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="28%" stop-color="rgba(255,255,255,0.0)"/>
+            <stop offset="38%" stop-color="rgba(255,255,255,0.18)"/>
+            <stop offset="48%" stop-color="rgba(255,255,255,0.05)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <!-- Label gradient -->
+          <linearGradient id="pink-label" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7A0D38" stop-opacity="0.9"/>
+            <stop offset="15%" stop-color="#CC1F60" stop-opacity="0.6"/>
+            <stop offset="45%" stop-color="#FF3D95" stop-opacity="0.3"/>
+            <stop offset="60%" stop-color="#FF5AA5" stop-opacity="0.3"/>
+            <stop offset="85%" stop-color="#BB1B58" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#6A0B30" stop-opacity="0.9"/>
+          </linearGradient>
+          <filter id="shadow-pink">
+            <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#FF4FA3" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+
+        <!-- Drop shadow -->
+        <ellipse cx="65" cy="335" rx="38" ry="6" fill="rgba(255,79,163,0.3)" filter="url(#shadow-pink)"/>
+
+        <!-- Cap top flat -->
+        <ellipse cx="65" cy="22" rx="22" ry="5" fill="#3A0A1C"/>
+        <!-- Cap cylinder -->
+        <rect x="43" y="22" width="44" height="28" rx="0" fill="url(#pink-cap)"/>
+        <!-- Cap bottom rim -->
+        <ellipse cx="65" cy="50" rx="22" ry="5" fill="#5A0F30"/>
+
+        <!-- Neck -->
+        <path d="M50,50 L44,72 L86,72 L80,50 Z" fill="url(#pink-top)"/>
+        <ellipse cx="65" cy="72" rx="21" ry="4" fill="#A82060"/>
+
+        <!-- Main body -->
+        <rect x="24" y="72" width="82" height="250" rx="2" fill="url(#pink-body)"/>
+
+        <!-- Label background band -->
+        <rect x="24" y="110" width="82" height="140" rx="0" fill="url(#pink-label)"/>
+        <!-- Label white border lines -->
+        <line x1="24" y1="112" x2="106" y2="112" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <line x1="24" y1="248" x2="106" y2="248" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+
+        <!-- Brand text -->
+        <text x="65" y="148" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="rgba(255,255,255,0.95)">Energ<tspan fill="white">ME</tspan></text>
+
+        <!-- Divider -->
+        <line x1="36" y1="158" x2="94" y2="158" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+        <!-- Flavor name -->
+        <text x="65" y="175" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="white" letter-spacing="1.5">BERRY BLISS</text>
+        <text x="65" y="190" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.6)">Vitamin C · 500mg</text>
+
+        <!-- Vitamin circle badge -->
+        <circle cx="65" cy="225" r="16" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+        <text x="65" y="230" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="16" fill="white">C</text>
+
+        <!-- Bottom of body curve -->
+        <ellipse cx="65" cy="322" rx="41" ry="5" fill="#7A1440"/>
+
+        <!-- Shine highlight -->
+        <rect x="24" y="72" width="82" height="250" rx="2" fill="url(#pink-shine)"/>
+
+        <!-- Subtle horizontal bands for label texture -->
+        <line x1="24" y1="160" x2="106" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="24" y1="200" x2="106" y2="200" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="24" y1="240" x2="106" y2="240" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+        <!-- Top ellipse (mouth of bottle) -->
+        <ellipse cx="65" cy="72" rx="21" ry="4" fill="#8B1A4A" opacity="0.6"/>
+        <!-- Bottom ellipse -->
+        <ellipse cx="65" cy="322" rx="41" ry="5" fill="#7A1440" opacity="0.8"/>
+      </svg>
+      <div class="bottle-name" style="color:var(--hot-pink);">Berry Bliss</div>
+      <div class="bottle-sub">Vitamin C · 500mg</div>
+    </div>
+
+    <!-- MINT DREAM - Teal/mint (slightly taller, hero bottle) -->
+    <div class="bottle-item" style="margin-bottom:20px;">
+      <svg width="145" height="380" viewBox="0 0 145 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mint-body" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0A6B54"/>
+            <stop offset="18%" stop-color="#18A882"/>
+            <stop offset="42%" stop-color="#2ECFB0"/>
+            <stop offset="58%" stop-color="#4DDEC2"/>
+            <stop offset="75%" stop-color="#1BBFA0"/>
+            <stop offset="100%" stop-color="#085C47"/>
+          </linearGradient>
+          <linearGradient id="mint-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#075A44"/>
+            <stop offset="22%" stop-color="#128F70"/>
+            <stop offset="48%" stop-color="#1DB896"/>
+            <stop offset="65%" stop-color="#26C8A6"/>
+            <stop offset="85%" stop-color="#10A07E"/>
+            <stop offset="100%" stop-color="#054A38"/>
+          </linearGradient>
+          <linearGradient id="mint-cap" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#043828"/>
+            <stop offset="30%" stop-color="#0A6B54"/>
+            <stop offset="55%" stop-color="#0E8065"/>
+            <stop offset="80%" stop-color="#085C47"/>
+            <stop offset="100%" stop-color="#031E16"/>
+          </linearGradient>
+          <linearGradient id="mint-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="30%" stop-color="rgba(255,255,255,0.0)"/>
+            <stop offset="40%" stop-color="rgba(255,255,255,0.16)"/>
+            <stop offset="50%" stop-color="rgba(255,255,255,0.04)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="mint-label" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#043828" stop-opacity="0.9"/>
+            <stop offset="18%" stop-color="#0A7A5C" stop-opacity="0.55"/>
+            <stop offset="45%" stop-color="#12B892" stop-opacity="0.25"/>
+            <stop offset="60%" stop-color="#18CCA4" stop-opacity="0.25"/>
+            <stop offset="85%" stop-color="#087A5C" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#032A1E" stop-opacity="0.9"/>
+          </linearGradient>
+          <filter id="shadow-mint">
+            <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#2ECFB0" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="72" cy="375" rx="42" ry="6" fill="rgba(46,207,176,0.3)" filter="url(#shadow-mint)"/>
+
+        <ellipse cx="72" cy="24" rx="24" ry="5.5" fill="#031E16"/>
+        <rect x="48" y="24" width="48" height="30" rx="0" fill="url(#mint-cap)"/>
+        <ellipse cx="72" cy="54" rx="24" ry="5.5" fill="#054A38"/>
+
+        <path d="M55,54 L48,80 L96,80 L89,54 Z" fill="url(#mint-top)"/>
+        <ellipse cx="72" cy="80" rx="24" ry="5" fill="#128F70"/>
+
+        <rect x="26" y="80" width="92" height="278" rx="2" fill="url(#mint-body)"/>
+
+        <!-- Label band -->
+        <rect x="26" y="124" width="92" height="155" rx="0" fill="url(#mint-label)"/>
+        <line x1="26" y1="126" x2="118" y2="126" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <line x1="26" y1="277" x2="118" y2="277" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+
+        <!-- Stars/accents on label -->
+        <text x="38" y="146" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(255,255,255,0.3)">✦</text>
+        <text x="104" y="146" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(255,255,255,0.3)">✦</text>
+
+        <text x="72" y="162" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="16" fill="rgba(255,255,255,0.95)">Energ<tspan fill="white">ME</tspan></text>
+
+        <line x1="40" y1="172" x2="104" y2="172" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+        <text x="72" y="192" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="11" font-weight="800" fill="white" letter-spacing="1.5">MINT DREAM</text>
+        <text x="72" y="208" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.6)">Melatonin · 5mg</text>
+
+        <!-- Sleep badge -->
+        <circle cx="72" cy="248" r="18" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+        <text x="72" y="244" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.8)">zZ</text>
+        <text x="72" y="256" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="rgba(255,255,255,0.5)">sleep</text>
+
+        <ellipse cx="72" cy="358" rx="46" ry="6" fill="#0A6B54"/>
+
+        <rect x="26" y="80" width="92" height="278" rx="2" fill="url(#mint-shine)"/>
+      </svg>
+      <div class="bottle-name" style="color:var(--spearmint);">Mint Dream</div>
+      <div class="bottle-sub">Melatonin · 5mg</div>
+    </div>
+
+    <!-- PEACH POP - Orange/peach bottle -->
+    <div class="bottle-item">
+      <svg width="130" height="340" viewBox="0 0 130 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="peach-body" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7A2E10"/>
+            <stop offset="18%" stop-color="#C44820"/>
+            <stop offset="42%" stop-color="#FF7A4B"/>
+            <stop offset="58%" stop-color="#FF9468"/>
+            <stop offset="75%" stop-color="#E06030"/>
+            <stop offset="100%" stop-color="#6A230C"/>
+          </linearGradient>
+          <linearGradient id="peach-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#5A200A"/>
+            <stop offset="22%" stop-color="#A03518"/>
+            <stop offset="48%" stop-color="#D45528"/>
+            <stop offset="65%" stop-color="#E66535"/>
+            <stop offset="85%" stop-color="#B84020"/>
+            <stop offset="100%" stop-color="#4A1808"/>
+          </linearGradient>
+          <linearGradient id="peach-cap" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3A1006"/>
+            <stop offset="30%" stop-color="#7A2E10"/>
+            <stop offset="55%" stop-color="#963818"/>
+            <stop offset="80%" stop-color="#6A2510"/>
+            <stop offset="100%" stop-color="#2A0C04"/>
+          </linearGradient>
+          <linearGradient id="peach-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="28%" stop-color="rgba(255,255,255,0.0)"/>
+            <stop offset="38%" stop-color="rgba(255,255,255,0.18)"/>
+            <stop offset="48%" stop-color="rgba(255,255,255,0.05)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="peach-label" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#5A200A" stop-opacity="0.9"/>
+            <stop offset="18%" stop-color="#B83C18" stop-opacity="0.55"/>
+            <stop offset="45%" stop-color="#FF6030" stop-opacity="0.25"/>
+            <stop offset="60%" stop-color="#FF7845" stop-opacity="0.25"/>
+            <stop offset="85%" stop-color="#A83218" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#4A1808" stop-opacity="0.9"/>
+          </linearGradient>
+          <filter id="shadow-peach">
+            <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#FF7A4B" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="65" cy="335" rx="38" ry="6" fill="rgba(255,122,75,0.3)" filter="url(#shadow-peach)"/>
+
+        <ellipse cx="65" cy="22" rx="22" ry="5" fill="#2A0C04"/>
+        <rect x="43" y="22" width="44" height="28" rx="0" fill="url(#peach-cap)"/>
+        <ellipse cx="65" cy="50" rx="22" ry="5" fill="#4A1808"/>
+
+        <path d="M50,50 L44,72 L86,72 L80,50 Z" fill="url(#peach-top)"/>
+        <ellipse cx="65" cy="72" rx="21" ry="4" fill="#A03518"/>
+
+        <rect x="24" y="72" width="82" height="250" rx="2" fill="url(#peach-body)"/>
+
+        <rect x="24" y="110" width="82" height="140" rx="0" fill="url(#peach-label)"/>
+        <line x1="24" y1="112" x2="106" y2="112" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <line x1="24" y1="248" x2="106" y2="248" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+
+        <text x="65" y="148" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="rgba(255,255,255,0.95)">Energ<tspan fill="white">ME</tspan></text>
+
+        <line x1="36" y1="158" x2="94" y2="158" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+        <text x="65" y="175" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="white" letter-spacing="1.5">PEACH POP</text>
+        <text x="65" y="190" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.6)">Vitamin D · 1000IU</text>
+
+        <circle cx="65" cy="225" r="16" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+        <text x="65" y="230" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="16" fill="white">D</text>
+
+        <ellipse cx="65" cy="322" rx="41" ry="5" fill="#6A230C"/>
+
+        <rect x="24" y="72" width="82" height="250" rx="2" fill="url(#peach-shine)"/>
+      </svg>
+      <div class="bottle-name" style="color:var(--peachy);">Peach Pop</div>
+      <div class="bottle-sub">Vitamin D · 1000IU</div>
+    </div>
+
+    <!-- MULTI MAGIC - Dark navy bottle -->
+    <div class="bottle-item">
+      <svg width="130" height="340" viewBox="0 0 130 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navy-body" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#06060F"/>
+            <stop offset="18%" stop-color="#0E0E22"/>
+            <stop offset="42%" stop-color="#1A1A2E"/>
+            <stop offset="58%" stop-color="#242438"/>
+            <stop offset="75%" stop-color="#141428"/>
+            <stop offset="100%" stop-color="#04040C"/>
+          </linearGradient>
+          <linearGradient id="navy-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="28%" stop-color="rgba(255,255,255,0.0)"/>
+            <stop offset="38%" stop-color="rgba(255,255,255,0.10)"/>
+            <stop offset="48%" stop-color="rgba(255,255,255,0.03)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="navy-label" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#04040C" stop-opacity="0.95"/>
+            <stop offset="20%" stop-color="#0A0A1A" stop-opacity="0.5"/>
+            <stop offset="48%" stop-color="#1A1A2E" stop-opacity="0.1"/>
+            <stop offset="60%" stop-color="#202030" stop-opacity="0.1"/>
+            <stop offset="82%" stop-color="#0A0A1A" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#030308" stop-opacity="0.95"/>
+          </linearGradient>
+          <!-- Pink accent gradient for label stripe -->
+          <linearGradient id="pink-stripe" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,79,163,0)"/>
+            <stop offset="20%" stop-color="rgba(255,79,163,0.6)"/>
+            <stop offset="50%" stop-color="rgba(255,79,163,0.9)"/>
+            <stop offset="80%" stop-color="rgba(255,79,163,0.6)"/>
+            <stop offset="100%" stop-color="rgba(255,79,163,0)"/>
+          </linearGradient>
+          <filter id="shadow-navy">
+            <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#FF4FA3" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="65" cy="335" rx="38" ry="6" fill="rgba(26,26,46,0.6)" filter="url(#shadow-navy)"/>
+
+        <ellipse cx="65" cy="22" rx="22" ry="5" fill="#020205"/>
+        <rect x="43" y="22" width="44" height="28" rx="0" fill="url(#navy-body)"/>
+        <ellipse cx="65" cy="50" rx="22" ry="5" fill="#08081A"/>
+
+        <path d="M50,50 L44,72 L86,72 L80,50 Z" fill="url(#navy-body)"/>
+        <ellipse cx="65" cy="72" rx="21" ry="4" fill="#0C0C20"/>
+
+        <rect x="24" y="72" width="82" height="250" rx="2" fill="url(#navy-body)"/>
+
+        <rect x="24" y="110" width="82" height="140" rx="0" fill="url(#navy-label)"/>
+        <!-- Pink accent stripe at top of label -->
+        <rect x="24" y="110" width="82" height="3" fill="url(#pink-stripe)"/>
+        <rect x="24" y="247" width="82" height="3" fill="url(#pink-stripe)"/>
+
+        <text x="65" y="148" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="rgba(255,255,255,0.9)">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+
+        <line x1="36" y1="158" x2="94" y2="158" stroke="rgba(255,79,163,0.25)" stroke-width="0.5"/>
+
+        <text x="65" y="175" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="800" fill="white" letter-spacing="1.5">MULTI MAGIC</text>
+        <text x="65" y="190" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.45)">Multivitamin · Daily</text>
+
+        <circle cx="65" cy="225" r="16" fill="rgba(255,79,163,0.12)" stroke="rgba(255,79,163,0.3)" stroke-width="0.5"/>
+        <text x="65" y="230" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="#FF4FA3">M+</text>
+
+        <ellipse cx="65" cy="322" rx="41" ry="5" fill="#06060F"/>
+
+        <rect x="24" y="72" width="82" height="250" rx="2" fill="url(#navy-shine)"/>
+      </svg>
+      <div class="bottle-name" style="color:rgba(255,255,255,0.8);">Multi Magic</div>
+      <div class="bottle-sub">Multivitamin · Daily</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- T-SHIRTS -->
+<div class="mockup-section">
+  <div class="section-label">02 — Apparel · T-Shirts</div>
+  <div class="tshirt-row">
+
+    <!-- WHITE TEE -->
+    <div class="tshirt-item">
+      <svg width="240" height="220" viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="white-tee" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="40%" stop-color="#f8f8f8"/>
+            <stop offset="100%" stop-color="#eeeeee"/>
+          </linearGradient>
+          <linearGradient id="white-tee-shadow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.06)"/>
+            <stop offset="8%" stop-color="rgba(0,0,0,0.02)"/>
+            <stop offset="92%" stop-color="rgba(0,0,0,0.02)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.06)"/>
+          </linearGradient>
+          <!-- Fabric fold lines -->
+          <linearGradient id="fold1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.04)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Shadow under shirt -->
+        <ellipse cx="120" cy="218" rx="90" ry="8" fill="rgba(0,0,0,0.15)"/>
+
+        <!-- Left sleeve -->
+        <path d="M72,38 L18,75 L42,90 L56,65 L72,58 Z" fill="url(#white-tee)"/>
+        <path d="M72,38 L18,75 L42,90 L56,65 L72,58 Z" fill="url(#white-tee-shadow)"/>
+        <!-- Left sleeve cuff -->
+        <path d="M18,75 L42,90" stroke="#dddddd" stroke-width="1.5" fill="none"/>
+
+        <!-- Right sleeve -->
+        <path d="M168,38 L222,75 L198,90 L184,65 L168,58 Z" fill="url(#white-tee)"/>
+        <path d="M168,38 L222,75 L198,90 L184,65 L168,58 Z" fill="url(#white-tee-shadow)"/>
+        <path d="M222,75 L198,90" stroke="#dddddd" stroke-width="1.5" fill="none"/>
+
+        <!-- Main body -->
+        <path d="M56,65 L42,90 L30,210 L210,210 L198,90 L184,65 L168,38 C168,38 155,60 120,60 C85,60 72,38 72,38 Z" fill="url(#white-tee)"/>
+        <!-- Side shadow -->
+        <path d="M56,65 L42,90 L30,210 L30,210 L48,210 L56,90 L56,65 Z" fill="rgba(0,0,0,0.04)"/>
+        <path d="M184,65 L198,90 L210,210 L192,210 L184,90 L184,65 Z" fill="rgba(0,0,0,0.04)"/>
+
+        <!-- Collar -->
+        <path d="M72,38 C80,25 100,20 120,20 C140,20 160,25 168,38" stroke="#cccccc" stroke-width="1.5" fill="none"/>
+        <!-- Collar inner -->
+        <path d="M78,40 C86,30 104,25 120,25 C136,25 154,30 162,40" stroke="#e0e0e0" stroke-width="1" fill="rgba(240,240,240,0.5)"/>
+
+        <!-- Hemline bottom -->
+        <path d="M30,210 L210,210" stroke="#dddddd" stroke-width="1.5"/>
+
+        <!-- Logo on chest -->
+        <text x="120" y="128" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="22" fill="#1A1A2E">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+        <text x="120" y="148" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(26,26,46,0.35)" letter-spacing="2" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <!-- Subtle fold crease lines -->
+        <line x1="100" y1="160" x2="98" y2="210" stroke="rgba(0,0,0,0.04)" stroke-width="1"/>
+        <line x1="140" y1="160" x2="142" y2="210" stroke="rgba(0,0,0,0.04)" stroke-width="1"/>
+      </svg>
+      <div class="tshirt-label">White · Classic</div>
+    </div>
+
+    <!-- NAVY TEE -->
+    <div class="tshirt-item">
+      <svg width="240" height="220" viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navy-tee" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#222238"/>
+            <stop offset="40%" stop-color="#1A1A2E"/>
+            <stop offset="100%" stop-color="#10101E"/>
+          </linearGradient>
+          <linearGradient id="navy-tee-shad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.25)"/>
+            <stop offset="8%" stop-color="rgba(0,0,0,0.05)"/>
+            <stop offset="92%" stop-color="rgba(0,0,0,0.05)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.25)"/>
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="120" cy="218" rx="90" ry="8" fill="rgba(0,0,0,0.3)"/>
+
+        <path d="M72,38 L18,75 L42,90 L56,65 L72,58 Z" fill="url(#navy-tee)"/>
+        <path d="M72,38 L18,75 L42,90 L56,65 L72,58 Z" fill="url(#navy-tee-shad)"/>
+        <path d="M18,75 L42,90" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
+
+        <path d="M168,38 L222,75 L198,90 L184,65 L168,58 Z" fill="url(#navy-tee)"/>
+        <path d="M168,38 L222,75 L198,90 L184,65 L168,58 Z" fill="url(#navy-tee-shad)"/>
+        <path d="M222,75 L198,90" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
+
+        <path d="M56,65 L42,90 L30,210 L210,210 L198,90 L184,65 L168,38 C168,38 155,60 120,60 C85,60 72,38 72,38 Z" fill="url(#navy-tee)"/>
+        <path d="M56,65 L42,90 L30,210 L30,210 L48,210 L56,90 L56,65 Z" fill="rgba(0,0,0,0.15)"/>
+        <path d="M184,65 L198,90 L210,210 L192,210 L184,90 L184,65 Z" fill="rgba(0,0,0,0.15)"/>
+
+        <path d="M72,38 C80,25 100,20 120,20 C140,20 160,25 168,38" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+        <path d="M30,210 L210,210" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+        <!-- Pink logo -->
+        <text x="120" y="128" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="22" fill="#FF4FA3">EnergME</text>
+        <text x="120" y="148" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(46,207,176,0.7)" letter-spacing="2" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <line x1="100" y1="160" x2="98" y2="210" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="140" y1="160" x2="142" y2="210" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+      </svg>
+      <div class="tshirt-label">Navy · Statement</div>
+    </div>
+
+    <!-- PINK TEE -->
+    <div class="tshirt-item">
+      <svg width="240" height="220" viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pink-tee" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF6BB5"/>
+            <stop offset="40%" stop-color="#FF4FA3"/>
+            <stop offset="100%" stop-color="#E8358A"/>
+          </linearGradient>
+          <linearGradient id="pink-tee-shad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.2)"/>
+            <stop offset="8%" stop-color="rgba(0,0,0,0.04)"/>
+            <stop offset="92%" stop-color="rgba(0,0,0,0.04)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.2)"/>
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="120" cy="218" rx="90" ry="8" fill="rgba(255,79,163,0.25)"/>
+
+        <path d="M72,38 L18,75 L42,90 L56,65 L72,58 Z" fill="url(#pink-tee)"/>
+        <path d="M72,38 L18,75 L42,90 L56,65 L72,58 Z" fill="url(#pink-tee-shad)"/>
+        <path d="M18,75 L42,90" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+
+        <path d="M168,38 L222,75 L198,90 L184,65 L168,58 Z" fill="url(#pink-tee)"/>
+        <path d="M168,38 L222,75 L198,90 L184,65 L168,58 Z" fill="url(#pink-tee-shad)"/>
+        <path d="M222,75 L198,90" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+
+        <path d="M56,65 L42,90 L30,210 L210,210 L198,90 L184,65 L168,38 C168,38 155,60 120,60 C85,60 72,38 72,38 Z" fill="url(#pink-tee)"/>
+        <path d="M56,65 L42,90 L30,210 L30,210 L48,210 L56,90 L56,65 Z" fill="rgba(0,0,0,0.1)"/>
+        <path d="M184,65 L198,90 L210,210 L192,210 L184,90 L184,65 Z" fill="rgba(0,0,0,0.1)"/>
+
+        <path d="M72,38 C80,25 100,20 120,20 C140,20 160,25 168,38" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
+        <path d="M30,210 L210,210" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+
+        <!-- White logo on pink -->
+        <text x="120" y="128" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="22" fill="white">EnergME</text>
+        <text x="120" y="148" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(255,255,255,0.65)" letter-spacing="2" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <line x1="100" y1="160" x2="98" y2="210" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="140" y1="160" x2="142" y2="210" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      </svg>
+      <div class="tshirt-label">Hot Pink · Bold</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MUG + TOTE -->
+<div class="mockup-section">
+  <div class="section-label">03 — Accessories · Mug &amp; Tote Bag</div>
+  <div class="accessories-row">
+
+    <!-- REALISTIC MUG -->
+    <div class="accessory-item">
+      <svg width="280" height="260" viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Mug body: dark navy cylinder -->
+          <linearGradient id="mug-body" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#06060F"/>
+            <stop offset="15%" stop-color="#0E0E22"/>
+            <stop offset="40%" stop-color="#1A1A2E"/>
+            <stop offset="60%" stop-color="#222240"/>
+            <stop offset="80%" stop-color="#12122A"/>
+            <stop offset="100%" stop-color="#04040C"/>
+          </linearGradient>
+          <!-- Mug rim top ellipse -->
+          <linearGradient id="mug-rim" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#08081A"/>
+            <stop offset="50%" stop-color="#2A2A48"/>
+            <stop offset="100%" stop-color="#06060F"/>
+          </linearGradient>
+          <!-- Handle gradient -->
+          <linearGradient id="mug-handle" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#06060F"/>
+            <stop offset="40%" stop-color="#151528"/>
+            <stop offset="100%" stop-color="#03030A"/>
+          </linearGradient>
+          <!-- Coffee/tea liquid -->
+          <linearGradient id="liquid" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0A0810"/>
+            <stop offset="50%" stop-color="#1A1428"/>
+            <stop offset="100%" stop-color="#080610"/>
+          </linearGradient>
+          <!-- Shine on mug -->
+          <linearGradient id="mug-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="32%" stop-color="rgba(255,255,255,0)"/>
+            <stop offset="40%" stop-color="rgba(255,255,255,0.10)"/>
+            <stop offset="48%" stop-color="rgba(255,255,255,0.02)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <filter id="mug-shadow">
+            <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="rgba(0,0,0,0.5)"/>
+          </filter>
+        </defs>
+
+        <!-- Shadow -->
+        <ellipse cx="130" cy="252" rx="100" ry="10" fill="rgba(0,0,0,0.4)"/>
+
+        <!-- Handle (behind) - right side -->
+        <path d="M198,80 Q248,80 248,130 Q248,178 198,178" fill="none" stroke="#08081A" stroke-width="24" stroke-linecap="round"/>
+        <path d="M198,80 Q240,80 240,130 Q240,178 198,178" fill="none" stroke="url(#mug-handle)" stroke-width="14" stroke-linecap="round"/>
+        <!-- Handle highlight -->
+        <path d="M200,90 Q230,90 230,130 Q230,170 200,170" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- Mug body -->
+        <rect x="30" y="55" width="170" height="185" rx="4" fill="url(#mug-body)" filter="url(#mug-shadow)"/>
+
+        <!-- Rim top ellipse -->
+        <ellipse cx="115" cy="55" rx="85" ry="16" fill="url(#mug-rim)"/>
+        <!-- Inner rim (liquid surface) -->
+        <ellipse cx="115" cy="62" rx="78" ry="13" fill="url(#liquid)"/>
+        <!-- Steam wisps -->
+        <path d="M95,45 Q98,35 95,25" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M115,40 Q118,28 115,18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M135,45 Q138,35 135,25" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Bottom ellipse -->
+        <ellipse cx="115" cy="240" rx="85" ry="14" fill="#04040C"/>
+        <!-- Bottom rim highlight -->
+        <path d="M30,238 Q115,254 200,238" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+        <!-- Brand text on mug -->
+        <text x="115" y="148" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="22" fill="white">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+        <!-- Tagline -->
+        <text x="115" y="168" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.3)" letter-spacing="1.5" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+        <!-- Pink stripe accent -->
+        <rect x="30" y="195" width="170" height="3" fill="rgba(255,79,163,0.4)"/>
+
+        <!-- Shine overlay -->
+        <rect x="30" y="55" width="170" height="185" rx="4" fill="url(#mug-shine)"/>
+      </svg>
+      <div class="accessory-label">Branded Mug · Navy</div>
+    </div>
+
+    <!-- REALISTIC TOTE BAG -->
+    <div class="accessory-item" style="background:rgba(255,240,247,0.04); border-color:rgba(255,240,247,0.08);">
+      <svg width="260" height="290" viewBox="0 0 260 290" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Canvas/natural tote fabric -->
+          <linearGradient id="tote-body" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F5EFE0"/>
+            <stop offset="30%" stop-color="#EDE6D4"/>
+            <stop offset="70%" stop-color="#E5DCC8"/>
+            <stop offset="100%" stop-color="#D8CEB8"/>
+          </linearGradient>
+          <linearGradient id="tote-shad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.10)"/>
+            <stop offset="8%" stop-color="rgba(0,0,0,0.02)"/>
+            <stop offset="92%" stop-color="rgba(0,0,0,0.02)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.12)"/>
+          </linearGradient>
+          <linearGradient id="tote-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#DDD5C0"/>
+            <stop offset="50%" stop-color="#EDE6D4"/>
+            <stop offset="100%" stop-color="#D8D0BE"/>
+          </linearGradient>
+          <!-- Handle gradient -->
+          <linearGradient id="handle-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#C8C0AC"/>
+            <stop offset="50%" stop-color="#B8B0A0"/>
+            <stop offset="100%" stop-color="#C8C0AC"/>
+          </linearGradient>
+          <filter id="tote-shadow">
+            <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="rgba(0,0,0,0.35)"/>
+          </filter>
+        </defs>
+
+        <!-- Shadow -->
+        <ellipse cx="130" cy="285" rx="95" ry="8" fill="rgba(0,0,0,0.3)"/>
+
+        <!-- Handles -->
+        <path d="M80,65 Q78,20 105,20 Q130,20 130,20 Q155,20 152,65" fill="none" stroke="url(#handle-grad)" stroke-width="10" stroke-linecap="round"/>
+        <!-- Handle shadow/depth -->
+        <path d="M80,65 Q78,20 105,20 Q130,20 130,20 Q155,20 152,65" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M80,65 Q78,20 105,20 Q130,20 130,20 Q155,20 152,65" fill="none" stroke="url(#handle-grad)" stroke-width="10" stroke-linecap="round"/>
+        <!-- Handle shine -->
+        <path d="M82,62 Q80,24 106,22 Q130,22 154,62" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Bag body -->
+        <path d="M25,68 L18,272 L242,272 L235,68 Z" fill="url(#tote-body)" filter="url(#tote-shadow)"/>
+        <!-- Side shadows for 3D depth -->
+        <path d="M25,68 L18,272 L45,272 L50,68 Z" fill="url(#tote-shad)"/>
+        <path d="M235,68 L242,272 L215,272 L210,68 Z" fill="url(#tote-shad)"/>
+
+        <!-- Top fold/rim of bag -->
+        <path d="M25,68 L235,68" stroke="#C8C0AC" stroke-width="2" fill="none"/>
+        <!-- Top fold rectangle -->
+        <path d="M25,68 L30,88 L230,88 L235,68 Z" fill="url(#tote-top)" opacity="0.7"/>
+
+        <!-- Bottom of bag - rounded bottom edge gusset -->
+        <path d="M18,272 Q130,282 242,272 L240,272 Q130,280 20,272 Z" fill="#C8C0AC"/>
+
+        <!-- Stitching lines on sides -->
+        <line x1="38" y1="72" x2="32" y2="268" stroke="rgba(0,0,0,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="222" y1="72" x2="228" y2="268" stroke="rgba(0,0,0,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+        <!-- Bottom stitching -->
+        <path d="M28,265 Q130,272 232,265" stroke="rgba(0,0,0,0.08)" stroke-width="1" stroke-dasharray="4,4" fill="none"/>
+
+        <!-- Brand print on tote -->
+        <text x="130" y="168" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="28" fill="#1A1A2E" opacity="0.85">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+        <text x="130" y="190" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(26,26,46,0.4)" letter-spacing="2" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <!-- Tiny dots decoration -->
+        <circle cx="80" cy="220" r="4" fill="rgba(255,79,163,0.3)"/>
+        <circle cx="95" cy="220" r="4" fill="rgba(46,207,176,0.3)"/>
+        <circle cx="110" cy="220" r="4" fill="rgba(255,122,75,0.3)"/>
+
+        <!-- Subtle fabric texture lines -->
+        <line x1="25" y1="120" x2="235" y2="118" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
+        <line x1="23" y1="160" x2="237" y2="158" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
+        <line x1="21" y1="200" x2="239" y2="198" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
+        <line x1="20" y1="240" x2="240" y2="238" stroke="rgba(0,0,0,0.03)" stroke-width="1"/>
+      </svg>
+      <div class="accessory-label">Canvas Tote · Natural</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <span>EnergME</span> · Physical Mockups v2 · 2026 · Confidential
+</footer>
+
+</body>
+</html>

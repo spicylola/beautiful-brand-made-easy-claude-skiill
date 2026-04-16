@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnergME — Physical Mockups v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #FF4FA3;
+    --spearmint: #2ECFB0;
+    --peachy: #FF7A4B;
+    --blush: #FFF0F7;
+    --navy: #1A1A2E;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #141018;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    padding: 60px;
+  }
+  header {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:72px; padding-bottom:32px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .logo { font-family:'Fredoka One',cursive; font-size:40px; color:white; }
+  .logo span { color: var(--hot-pink); }
+  .meta { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); text-align:right; line-height:2; }
+
+  .section-label {
+    font-size:11px; letter-spacing:0.25em; text-transform:uppercase;
+    color:rgba(255,255,255,0.2); margin-bottom:56px; font-weight:700;
+    display:flex; align-items:center; gap:16px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.05); }
+  .mockup-section { margin-bottom:100px; }
+
+  .bottles-row {
+    display:flex; gap:40px; align-items:flex-end;
+    justify-content:center; flex-wrap:wrap; padding:40px 0 60px;
+  }
+  .bottle-item { display:flex; flex-direction:column; align-items:center; gap:16px; }
+  .bottle-name { font-family:'Fredoka One',cursive; font-size:18px; }
+  .bottle-sub { font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; font-weight:700; margin-top:-8px; }
+
+  .tshirt-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; }
+  .tshirt-item {
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+    background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.05);
+    border-radius:24px; padding:48px 24px;
+  }
+  .item-label { font-size:13px; font-weight:700; color:rgba(255,255,255,0.35); letter-spacing:0.06em; text-transform:uppercase; }
+
+  .accessories-row { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .accessory-item {
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+    background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.05);
+    border-radius:24px; padding:60px 40px;
+  }
+
+  footer {
+    margin-top:64px; padding-top:32px;
+    border-top:1px solid rgba(255,255,255,0.05);
+    text-align:center; font-size:11px;
+    letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.12);
+  }
+  footer span { color:var(--hot-pink); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Energ<span>ME</span></div>
+  <div class="meta">Physical Mockups · v3.0<br>2026 · Confidential</div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 01 — CANS (Ghost-style)
+═══════════════════════════════════════════ -->
+<div class="mockup-section">
+  <div class="section-label">01 — Product Cans · 16 fl oz</div>
+  <div class="bottles-row">
+
+    <!-- ── BERRY BLISS (Pink) ── -->
+    <div class="bottle-item">
+      <svg width="160" height="380" viewBox="0 0 160 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Cylindrical gradient: dark left → bright center-left → mid-bright → darker right -->
+          <linearGradient id="bb-can" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#7A0830"/>
+            <stop offset="10%"  stop-color="#CC1255"/>
+            <stop offset="28%"  stop-color="#FF3D8F"/>
+            <stop offset="45%"  stop-color="#FF4FA3"/>
+            <stop offset="58%"  stop-color="#FF6EB5"/>
+            <stop offset="72%"  stop-color="#E8358A"/>
+            <stop offset="88%"  stop-color="#B01558"/>
+            <stop offset="100%" stop-color="#6A0525"/>
+          </linearGradient>
+          <!-- Top band (green-ish stripe like Ghost) — use pink accent band -->
+          <linearGradient id="bb-topband" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#4A0220"/>
+            <stop offset="20%"  stop-color="#880F40"/>
+            <stop offset="50%"  stop-color="#CC1A60"/>
+            <stop offset="80%"  stop-color="#880F40"/>
+            <stop offset="100%" stop-color="#3A0118"/>
+          </linearGradient>
+          <!-- Top metal cap -->
+          <linearGradient id="bb-metal-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#888"/>
+            <stop offset="25%"  stop-color="#d8d8d8"/>
+            <stop offset="50%"  stop-color="#f0f0f0"/>
+            <stop offset="72%"  stop-color="#c8c8c8"/>
+            <stop offset="100%" stop-color="#707070"/>
+          </linearGradient>
+          <!-- Bottom metal -->
+          <linearGradient id="bb-metal-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#666"/>
+            <stop offset="30%"  stop-color="#b8b8b8"/>
+            <stop offset="55%"  stop-color="#d0d0d0"/>
+            <stop offset="80%"  stop-color="#a0a0a0"/>
+            <stop offset="100%" stop-color="#555"/>
+          </linearGradient>
+          <!-- Shine stripe -->
+          <linearGradient id="bb-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="transparent"/>
+            <stop offset="30%"  stop-color="rgba(255,255,255,0)"/>
+            <stop offset="40%"  stop-color="rgba(255,255,255,0.22)"/>
+            <stop offset="50%"  stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <!-- Bottom wavy stripe (mint/spearmint like Ghost bottom) -->
+          <linearGradient id="bb-bot-band" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#0A5040"/>
+            <stop offset="20%"  stop-color="#1A9070"/>
+            <stop offset="50%"  stop-color="#2ECFB0"/>
+            <stop offset="80%"  stop-color="#1A9070"/>
+            <stop offset="100%" stop-color="#0A5040"/>
+          </linearGradient>
+          <filter id="can-drop">
+            <feDropShadow dx="6" dy="24" stdDeviation="16" flood-color="rgba(255,79,163,0.4)"/>
+          </filter>
+        </defs>
+
+        <!-- Cast shadow on ground -->
+        <ellipse cx="80" cy="374" rx="52" ry="8" fill="rgba(255,79,163,0.25)"/>
+
+        <!-- ── BOTTOM CAP (metal) ── -->
+        <!-- Bottom rim ring -->
+        <ellipse cx="80" cy="352" rx="52" ry="9" fill="url(#bb-metal-bot)"/>
+        <ellipse cx="80" cy="350" rx="48" ry="7" fill="#999"/>
+        <!-- Can body bottom taper -->
+        <path d="M28,342 Q28,352 80,358 Q132,352 132,342 L132,330 Q132,338 80,344 Q28,338 28,330 Z" fill="url(#bb-can)"/>
+
+        <!-- ── MAIN CAN BODY ── -->
+        <rect x="28" y="60" width="104" height="284" fill="url(#bb-can)" filter="url(#can-drop)"/>
+
+        <!-- ── TOP BAND (accent colour, like Ghost green band) ── -->
+        <rect x="28" y="60" width="104" height="52" fill="url(#bb-topband)"/>
+        <!-- Wavy divider line between top band and body (mimics Ghost wave) -->
+        <path d="M28,112 Q50,100 80,108 Q110,116 132,104 L132,112 Q110,124 80,116 Q50,108 28,120 Z" fill="url(#bb-can)"/>
+
+        <!-- ── BRAND TEXT in top band ── -->
+        <text x="80" y="82" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="13" fill="white" letter-spacing="3" opacity="0.95">ENERG<tspan fill="#FF4FA3" font-size="15">ME</tspan></text>
+        <text x="80" y="97" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="2">ZERO SUGAR · VITAMIN C</text>
+
+        <!-- ── BIG FLAVOR NAME (centre of can, Ghost-style bold) ── -->
+        <!-- Background blob shape behind name for depth -->
+        <ellipse cx="80" cy="205" rx="44" ry="52" fill="rgba(255,255,255,0.07)"/>
+        <text x="80" y="185" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="36" fill="white" opacity="0.95">BERRY</text>
+        <text x="80" y="224" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="36" fill="white" opacity="0.95">BLISS</text>
+
+        <!-- Small vitamin badge circle -->
+        <circle cx="80" cy="258" r="18" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <text x="80" y="262" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="white">C</text>
+        <text x="80" y="274" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="rgba(255,255,255,0.5)" font-weight="700">500mg</text>
+
+        <!-- ── BOTTOM WAVE BAND (mint accent, like Ghost lime green) ── -->
+        <path d="M28,300 Q50,290 80,298 Q110,306 132,296 L132,344 Q132,336 80,342 Q28,336 28,344 Z" fill="url(#bb-bot-band)"/>
+        <!-- Flavor text in bottom band -->
+        <text x="80" y="328" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.85)" letter-spacing="1.5">BERRY BLISS · 16 FL OZ</text>
+
+        <!-- ── TOP CAP (metal) ── -->
+        <!-- Neck taper -->
+        <path d="M28,60 Q28,48 80,44 Q132,48 132,60 Z" fill="url(#bb-can)"/>
+        <!-- Neck ring -->
+        <ellipse cx="80" cy="44" rx="52" ry="9" fill="url(#bb-metal-top)"/>
+        <!-- Inner neck -->
+        <ellipse cx="80" cy="42" rx="38" ry="6" fill="#bbb"/>
+        <!-- Top lid -->
+        <ellipse cx="80" cy="36" rx="38" ry="6" fill="url(#bb-metal-top)"/>
+        <!-- Pull tab -->
+        <ellipse cx="80" cy="32" rx="10" ry="3" fill="#c0c0c0" stroke="#999" stroke-width="0.5"/>
+        <rect x="76" y="28" width="8" height="6" rx="2" fill="#c8c8c8" stroke="#aaa" stroke-width="0.5"/>
+
+        <!-- ── SHINE HIGHLIGHT ── -->
+        <rect x="28" y="60" width="104" height="284" fill="url(#bb-shine)"/>
+        <!-- Secondary narrow shine -->
+        <rect x="40" y="70" width="10" height="270" fill="rgba(255,255,255,0.06)" rx="4"/>
+
+        <!-- Left/right edge darkening -->
+        <rect x="28" y="60" width="14" height="284" fill="rgba(0,0,0,0.18)"/>
+        <rect x="118" y="60" width="14" height="284" fill="rgba(0,0,0,0.18)"/>
+      </svg>
+      <div class="bottle-name" style="color:var(--hot-pink);">Berry Bliss</div>
+      <div class="bottle-sub">Vitamin C · 500mg</div>
+    </div>
+
+    <!-- ── MINT DREAM (Teal) — tallest / hero ── -->
+    <div class="bottle-item" style="margin-bottom:24px;">
+      <svg width="175" height="420" viewBox="0 0 175 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="md-can" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#064838"/>
+            <stop offset="10%"  stop-color="#0F8A68"/>
+            <stop offset="28%"  stop-color="#22C09A"/>
+            <stop offset="45%"  stop-color="#2ECFB0"/>
+            <stop offset="58%"  stop-color="#4DDEC2"/>
+            <stop offset="72%"  stop-color="#1BBFA0"/>
+            <stop offset="88%"  stop-color="#0E9878"/>
+            <stop offset="100%" stop-color="#053C2E"/>
+          </linearGradient>
+          <linearGradient id="md-topband" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#032A1E"/>
+            <stop offset="20%"  stop-color="#0A6850"/>
+            <stop offset="50%"  stop-color="#12A880"/>
+            <stop offset="80%"  stop-color="#0A6850"/>
+            <stop offset="100%" stop-color="#021A14"/>
+          </linearGradient>
+          <linearGradient id="md-metal-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#888"/>
+            <stop offset="25%"  stop-color="#d8d8d8"/>
+            <stop offset="50%"  stop-color="#f0f0f0"/>
+            <stop offset="72%"  stop-color="#c8c8c8"/>
+            <stop offset="100%" stop-color="#707070"/>
+          </linearGradient>
+          <linearGradient id="md-metal-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#666"/>
+            <stop offset="30%"  stop-color="#b8b8b8"/>
+            <stop offset="55%"  stop-color="#d0d0d0"/>
+            <stop offset="80%"  stop-color="#a0a0a0"/>
+            <stop offset="100%" stop-color="#555"/>
+          </linearGradient>
+          <linearGradient id="md-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="transparent"/>
+            <stop offset="30%"  stop-color="rgba(255,255,255,0)"/>
+            <stop offset="40%"  stop-color="rgba(255,255,255,0.22)"/>
+            <stop offset="50%"  stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="md-bot-band" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#4A0220"/>
+            <stop offset="20%"  stop-color="#AA1858"/>
+            <stop offset="50%"  stop-color="#FF4FA3"/>
+            <stop offset="80%"  stop-color="#AA1858"/>
+            <stop offset="100%" stop-color="#3A0118"/>
+          </linearGradient>
+          <filter id="can-drop-md">
+            <feDropShadow dx="6" dy="26" stdDeviation="18" flood-color="rgba(46,207,176,0.45)"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="87" cy="415" rx="58" ry="9" fill="rgba(46,207,176,0.3)"/>
+
+        <ellipse cx="87" cy="392" rx="58" ry="10" fill="url(#md-metal-bot)"/>
+        <ellipse cx="87" cy="390" rx="53" ry="8" fill="#999"/>
+        <path d="M30,380 Q30,392 87,398 Q144,392 144,380 L144,368 Q144,378 87,384 Q30,378 30,368 Z" fill="url(#md-can)"/>
+
+        <rect x="30" y="65" width="114" height="318" fill="url(#md-can)" filter="url(#can-drop-md)"/>
+
+        <rect x="30" y="65" width="114" height="56" fill="url(#md-topband)"/>
+        <path d="M30,121 Q55,108 87,118 Q119,128 144,115 L144,121 Q119,134 87,124 Q55,114 30,127 Z" fill="url(#md-can)"/>
+
+        <text x="87" y="88" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="white" letter-spacing="3" opacity="0.95">ENERG<tspan fill="#FF4FA3" font-size="16">ME</tspan></text>
+        <text x="87" y="105" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="2">ZERO SUGAR · MELATONIN</text>
+
+        <ellipse cx="87" cy="228" rx="50" ry="58" fill="rgba(255,255,255,0.06)"/>
+        <text x="87" y="202" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="40" fill="white" opacity="0.95">MINT</text>
+        <text x="87" y="248" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="40" fill="white" opacity="0.95">DREAM</text>
+
+        <circle cx="87" cy="294" r="20" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <text x="87" y="290" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="800">Zz</text>
+        <text x="87" y="302" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="rgba(255,255,255,0.5)" font-weight="700">5mg</text>
+
+        <path d="M30,332 Q55,320 87,330 Q119,340 144,328 L144,380 Q144,372 87,378 Q30,372 30,380 Z" fill="url(#md-bot-band)"/>
+        <text x="87" y="360" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.85)" letter-spacing="1.5">MINT DREAM · 16 FL OZ</text>
+
+        <path d="M30,65 Q30,52 87,48 Q144,52 144,65 Z" fill="url(#md-can)"/>
+        <ellipse cx="87" cy="48" rx="57" ry="10" fill="url(#md-metal-top)"/>
+        <ellipse cx="87" cy="46" rx="42" ry="7" fill="#bbb"/>
+        <ellipse cx="87" cy="40" rx="42" ry="7" fill="url(#md-metal-top)"/>
+        <ellipse cx="87" cy="35" rx="11" ry="3.5" fill="#c0c0c0" stroke="#999" stroke-width="0.5"/>
+        <rect x="82" y="30" width="9" height="7" rx="2" fill="#c8c8c8" stroke="#aaa" stroke-width="0.5"/>
+
+        <rect x="30" y="65" width="114" height="318" fill="url(#md-shine)"/>
+        <rect x="43" y="75" width="12" height="300" fill="rgba(255,255,255,0.06)" rx="5"/>
+        <rect x="30" y="65" width="16" height="318" fill="rgba(0,0,0,0.18)"/>
+        <rect x="128" y="65" width="16" height="318" fill="rgba(0,0,0,0.18)"/>
+      </svg>
+      <div class="bottle-name" style="color:var(--spearmint);">Mint Dream</div>
+      <div class="bottle-sub">Melatonin · 5mg</div>
+    </div>
+
+    <!-- ── PEACH POP (Orange) ── -->
+    <div class="bottle-item">
+      <svg width="160" height="380" viewBox="0 0 160 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pp-can" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#6A1C00"/>
+            <stop offset="10%"  stop-color="#C03510"/>
+            <stop offset="28%"  stop-color="#F06030"/>
+            <stop offset="45%"  stop-color="#FF7A4B"/>
+            <stop offset="58%"  stop-color="#FF9265"/>
+            <stop offset="72%"  stop-color="#E56028"/>
+            <stop offset="88%"  stop-color="#A82808"/>
+            <stop offset="100%" stop-color="#581200"/>
+          </linearGradient>
+          <linearGradient id="pp-topband" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#3A0E00"/>
+            <stop offset="20%"  stop-color="#882200"/>
+            <stop offset="50%"  stop-color="#C83C10"/>
+            <stop offset="80%"  stop-color="#882200"/>
+            <stop offset="100%" stop-color="#2A0800"/>
+          </linearGradient>
+          <linearGradient id="pp-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="transparent"/>
+            <stop offset="30%"  stop-color="rgba(255,255,255,0)"/>
+            <stop offset="40%"  stop-color="rgba(255,255,255,0.22)"/>
+            <stop offset="50%"  stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="pp-metal-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#888"/>
+            <stop offset="25%"  stop-color="#d8d8d8"/>
+            <stop offset="50%"  stop-color="#f0f0f0"/>
+            <stop offset="72%"  stop-color="#c8c8c8"/>
+            <stop offset="100%" stop-color="#707070"/>
+          </linearGradient>
+          <linearGradient id="pp-metal-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#666"/>
+            <stop offset="30%"  stop-color="#b8b8b8"/>
+            <stop offset="55%"  stop-color="#d0d0d0"/>
+            <stop offset="80%"  stop-color="#a0a0a0"/>
+            <stop offset="100%" stop-color="#555"/>
+          </linearGradient>
+          <linearGradient id="pp-bot-band" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#4A0220"/>
+            <stop offset="20%"  stop-color="#AA1858"/>
+            <stop offset="50%"  stop-color="#FF4FA3"/>
+            <stop offset="80%"  stop-color="#AA1858"/>
+            <stop offset="100%" stop-color="#3A0118"/>
+          </linearGradient>
+          <filter id="can-drop-pp">
+            <feDropShadow dx="6" dy="24" stdDeviation="16" flood-color="rgba(255,122,75,0.4)"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="80" cy="374" rx="52" ry="8" fill="rgba(255,122,75,0.28)"/>
+        <ellipse cx="80" cy="352" rx="52" ry="9" fill="url(#pp-metal-bot)"/>
+        <ellipse cx="80" cy="350" rx="48" ry="7" fill="#999"/>
+        <path d="M28,342 Q28,352 80,358 Q132,352 132,342 L132,330 Q132,338 80,344 Q28,338 28,330 Z" fill="url(#pp-can)"/>
+
+        <rect x="28" y="60" width="104" height="284" fill="url(#pp-can)" filter="url(#can-drop-pp)"/>
+        <rect x="28" y="60" width="104" height="52" fill="url(#pp-topband)"/>
+        <path d="M28,112 Q50,100 80,108 Q110,116 132,104 L132,112 Q110,124 80,116 Q50,108 28,120 Z" fill="url(#pp-can)"/>
+
+        <text x="80" y="82" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="13" fill="white" letter-spacing="3" opacity="0.95">ENERG<tspan fill="#FF4FA3" font-size="15">ME</tspan></text>
+        <text x="80" y="97" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="2">ZERO SUGAR · VITAMIN D</text>
+
+        <ellipse cx="80" cy="205" rx="44" ry="52" fill="rgba(255,255,255,0.07)"/>
+        <text x="80" y="185" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="36" fill="white" opacity="0.95">PEACH</text>
+        <text x="80" y="224" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="36" fill="white" opacity="0.95">POP</text>
+
+        <circle cx="80" cy="258" r="18" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <text x="80" y="262" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="white">D</text>
+        <text x="80" y="274" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="rgba(255,255,255,0.5)" font-weight="700">1000IU</text>
+
+        <path d="M28,300 Q50,290 80,298 Q110,306 132,296 L132,344 Q132,336 80,342 Q28,336 28,344 Z" fill="url(#pp-bot-band)"/>
+        <text x="80" y="328" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.85)" letter-spacing="1.5">PEACH POP · 16 FL OZ</text>
+
+        <path d="M28,60 Q28,48 80,44 Q132,48 132,60 Z" fill="url(#pp-can)"/>
+        <ellipse cx="80" cy="44" rx="52" ry="9" fill="url(#pp-metal-top)"/>
+        <ellipse cx="80" cy="42" rx="38" ry="6" fill="#bbb"/>
+        <ellipse cx="80" cy="36" rx="38" ry="6" fill="url(#pp-metal-top)"/>
+        <ellipse cx="80" cy="32" rx="10" ry="3" fill="#c0c0c0" stroke="#999" stroke-width="0.5"/>
+        <rect x="76" y="28" width="8" height="6" rx="2" fill="#c8c8c8" stroke="#aaa" stroke-width="0.5"/>
+
+        <rect x="28" y="60" width="104" height="284" fill="url(#pp-shine)"/>
+        <rect x="40" y="70" width="10" height="270" fill="rgba(255,255,255,0.06)" rx="4"/>
+        <rect x="28" y="60" width="14" height="284" fill="rgba(0,0,0,0.18)"/>
+        <rect x="118" y="60" width="14" height="284" fill="rgba(0,0,0,0.18)"/>
+      </svg>
+      <div class="bottle-name" style="color:var(--peachy);">Peach Pop</div>
+      <div class="bottle-sub">Vitamin D · 1000IU</div>
+    </div>
+
+    <!-- ── MULTI MAGIC (Dark Navy) ── -->
+    <div class="bottle-item">
+      <svg width="160" height="380" viewBox="0 0 160 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mm-can" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#04040C"/>
+            <stop offset="10%"  stop-color="#0C0C1E"/>
+            <stop offset="28%"  stop-color="#16162C"/>
+            <stop offset="45%"  stop-color="#1A1A2E"/>
+            <stop offset="58%"  stop-color="#242440"/>
+            <stop offset="72%"  stop-color="#14142A"/>
+            <stop offset="88%"  stop-color="#0A0A1A"/>
+            <stop offset="100%" stop-color="#020208"/>
+          </linearGradient>
+          <linearGradient id="mm-topband" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#020208"/>
+            <stop offset="20%"  stop-color="#0A0A1A"/>
+            <stop offset="50%"  stop-color="#12123A"/>
+            <stop offset="80%"  stop-color="#0A0A1A"/>
+            <stop offset="100%" stop-color="#010106"/>
+          </linearGradient>
+          <linearGradient id="mm-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="transparent"/>
+            <stop offset="30%"  stop-color="rgba(255,255,255,0)"/>
+            <stop offset="40%"  stop-color="rgba(255,255,255,0.14)"/>
+            <stop offset="50%"  stop-color="rgba(255,255,255,0.04)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="mm-metal-top" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#888"/>
+            <stop offset="25%"  stop-color="#d8d8d8"/>
+            <stop offset="50%"  stop-color="#f0f0f0"/>
+            <stop offset="72%"  stop-color="#c8c8c8"/>
+            <stop offset="100%" stop-color="#707070"/>
+          </linearGradient>
+          <linearGradient id="mm-metal-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#666"/>
+            <stop offset="30%"  stop-color="#b8b8b8"/>
+            <stop offset="55%"  stop-color="#d0d0d0"/>
+            <stop offset="80%"  stop-color="#a0a0a0"/>
+            <stop offset="100%" stop-color="#555"/>
+          </linearGradient>
+          <!-- Pink accent band top -->
+          <linearGradient id="mm-pinkband" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(255,79,163,0)"/>
+            <stop offset="20%"  stop-color="rgba(255,79,163,0.7)"/>
+            <stop offset="50%"  stop-color="rgba(255,79,163,1)"/>
+            <stop offset="80%"  stop-color="rgba(255,79,163,0.7)"/>
+            <stop offset="100%" stop-color="rgba(255,79,163,0)"/>
+          </linearGradient>
+          <filter id="can-drop-mm">
+            <feDropShadow dx="6" dy="24" stdDeviation="16" flood-color="rgba(255,79,163,0.3)"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="80" cy="374" rx="52" ry="8" fill="rgba(26,26,46,0.6)"/>
+        <ellipse cx="80" cy="352" rx="52" ry="9" fill="url(#mm-metal-bot)"/>
+        <ellipse cx="80" cy="350" rx="48" ry="7" fill="#999"/>
+        <path d="M28,342 Q28,352 80,358 Q132,352 132,342 L132,330 Q132,338 80,344 Q28,338 28,330 Z" fill="url(#mm-can)"/>
+
+        <rect x="28" y="60" width="104" height="284" fill="url(#mm-can)" filter="url(#can-drop-mm)"/>
+        <rect x="28" y="60" width="104" height="52" fill="url(#mm-topband)"/>
+        <!-- Pink stripe line at top/bottom of label -->
+        <rect x="28" y="108" width="104" height="3" fill="url(#mm-pinkband)"/>
+        <rect x="28" y="298" width="104" height="3" fill="url(#mm-pinkband)"/>
+
+        <path d="M28,111 Q50,102 80,108 Q110,114 132,105 L132,111 Q110,120 80,114 Q50,108 28,117 Z" fill="url(#mm-can)"/>
+
+        <text x="80" y="82" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="13" fill="white" letter-spacing="3" opacity="0.95">ENERG<tspan fill="#FF4FA3" font-size="15">ME</tspan></text>
+        <text x="80" y="97" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.5)" letter-spacing="2">ZERO SUGAR · MULTIVITAMIN</text>
+
+        <ellipse cx="80" cy="205" rx="44" ry="52" fill="rgba(255,79,163,0.06)"/>
+        <text x="80" y="185" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="36" fill="white" opacity="0.95">MULTI</text>
+        <text x="80" y="224" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="36" fill="#FF4FA3" opacity="0.95">MAGIC</text>
+
+        <circle cx="80" cy="258" r="18" fill="rgba(255,79,163,0.15)" stroke="rgba(255,79,163,0.35)" stroke-width="1"/>
+        <text x="80" y="263" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="#FF4FA3">M+</text>
+        <text x="80" y="275" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="rgba(255,255,255,0.35)" font-weight="700">DAILY</text>
+
+        <!-- Pink bottom band -->
+        <path d="M28,300 Q50,292 80,298 Q110,304 132,296 L132,344 Q132,336 80,342 Q28,336 28,344 Z" fill="rgba(255,79,163,0.25)"/>
+        <text x="80" y="326" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.6)" letter-spacing="1.5">MULTI MAGIC · 16 FL OZ</text>
+
+        <path d="M28,60 Q28,48 80,44 Q132,48 132,60 Z" fill="url(#mm-can)"/>
+        <ellipse cx="80" cy="44" rx="52" ry="9" fill="url(#mm-metal-top)"/>
+        <ellipse cx="80" cy="42" rx="38" ry="6" fill="#bbb"/>
+        <ellipse cx="80" cy="36" rx="38" ry="6" fill="url(#mm-metal-top)"/>
+        <ellipse cx="80" cy="32" rx="10" ry="3" fill="#c0c0c0" stroke="#999" stroke-width="0.5"/>
+        <rect x="76" y="28" width="8" height="6" rx="2" fill="#c8c8c8" stroke="#aaa" stroke-width="0.5"/>
+
+        <rect x="28" y="60" width="104" height="284" fill="url(#mm-shine)"/>
+        <rect x="40" y="70" width="10" height="270" fill="rgba(255,255,255,0.04)" rx="4"/>
+        <rect x="28" y="60" width="14" height="284" fill="rgba(0,0,0,0.22)"/>
+        <rect x="118" y="60" width="14" height="284" fill="rgba(0,0,0,0.22)"/>
+      </svg>
+      <div class="bottle-name" style="color:rgba(255,255,255,0.75);">Multi Magic</div>
+      <div class="bottle-sub">Multivitamin · Daily</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 02 — T-SHIRTS (V-neck, fitted like reference)
+═══════════════════════════════════════════ -->
+<div class="mockup-section">
+  <div class="section-label">02 — Apparel · V-Neck T-Shirts</div>
+  <div class="tshirt-row">
+
+    <!-- WHITE V-NECK -->
+    <div class="tshirt-item">
+      <svg width="260" height="290" viewBox="0 0 260 290" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wt-body" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#ffffff"/>
+            <stop offset="50%"  stop-color="#f5f5f5"/>
+            <stop offset="100%" stop-color="#e8e8e8"/>
+          </linearGradient>
+          <!-- Subtle shading left/right edges -->
+          <linearGradient id="wt-shade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(0,0,0,0.09)"/>
+            <stop offset="12%"  stop-color="rgba(0,0,0,0.01)"/>
+            <stop offset="88%"  stop-color="rgba(0,0,0,0.01)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.09)"/>
+          </linearGradient>
+          <!-- Neck/collar inner shadow -->
+          <radialGradient id="wt-collar" cx="50%" cy="0%" r="60%">
+            <stop offset="0%"   stop-color="rgba(180,180,200,0.6)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+          <filter id="tee-shadow">
+            <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="rgba(0,0,0,0.22)"/>
+          </filter>
+        </defs>
+
+        <!-- Shadow -->
+        <ellipse cx="130" cy="286" rx="100" ry="8" fill="rgba(0,0,0,0.18)"/>
+
+        <!-- Left sleeve -->
+        <path d="M78,28 L12,100 L40,115 L62,75 L78,55 Z" fill="url(#wt-body)"/>
+        <path d="M78,28 L12,100 L40,115 L62,75 L78,55 Z" fill="url(#wt-shade)"/>
+        <!-- Sleeve hem -->
+        <path d="M12,100 L40,115" stroke="#d8d8d8" stroke-width="2" fill="none"/>
+        <!-- Sleeve fold lines -->
+        <path d="M20,95 L44,108" stroke="rgba(0,0,0,0.05)" stroke-width="1" fill="none"/>
+
+        <!-- Right sleeve -->
+        <path d="M182,28 L248,100 L220,115 L198,75 L182,55 Z" fill="url(#wt-body)"/>
+        <path d="M182,28 L248,100 L220,115 L198,75 L182,55 Z" fill="url(#wt-shade)"/>
+        <path d="M248,100 L220,115" stroke="#d8d8d8" stroke-width="2" fill="none"/>
+        <path d="M240,95 L216,108" stroke="rgba(0,0,0,0.05)" stroke-width="1" fill="none"/>
+
+        <!-- Main body — fitted shape, slightly tapered at waist -->
+        <path d="M62,75 L40,115 L24,280 L236,280 L220,115 L198,75 L182,28 
+                 C174,16 158,10 148,24 L130,46 L112,24 
+                 C102,10 86,16 78,28 Z" 
+              fill="url(#wt-body)" filter="url(#tee-shadow)"/>
+
+        <!-- Side shading overlay -->
+        <path d="M62,75 L40,115 L24,280 L24,280 L50,280 L62,115 L62,75 Z" fill="rgba(0,0,0,0.05)"/>
+        <path d="M198,75 L220,115 L236,280 L210,280 L198,115 L198,75 Z" fill="rgba(0,0,0,0.05)"/>
+
+        <!-- Body shade overlay -->
+        <path d="M62,75 L40,115 L24,280 L236,280 L220,115 L198,75 L182,28 
+                 C174,16 158,10 148,24 L130,46 L112,24 
+                 C102,10 86,16 78,28 Z" 
+              fill="url(#wt-shade)"/>
+
+        <!-- V-neck collar (deep V shape like reference) -->
+        <path d="M112,24 C102,10 86,16 78,28 L62,75 L62,72 L78,26
+                 C84,14 100,8 112,22 L130,44 L148,22 
+                 C160,8 176,14 182,26 L198,72 L198,75 L182,28
+                 C174,16 158,10 148,24 L130,46 Z" 
+              fill="url(#wt-collar)" opacity="0.7"/>
+
+        <!-- V-neck seam line -->
+        <path d="M112,24 L130,48 L148,24" fill="none" stroke="#cccccc" stroke-width="1.5"/>
+        <!-- Shoulder seams -->
+        <path d="M78,28 L62,75" stroke="#d0d0d0" stroke-width="1" opacity="0.6"/>
+        <path d="M182,28 L198,75" stroke="#d0d0d0" stroke-width="1" opacity="0.6"/>
+        <!-- Bottom hem -->
+        <path d="M24,280 L236,280" stroke="#d8d8d8" stroke-width="2"/>
+        <!-- Side seams subtle -->
+        <path d="M62,75 L50,280" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+        <path d="M198,75 L210,280" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+
+        <!-- Logo -->
+        <text x="130" y="170" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="26" fill="#1A1A2E">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+        <text x="130" y="192" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(26,26,46,0.3)" letter-spacing="2.5" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <!-- Subtle fabric wrinkle lines -->
+        <path d="M105,220 Q108,240 104,265" stroke="rgba(0,0,0,0.04)" stroke-width="1.5" fill="none"/>
+        <path d="M155,220 Q152,240 156,265" stroke="rgba(0,0,0,0.04)" stroke-width="1.5" fill="none"/>
+        <path d="M130,210 Q132,230 130,260" stroke="rgba(0,0,0,0.03)" stroke-width="1" fill="none"/>
+      </svg>
+      <div class="item-label">White · Classic V-Neck</div>
+    </div>
+
+    <!-- NAVY V-NECK -->
+    <div class="tshirt-item">
+      <svg width="260" height="290" viewBox="0 0 260 290" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="nt-body" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#222238"/>
+            <stop offset="50%"  stop-color="#1A1A2E"/>
+            <stop offset="100%" stop-color="#10101E"/>
+          </linearGradient>
+          <linearGradient id="nt-shade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(0,0,0,0.3)"/>
+            <stop offset="12%"  stop-color="rgba(0,0,0,0.04)"/>
+            <stop offset="88%"  stop-color="rgba(0,0,0,0.04)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.3)"/>
+          </linearGradient>
+          <radialGradient id="nt-collar" cx="50%" cy="0%" r="60%">
+            <stop offset="0%"   stop-color="rgba(60,60,100,0.7)"/>
+            <stop offset="100%" stop-color="rgba(26,26,46,0)"/>
+          </radialGradient>
+          <filter id="tee-shadow-n">
+            <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="rgba(26,26,46,0.5)"/>
+          </filter>
+        </defs>
+        <ellipse cx="130" cy="286" rx="100" ry="8" fill="rgba(26,26,46,0.4)"/>
+
+        <path d="M78,28 L12,100 L40,115 L62,75 L78,55 Z" fill="url(#nt-body)"/>
+        <path d="M78,28 L12,100 L40,115 L62,75 L78,55 Z" fill="url(#nt-shade)"/>
+        <path d="M12,100 L40,115" stroke="rgba(255,255,255,0.07)" stroke-width="2" fill="none"/>
+
+        <path d="M182,28 L248,100 L220,115 L198,75 L182,55 Z" fill="url(#nt-body)"/>
+        <path d="M182,28 L248,100 L220,115 L198,75 L182,55 Z" fill="url(#nt-shade)"/>
+        <path d="M248,100 L220,115" stroke="rgba(255,255,255,0.07)" stroke-width="2" fill="none"/>
+
+        <path d="M62,75 L40,115 L24,280 L236,280 L220,115 L198,75 L182,28 
+                 C174,16 158,10 148,24 L130,46 L112,24 
+                 C102,10 86,16 78,28 Z" 
+              fill="url(#nt-body)" filter="url(#tee-shadow-n)"/>
+        <path d="M62,75 L40,115 L24,280 L24,280 L50,280 L62,115 L62,75 Z" fill="rgba(0,0,0,0.18)"/>
+        <path d="M198,75 L220,115 L236,280 L210,280 L198,115 L198,75 Z" fill="rgba(0,0,0,0.18)"/>
+        <path d="M62,75 L40,115 L24,280 L236,280 L220,115 L198,75 L182,28 
+                 C174,16 158,10 148,24 L130,46 L112,24 
+                 C102,10 86,16 78,28 Z" 
+              fill="url(#nt-shade)"/>
+
+        <path d="M112,24 C102,10 86,16 78,28 L62,75 L62,72 L78,26
+                 C84,14 100,8 112,22 L130,44 L148,22 
+                 C160,8 176,14 182,26 L198,72 L198,75 L182,28
+                 C174,16 158,10 148,24 L130,46 Z" 
+              fill="url(#nt-collar)" opacity="0.8"/>
+
+        <path d="M112,24 L130,48 L148,24" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+        <path d="M24,280 L236,280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
+
+        <text x="130" y="170" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="26" fill="#FF4FA3">EnergME</text>
+        <text x="130" y="192" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(46,207,176,0.6)" letter-spacing="2.5" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <path d="M105,220 Q108,240 104,265" stroke="rgba(255,255,255,0.03)" stroke-width="1.5" fill="none"/>
+        <path d="M155,220 Q152,240 156,265" stroke="rgba(255,255,255,0.03)" stroke-width="1.5" fill="none"/>
+      </svg>
+      <div class="item-label">Navy · Statement</div>
+    </div>
+
+    <!-- HOT PINK V-NECK -->
+    <div class="tshirt-item">
+      <svg width="260" height="290" viewBox="0 0 260 290" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pt-body" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#FF6BB5"/>
+            <stop offset="50%"  stop-color="#FF4FA3"/>
+            <stop offset="100%" stop-color="#E03585"/>
+          </linearGradient>
+          <linearGradient id="pt-shade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(0,0,0,0.22)"/>
+            <stop offset="12%"  stop-color="rgba(0,0,0,0.03)"/>
+            <stop offset="88%"  stop-color="rgba(0,0,0,0.03)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.22)"/>
+          </linearGradient>
+          <radialGradient id="pt-collar" cx="50%" cy="0%" r="60%">
+            <stop offset="0%"   stop-color="rgba(200,0,80,0.5)"/>
+            <stop offset="100%" stop-color="rgba(255,79,163,0)"/>
+          </radialGradient>
+          <filter id="tee-shadow-p">
+            <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="rgba(255,79,163,0.4)"/>
+          </filter>
+        </defs>
+        <ellipse cx="130" cy="286" rx="100" ry="8" fill="rgba(255,79,163,0.25)"/>
+
+        <path d="M78,28 L12,100 L40,115 L62,75 L78,55 Z" fill="url(#pt-body)"/>
+        <path d="M78,28 L12,100 L40,115 L62,75 L78,55 Z" fill="url(#pt-shade)"/>
+        <path d="M12,100 L40,115" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+
+        <path d="M182,28 L248,100 L220,115 L198,75 L182,55 Z" fill="url(#pt-body)"/>
+        <path d="M182,28 L248,100 L220,115 L198,75 L182,55 Z" fill="url(#pt-shade)"/>
+        <path d="M248,100 L220,115" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+
+        <path d="M62,75 L40,115 L24,280 L236,280 L220,115 L198,75 L182,28 
+                 C174,16 158,10 148,24 L130,46 L112,24 
+                 C102,10 86,16 78,28 Z" 
+              fill="url(#pt-body)" filter="url(#tee-shadow-p)"/>
+        <path d="M62,75 L40,115 L24,280 L50,280 L62,115 L62,75 Z" fill="rgba(0,0,0,0.1)"/>
+        <path d="M198,75 L220,115 L236,280 L210,280 L198,115 L198,75 Z" fill="rgba(0,0,0,0.1)"/>
+        <path d="M62,75 L40,115 L24,280 L236,280 L220,115 L198,75 L182,28 
+                 C174,16 158,10 148,24 L130,46 L112,24 
+                 C102,10 86,16 78,28 Z" 
+              fill="url(#pt-shade)"/>
+
+        <path d="M112,24 C102,10 86,16 78,28 L62,75 L62,72 L78,26
+                 C84,14 100,8 112,22 L130,44 L148,22 
+                 C160,8 176,14 182,26 L198,72 L198,75 L182,28
+                 C174,16 158,10 148,24 L130,46 Z" 
+              fill="url(#pt-collar)" opacity="0.8"/>
+
+        <path d="M112,24 L130,48 L148,24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <path d="M24,280 L236,280" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+        <text x="130" y="170" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="26" fill="white">EnergME</text>
+        <text x="130" y="192" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(255,255,255,0.6)" letter-spacing="2.5" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+
+        <path d="M105,220 Q108,240 104,265" stroke="rgba(255,255,255,0.07)" stroke-width="1.5" fill="none"/>
+        <path d="M155,220 Q152,240 156,265" stroke="rgba(255,255,255,0.07)" stroke-width="1.5" fill="none"/>
+      </svg>
+      <div class="item-label">Hot Pink · Bold</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 03 — MUG (realistic ceramic like reference)
+═══════════════════════════════════════════ -->
+<div class="mockup-section">
+  <div class="section-label">03 — Ceramic Mug · 11oz</div>
+  <div class="accessories-row">
+
+    <!-- NAVY MUG -->
+    <div class="accessory-item">
+      <svg width="340" height="310" viewBox="0 0 340 310" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Mug body: ceramic cylindrical — slight perspective (wider at top) -->
+          <linearGradient id="mug-navy" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#08081A"/>
+            <stop offset="8%"   stop-color="#10102A"/>
+            <stop offset="22%"  stop-color="#161630"/>
+            <stop offset="42%"  stop-color="#1A1A2E"/>
+            <stop offset="62%"  stop-color="#202038"/>
+            <stop offset="78%"  stop-color="#16162C"/>
+            <stop offset="92%"  stop-color="#0C0C1E"/>
+            <stop offset="100%" stop-color="#060610"/>
+          </linearGradient>
+          <!-- Rim top surface (inside view from slight angle) -->
+          <linearGradient id="mug-inside" cx="50%" cy="50%" r="50%" fx="40%" fy="40%" gradientUnits="objectBoundingBox" id="mug-inside-r">
+            <stop offset="0%"   stop-color="#28284A"/>
+            <stop offset="60%"  stop-color="#1A1A2E"/>
+            <stop offset="100%" stop-color="#0C0C1E"/>
+          </linearGradient>
+          <!-- Handle gradient -->
+          <linearGradient id="mug-handle-n" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#040410"/>
+            <stop offset="30%"  stop-color="#10102A"/>
+            <stop offset="60%"  stop-color="#16162E"/>
+            <stop offset="100%" stop-color="#02020A"/>
+          </linearGradient>
+          <!-- Inner handle lightening -->
+          <linearGradient id="mug-handle-inner" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#0A0A1E"/>
+            <stop offset="50%"  stop-color="#1E1E40"/>
+            <stop offset="100%" stop-color="#0A0A1E"/>
+          </linearGradient>
+          <!-- Specular shine on ceramic -->
+          <linearGradient id="mug-sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="transparent"/>
+            <stop offset="18%"  stop-color="rgba(255,255,255,0)"/>
+            <stop offset="28%"  stop-color="rgba(255,255,255,0.12)"/>
+            <stop offset="38%"  stop-color="rgba(255,255,255,0.04)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <!-- Bottom gradient -->
+          <linearGradient id="mug-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#04040C"/>
+            <stop offset="40%"  stop-color="#0E0E22"/>
+            <stop offset="60%"  stop-color="#12122A"/>
+            <stop offset="100%" stop-color="#04040C"/>
+          </linearGradient>
+          <filter id="mug-drop">
+            <feDropShadow dx="8" dy="20" stdDeviation="20" flood-color="rgba(0,0,0,0.55)"/>
+          </filter>
+        </defs>
+
+        <!-- Cast shadow -->
+        <ellipse cx="155" cy="302" rx="140" ry="12" fill="rgba(0,0,0,0.45)"/>
+
+        <!-- ── HANDLE (drawn first so body overlaps left edge) ── -->
+        <!-- Outer handle path -->
+        <path d="M232,90 Q310,90 310,168 Q310,244 232,244" 
+              fill="none" stroke="#050510" stroke-width="36" stroke-linecap="round"/>
+        <!-- Inner handle gradient -->
+        <path d="M232,90 Q302,90 302,168 Q302,244 232,244" 
+              fill="none" stroke="url(#mug-handle-n)" stroke-width="28" stroke-linecap="round"/>
+        <!-- Handle highlight -->
+        <path d="M232,98 Q288,100 288,168 Q288,236 232,236" 
+              fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="6" stroke-linecap="round"/>
+        <!-- Handle inner arch highlight (ceramic sheen) -->
+        <path d="M235,112 Q270,114 270,168 Q270,222 235,224" 
+              fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- ── MUG BODY ── -->
+        <!-- Slight trapezoid: wider at top (perspective) -->
+        <path d="M32,68 L42,272 L268,272 L278,68 Z" fill="url(#mug-navy)" filter="url(#mug-drop)"/>
+
+        <!-- ── RIM (top ellipse) — viewed from slight angle so it's an ellipse ── -->
+        <ellipse cx="155" cy="68" rx="123" ry="22" fill="url(#mug-navy)"/>
+        <!-- Inside of rim (dark inner view) -->
+        <ellipse cx="155" cy="72" rx="113" ry="18" fill="#0C0C1E"/>
+        <!-- Inner surface subtle gradient -->
+        <ellipse cx="155" cy="75" rx="108" ry="15" fill="#101024"/>
+        <!-- Tiny inner highlight -->
+        <ellipse cx="140" cy="74" rx="35" ry="6" fill="rgba(255,255,255,0.04)" transform="rotate(-10,140,74)"/>
+
+        <!-- ── BOTTOM ELLIPSE ── -->
+        <ellipse cx="155" cy="272" rx="113" ry="16" fill="url(#mug-bot)"/>
+        <!-- Bottom foot ring highlight -->
+        <path d="M42,272 Q155,286 268,272" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+        <!-- ── BRAND ON MUG ── -->
+        <text x="148" y="178" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="28" fill="white">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+        <text x="148" y="200" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="2" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+        <!-- Pink stripe accent -->
+        <path d="M50,218 Q155,226 260,218" fill="none" stroke="rgba(255,79,163,0.35)" stroke-width="2"/>
+
+        <!-- ── CERAMIC SHEEN ── -->
+        <path d="M32,68 L42,272 L268,272 L278,68 Z" fill="url(#mug-sheen)"/>
+        <!-- Thin highlight line (ceramic gloss) -->
+        <path d="M80,70 L86,270" stroke="rgba(255,255,255,0.06)" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- Steam wisps -->
+        <path d="M110,48 Q114,34 110,20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M155,42 Q159,26 155,12" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M200,48 Q204,34 200,20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="item-label">Navy Ceramic Mug</div>
+    </div>
+
+    <!-- WHITE MUG -->
+    <div class="accessory-item" style="background:rgba(46,207,176,0.04); border-color:rgba(46,207,176,0.08);">
+      <svg width="340" height="310" viewBox="0 0 340 310" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mug-white" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#c8c8d0"/>
+            <stop offset="8%"   stop-color="#dcdce4"/>
+            <stop offset="22%"  stop-color="#ebebf0"/>
+            <stop offset="42%"  stop-color="#f4f4f8"/>
+            <stop offset="62%"  stop-color="#f8f8fa"/>
+            <stop offset="78%"  stop-color="#e8e8ec"/>
+            <stop offset="92%"  stop-color="#d4d4da"/>
+            <stop offset="100%" stop-color="#b8b8c0"/>
+          </linearGradient>
+          <linearGradient id="mug-white-bot" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#aaaaB2"/>
+            <stop offset="50%"  stop-color="#d0d0d8"/>
+            <stop offset="100%" stop-color="#aaaaB2"/>
+          </linearGradient>
+          <linearGradient id="mug-white-handle" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#b0b0b8"/>
+            <stop offset="40%"  stop-color="#d8d8e0"/>
+            <stop offset="70%"  stop-color="#e0e0e8"/>
+            <stop offset="100%" stop-color="#a8a8b0"/>
+          </linearGradient>
+          <linearGradient id="mug-white-sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="transparent"/>
+            <stop offset="20%"  stop-color="rgba(255,255,255,0)"/>
+            <stop offset="32%"  stop-color="rgba(255,255,255,0.55)"/>
+            <stop offset="42%"  stop-color="rgba(255,255,255,0.15)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <filter id="mug-drop-w">
+            <feDropShadow dx="8" dy="20" stdDeviation="20" flood-color="rgba(0,0,0,0.3)"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="155" cy="302" rx="140" ry="12" fill="rgba(0,0,0,0.25)"/>
+
+        <!-- Handle -->
+        <path d="M232,90 Q310,90 310,168 Q310,244 232,244" 
+              fill="none" stroke="#aaaaB2" stroke-width="36" stroke-linecap="round"/>
+        <path d="M232,90 Q302,90 302,168 Q302,244 232,244" 
+              fill="none" stroke="url(#mug-white-handle)" stroke-width="28" stroke-linecap="round"/>
+        <path d="M232,98 Q288,100 288,168 Q288,236 232,236" 
+              fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="6" stroke-linecap="round"/>
+
+        <!-- Body -->
+        <path d="M32,68 L42,272 L268,272 L278,68 Z" fill="url(#mug-white)" filter="url(#mug-drop-w)"/>
+
+        <!-- Rim -->
+        <ellipse cx="155" cy="68" rx="123" ry="22" fill="url(#mug-white)"/>
+        <ellipse cx="155" cy="72" rx="113" ry="18" fill="#c8c8d4"/>
+        <ellipse cx="155" cy="75" rx="108" ry="15" fill="#d0d0da"/>
+        <ellipse cx="140" cy="74" rx="35" ry="6" fill="rgba(255,255,255,0.3)" transform="rotate(-10,140,74)"/>
+
+        <!-- Bottom -->
+        <ellipse cx="155" cy="272" rx="113" ry="16" fill="url(#mug-white-bot)"/>
+        <path d="M42,272 Q155,286 268,272" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+        <!-- Brand -->
+        <text x="148" y="178" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="28" fill="#1A1A2E">Energ<tspan fill="#FF4FA3">ME</tspan></text>
+        <text x="148" y="200" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="rgba(26,26,46,0.35)" letter-spacing="2" font-weight="700">FEEL GOOD, EVERY SIP.</text>
+        <path d="M50,218 Q155,226 260,218" fill="none" stroke="rgba(255,79,163,0.3)" stroke-width="2"/>
+
+        <!-- Gloss sheen -->
+        <path d="M32,68 L42,272 L268,272 L278,68 Z" fill="url(#mug-white-sheen)"/>
+        <path d="M80,70 L86,270" stroke="rgba(255,255,255,0.4)" stroke-width="5" stroke-linecap="round"/>
+
+        <!-- Steam -->
+        <path d="M110,48 Q114,34 110,20" fill="none" stroke="rgba(180,180,200,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M155,42 Q159,26 155,12" fill="none" stroke="rgba(180,180,200,0.25)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M200,48 Q204,34 200,20" fill="none" stroke="rgba(180,180,200,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="item-label">White Ceramic Mug</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <span>EnergME</span> · Physical Mockups v3 · 2026 · Confidential
+</footer>
+
+</body>
+</html>

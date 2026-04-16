@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnergME — Social Media Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #FF4FA3;
+    --spearmint: #2ECFB0;
+    --peachy: #FF7A4B;
+    --blush: #FFF0F7;
+    --navy: #1A1A2E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f0f0f0;
+    font-family: 'Nunito', sans-serif;
+    color: var(--navy);
+    padding: 48px;
+  }
+
+  h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 32px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: rgba(26,26,46,0.4);
+    margin-bottom: 48px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .carousel-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.35);
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .carousel-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(26,26,46,0.1);
+  }
+
+  /* PHONE MOCKUP WRAPPER */
+  .carousel-section {
+    margin-bottom: 72px;
+  }
+
+  .slides-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .slides-row::-webkit-scrollbar { display: none; }
+
+  /* SLIDE BASE - 1:1 square = 400x400 for Instagram */
+  .slide {
+    width: 320px;
+    height: 320px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px;
+  }
+
+  /* slide type indicator */
+  .slide-num {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .slide-num-dark {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(26,26,46,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(26,26,46,0.4);
+  }
+
+  /* Story format - 9:16 */
+  .story {
+    width: 180px;
+    height: 320px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .caption-note {
+    font-size: 12px;
+    color: rgba(26,26,46,0.4);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+  .slide-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(26,26,46,0.1);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.25);
+    text-align: center;
+  }
+
+  footer span { color: var(--hot-pink); }
+</style>
+</head>
+<body>
+
+<h1>Energ<span style="color:var(--hot-pink);">ME</span> — Social Media Carousel</h1>
+<p class="subtitle">Instagram Feed · Carousel Posts · Stories · TikTok Covers</p>
+
+<!-- CAROUSEL 1: Product Launch -->
+<div class="carousel-section">
+  <div class="carousel-label">Carousel 01 — Product Launch · Instagram Feed (1:1)</div>
+  <div class="slides-row">
+
+    <!-- Slide 1: Cover -->
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--navy);">
+        <div class="slide-num">1/6</div>
+        <!-- bg circles -->
+        <div style="position:absolute;width:200px;height:200px;border-radius:50%;background:var(--hot-pink);opacity:0.08;top:-60px;right:-60px;"></div>
+        <div style="position:absolute;width:140px;height:140px;border-radius:50%;background:var(--spearmint);opacity:0.06;bottom:-40px;left:-40px;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-family:'Fredoka One',cursive;font-size:44px;color:white;line-height:1;margin-bottom:8px;">Energ<span style="color:var(--hot-pink);">ME</span></div>
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:24px;font-weight:700;">New Drop 🍑</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:22px;color:white;line-height:1.2;">Meet your new<br>fave vitamin.</div>
+          <div style="margin-top:20px;display:inline-block;background:var(--hot-pink);border-radius:100px;padding:8px 20px;font-size:12px;font-weight:700;color:white;">Swipe to see →</div>
+        </div>
+      </div>
+      <div class="caption-note">Cover Slide</div>
+    </div>
+
+    <!-- Slide 2: Berry Bliss product -->
+    <div class="slide-wrapper">
+      <div class="slide" style="background:#FF4FA3;">
+        <div class="slide-num">2/6</div>
+        <div style="position:absolute;width:180px;height:180px;border-radius:50%;background:white;opacity:0.08;bottom:-60px;right:-60px;"></div>
+        <svg width="80" height="160" viewBox="0 0 80 160" style="position:relative;z-index:1;margin-bottom:16px;">
+          <rect x="30" y="0" width="6" height="18" rx="3" fill="#FF2D85" opacity="0.7"/>
+          <rect x="22" y="16" width="20" height="10" rx="4" fill="#FF2D85"/>
+          <rect x="10" y="24" width="44" height="126" rx="20" fill="rgba(255,255,255,0.25)"/>
+          <rect x="10" y="24" width="44" height="50" rx="20" fill="rgba(255,255,255,0.15)"/>
+          <text x="32" y="60" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="9" fill="white">EnergME</text>
+          <text x="32" y="80" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" font-weight="800">BERRY BLISS</text>
+          <circle cx="32" cy="110" r="16" fill="rgba(255,255,255,0.2)"/>
+          <text x="32" y="115" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="white">C</text>
+        </svg>
+        <div style="position:relative;z-index:1;">
+          <div style="font-family:'Fredoka One',cursive;font-size:26px;color:white;margin-bottom:4px;">Berry Bliss</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.8);font-weight:700;">Vitamin C · 500mg · $4.99</div>
+        </div>
+      </div>
+      <div class="caption-note">Product Slide</div>
+    </div>
+
+    <!-- Slide 3: Mint Dream -->
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--spearmint);">
+        <div class="slide-num">3/6</div>
+        <svg width="80" height="160" viewBox="0 0 80 160" style="position:relative;z-index:1;margin-bottom:16px;">
+          <rect x="30" y="0" width="6" height="18" rx="3" fill="#22B898" opacity="0.7"/>
+          <rect x="22" y="16" width="20" height="10" rx="4" fill="#22B898"/>
+          <rect x="10" y="24" width="44" height="126" rx="20" fill="rgba(255,255,255,0.25)"/>
+          <rect x="10" y="24" width="44" height="50" rx="20" fill="rgba(255,255,255,0.15)"/>
+          <text x="32" y="60" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="9" fill="white">EnergME</text>
+          <text x="32" y="80" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" font-weight="800">MINT DREAM</text>
+          <circle cx="32" cy="110" r="16" fill="rgba(255,255,255,0.2)"/>
+          <text x="32" y="115" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="11" fill="white">Zz</text>
+        </svg>
+        <div>
+          <div style="font-family:'Fredoka One',cursive;font-size:26px;color:var(--navy);margin-bottom:4px;">Mint Dream</div>
+          <div style="font-size:12px;color:rgba(26,26,46,0.6);font-weight:700;">Melatonin · 5mg · $4.99</div>
+        </div>
+      </div>
+      <div class="caption-note">Product Slide</div>
+    </div>
+
+    <!-- Slide 4: Peach Pop -->
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--peachy);">
+        <div class="slide-num">4/6</div>
+        <svg width="80" height="160" viewBox="0 0 80 160" style="position:relative;z-index:1;margin-bottom:16px;">
+          <rect x="30" y="0" width="6" height="18" rx="3" fill="#E8622E" opacity="0.7"/>
+          <rect x="22" y="16" width="20" height="10" rx="4" fill="#E8622E"/>
+          <rect x="10" y="24" width="44" height="126" rx="20" fill="rgba(255,255,255,0.25)"/>
+          <rect x="10" y="24" width="44" height="50" rx="20" fill="rgba(255,255,255,0.15)"/>
+          <text x="32" y="60" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="9" fill="white">EnergME</text>
+          <text x="32" y="80" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" font-weight="800">PEACH POP</text>
+          <circle cx="32" cy="110" r="16" fill="rgba(255,255,255,0.2)"/>
+          <text x="32" y="115" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="14" fill="white">D</text>
+        </svg>
+        <div>
+          <div style="font-family:'Fredoka One',cursive;font-size:26px;color:white;margin-bottom:4px;">Peach Pop</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.8);font-weight:700;">Vitamin D · 1000IU · $4.99</div>
+        </div>
+      </div>
+      <div class="caption-note">Product Slide</div>
+    </div>
+
+    <!-- Slide 5: Why EnergME -->
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--blush);">
+        <div class="slide-num-dark">5/6</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:26px;color:var(--navy);margin-bottom:24px;line-height:1.2;">Why<br><span style="color:var(--hot-pink);">EnergME?</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;width:100%;text-align:left;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--hot-pink);display:flex;align-items:center;justify-content:center;font-size:13px;color:white;flex-shrink:0;">✓</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">No pills. Just drink it.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--spearmint);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--navy);flex-shrink:0;">✓</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">Liquid = better absorption.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--peachy);display:flex;align-items:center;justify-content:center;font-size:13px;color:white;flex-shrink:0;">✓</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">Actually tastes amazing.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;color:white;flex-shrink:0;">✓</div>
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">No sugar. No junk.</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption-note">Value Slide</div>
+    </div>
+
+    <!-- Slide 6: CTA -->
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--navy);">
+        <div class="slide-num">6/6</div>
+        <div style="position:absolute;width:220px;height:220px;border-radius:50%;background:var(--hot-pink);opacity:0.07;top:-80px;left:-80px;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-family:'Fredoka One',cursive;font-size:36px;color:white;line-height:1.1;margin-bottom:8px;">Feel good,<br><span style="color:var(--hot-pink);">every sip.</span></div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:24px;font-weight:600;line-height:1.6;">Grab your first pack today.<br>Free shipping on orders over $25.</div>
+          <div style="background:var(--hot-pink);border-radius:100px;padding:12px 28px;font-size:13px;font-weight:700;color:white;display:inline-block;">Shop EnergME →</div>
+          <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.1em;text-transform:uppercase;">Link in bio</div>
+        </div>
+      </div>
+      <div class="caption-note">CTA Slide</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CAROUSEL 2: Educational -->
+<div class="carousel-section">
+  <div class="carousel-label">Carousel 02 — Educational · "Which Vitamin?" · Feed (1:1)</div>
+  <div class="slides-row">
+
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--hot-pink);">
+        <div class="slide-num">1/4</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:30px;color:white;line-height:1.2;margin-bottom:12px;">Which<br>vitamin<br>do you<br>need? 🍑</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:700;">Swipe to find out →</div>
+      </div>
+      <div class="caption-note">Cover</div>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--blush);">
+        <div class="slide-num-dark">2/4</div>
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--hot-pink);display:flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:24px;color:white;margin-bottom:16px;">C</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:22px;color:var(--navy);margin-bottom:8px;">Vitamin C</div>
+        <div style="font-size:13px;color:rgba(26,26,46,0.6);font-weight:600;line-height:1.6;margin-bottom:16px;">If you get tired easily, catch colds often, or your skin looks dull — Vitamin C is your girl.</div>
+        <div style="background:var(--hot-pink);border-radius:100px;padding:6px 16px;font-size:11px;font-weight:700;color:white;">Try Berry Bliss →</div>
+      </div>
+      <div class="caption-note">Vitamin C</div>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--navy);">
+        <div class="slide-num">3/4</div>
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--spearmint);display:flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:20px;color:var(--navy);margin-bottom:16px;">Zz</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:22px;color:white;margin-bottom:8px;">Melatonin</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;line-height:1.6;margin-bottom:16px;">Scrolling until 2am again? If your sleep is off, melatonin helps your body actually wind down.</div>
+        <div style="background:var(--spearmint);border-radius:100px;padding:6px 16px;font-size:11px;font-weight:700;color:var(--navy);">Try Mint Dream →</div>
+      </div>
+      <div class="caption-note">Melatonin</div>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide" style="background:var(--peachy);">
+        <div class="slide-num">4/4</div>
+        <div style="width:56px;height:56px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:24px;color:var(--peachy);margin-bottom:16px;">D</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:22px;color:white;margin-bottom:8px;">Vitamin D</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.8);font-weight:600;line-height:1.6;margin-bottom:16px;">Spend most of your day inside? Most of us are low on Vitamin D without even knowing it.</div>
+        <div style="background:white;border-radius:100px;padding:6px 16px;font-size:11px;font-weight:700;color:var(--peachy);">Try Peach Pop →</div>
+      </div>
+      <div class="caption-note">Vitamin D</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STORIES / REELS COVERS -->
+<div class="carousel-section">
+  <div class="carousel-label">Social 03 — Instagram Stories &amp; TikTok Covers (9:16)</div>
+  <div class="slides-row">
+
+    <div class="slide-wrapper">
+      <div class="story" style="background:var(--navy);">
+        <div style="position:absolute;width:160px;height:160px;border-radius:50%;background:var(--hot-pink);opacity:0.1;top:-40px;right:-40px;"></div>
+        <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;">
+          <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--spearmint);font-weight:700;margin-bottom:12px;">New Drop</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:32px;color:white;line-height:1;text-align:center;margin-bottom:6px;">Energ<span style="color:var(--hot-pink);">ME</span></div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:20px;">Feel Good, Every Sip.</div>
+          <svg width="56" height="110" viewBox="0 0 56 110">
+            <rect x="20" y="0" width="4" height="14" rx="2" fill="#FF4FA3"/>
+            <rect x="14" y="12" width="16" height="8" rx="4" fill="#FF4FA3"/>
+            <rect x="6" y="18" width="32" height="84" rx="14" fill="#FF4FA3"/>
+            <rect x="6" y="18" width="32" height="32" rx="14" fill="#FF2D85"/>
+            <text x="22" y="42" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="7" fill="white">EnergME</text>
+            <text x="22" y="65" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="6" fill="rgba(255,255,255,0.8)" font-weight="800">BERRY BLISS</text>
+          </svg>
+          <div style="margin-top:16px;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);font-weight:700;">Link in bio ↑</div>
+        </div>
+      </div>
+      <div class="caption-note">Story · Product</div>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="story" style="background:var(--hot-pink);">
+        <div style="position:absolute;width:140px;height:140px;border-radius:50%;background:white;opacity:0.08;bottom:-40px;left:-40px;"></div>
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:700;margin-bottom:16px;">Did you know?</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:28px;color:white;line-height:1.2;margin-bottom:16px;">Liquid vitamins absorb 5x faster than pills</div>
+          <div style="width:40px;height:2px;background:rgba(255,255,255,0.3);margin:0 auto 16px;"></div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);font-weight:600;line-height:1.6;">That's why EnergME actually works. Bottled up and ready to sip.</div>
+          <div style="margin-top:20px;background:white;border-radius:100px;padding:8px 18px;font-size:10px;font-weight:700;color:var(--hot-pink);display:inline-block;">Shop Now →</div>
+        </div>
+      </div>
+      <div class="caption-note">Story · Educational</div>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="story" style="background:var(--spearmint);">
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(26,26,46,0.4);font-weight:700;margin-bottom:12px;">Tonight's vibe</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:30px;color:var(--navy);line-height:1.1;margin-bottom:16px;">Sleep like<br>you mean it.</div>
+          <svg width="60" height="120" viewBox="0 0 60 120" style="margin-bottom:16px;">
+            <rect x="22" y="0" width="5" height="16" rx="2" fill="#22B898"/>
+            <rect x="16" y="14" width="18" height="9" rx="4" fill="#22B898"/>
+            <rect x="8" y="21" width="34" height="95" rx="16" fill="rgba(255,255,255,0.4)"/>
+            <rect x="8" y="21" width="34" height="40" rx="16" fill="rgba(255,255,255,0.2)"/>
+            <text x="25" y="47" text-anchor="middle" font-family="'Fredoka One',cursive" font-size="7" fill="white">EnergME</text>
+            <text x="25" y="72" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="rgba(255,255,255,0.9)" font-weight="800">MINT DREAM</text>
+            <text x="25" y="88" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="6" fill="rgba(255,255,255,0.6)">Melatonin · 5mg</text>
+          </svg>
+          <div style="font-size:11px;color:rgba(26,26,46,0.5);font-weight:700;">1 hour before bed. Every night.</div>
+        </div>
+      </div>
+      <div class="caption-note">Story · Melatonin</div>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="story" style="background:var(--blush);">
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-family:'Fredoka One',cursive;font-size:22px;color:var(--navy);line-height:1.2;margin-bottom:20px;">50,000+ people already feel good.</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <div style="background:white;border-radius:12px;padding:12px;text-align:left;">
+              <div style="font-size:10px;color:var(--hot-pink);font-weight:800;margin-bottom:4px;">★★★★★ jasminekvibes</div>
+              <div style="font-size:10px;color:var(--navy);font-weight:600;line-height:1.5;">"I actually look forward to vitamins now??"</div>
+            </div>
+            <div style="background:white;border-radius:12px;padding:12px;text-align:left;">
+              <div style="font-size:10px;color:var(--spearmint);font-weight:800;margin-bottom:4px;">★★★★★ marcusrlifts</div>
+              <div style="font-size:10px;color:var(--navy);font-weight:600;line-height:1.5;">"My whole dorm is obsessed now."</div>
+            </div>
+          </div>
+          <div style="background:var(--hot-pink);border-radius:100px;padding:8px 20px;font-size:10px;font-weight:700;color:white;display:inline-block;">Join them →</div>
+        </div>
+      </div>
+      <div class="caption-note">Story · Social Proof</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <span>EnergME</span> · Social Media Kit · Version 1.0 · 2026 · Confidential
+</footer>
+
+</body>
+</html>
