@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SheStrikeskb — Kickball Club</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0D0D0D;
+    --charcoal: #1A1A1A;
+    --red: #CC0000;
+    --red-bright: #FF1A1A;
+    --white: #FFFFFF;
+    --gray: #888888;
+    --gray-light: #2a2a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 72px;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-emblem {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-bright) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(204,0,0,0.15) 0%, transparent 50%),
+      linear-gradient(to bottom, transparent 60%, var(--black) 100%);
+    z-index: 0;
+  }
+
+  /* diagonal slash pattern */
+  .hero-slashes {
+    position: absolute;
+    right: -100px;
+    top: 0;
+    bottom: 0;
+    width: 55%;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-slashes::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(204,0,0,0.08) 40px,
+      rgba(204,0,0,0.08) 42px
+    );
+  }
+
+  .hero-slashes-inner {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 70%;
+    height: 80%;
+    background: linear-gradient(135deg, #1a0000 0%, #330000 40%, #CC0000 100%);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 0.35;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .hero-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(80px, 12vw, 160px);
+    line-height: 0.88;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+  }
+
+  .hero-headline .accent { color: var(--red); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--red-bright); transform: translateY(-2px); }
+
+  .btn-secondary {
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .btn-secondary:hover { opacity: 1; }
+
+  .hero-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    background: var(--red);
+    padding: 16px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 22s linear infinite;
+    white-space: nowrap;
+  }
+
+  .marquee-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0 40px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .marquee-item::after {
+    content: '⚡';
+    font-size: 16px;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 100px 60px;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 6vw, 72px);
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+
+  /* ── BENTO GRID ── */
+  .bento-section {
+    background: var(--charcoal);
+  }
+
+  .bento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .bento-card {
+    background: var(--black);
+    border-radius: 4px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .bento-card:hover { transform: translateY(-4px); }
+
+  .bento-card.red { background: var(--red); }
+  .bento-card.dark-red { background: #1a0000; border: 1px solid rgba(204,0,0,0.3); }
+
+  .card-1 { grid-column: span 7; }
+  .card-2 { grid-column: span 5; }
+  .card-3 { grid-column: span 4; }
+  .card-4 { grid-column: span 4; }
+  .card-5 { grid-column: span 4; }
+
+  .card-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .card-1 .card-tag, .bento-card.red .card-tag { color: rgba(255,255,255,0.6); }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .bento-card.red .card-body { color: rgba(255,255,255,0.8); }
+
+  .card-big-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .bento-card.red .card-big-num { color: var(--white); }
+
+  .card-slash {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.04);
+    transform: rotate(45deg);
+  }
+
+  .card-slash-red {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(0,0,0,0.15);
+    transform: rotate(45deg);
+  }
+
+  /* ── EVERYTHING YOU NEED ── */
+  .need-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .need-list {
+    list-style: none;
+    margin-top: 32px;
+  }
+
+  .need-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .need-item:hover .need-icon { background: var(--red); }
+  .need-item:hover .need-item-title { color: var(--red); }
+
+  .need-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gray-light);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .need-item-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    margin-bottom: 4px;
+  }
+
+  .need-item-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  .need-visual {
+    position: relative;
+  }
+
+  .need-photo-mock {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #1a0000, #330000 40%, #440000);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .need-photo-mock::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(204,0,0,0.06) 30px,
+      rgba(204,0,0,0.06) 32px
+    );
+  }
+
+  .field-svg {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── SCHEDULE ── */
+  .schedule-section { background: var(--charcoal); }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .game-card {
+    background: var(--black);
+    border-radius: 4px;
+    padding: 28px;
+    border-left: 3px solid var(--red);
+    transition: transform 0.2s;
+  }
+
+  .game-card:hover { transform: translateY(-4px); }
+
+  .game-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .game-teams {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .game-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    display: flex;
+    gap: 16px;
+  }
+
+  .game-badge {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(204,0,0,0.2);
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  /* ── REGISTER ── */
+  .register-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .register-form {
+    background: var(--charcoal);
+    padding: 48px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .form-row {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 14px 16px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-input:focus { border-color: var(--red); }
+
+  .form-input::placeholder { color: rgba(255,255,255,0.25); }
+
+  .form-select {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 14px 16px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .form-select:focus { border-color: var(--red); }
+
+  .form-select option { background: var(--charcoal); }
+
+  .form-submit {
+    width: 100%;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 18px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .form-submit:hover { background: var(--red-bright); transform: translateY(-2px); }
+
+  /* ── MISSION ── */
+  .mission-section {
+    background: var(--red);
+    text-align: center;
+    padding: 100px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mission-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 50px,
+      rgba(0,0,0,0.07) 50px,
+      rgba(0,0,0,0.07) 52px
+    );
+  }
+
+  .mission-quote {
+    position: relative;
+    z-index: 2;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 5vw, 60px);
+    text-transform: uppercase;
+    line-height: 1.05;
+    max-width: 900px;
+    margin: 0 auto 32px;
+  }
+
+  .mission-sub {
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    padding: 60px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 12px;
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  .footer-links h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .footer-links ul { list-style: none; }
+
+  .footer-links li { margin-bottom: 10px; }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--red); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-email {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-email:hover { color: var(--red); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.5s; }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(13,13,13,0.98);
+    backdrop-filter: blur(16px);
+    padding: 32px 24px;
+    z-index: 99;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--red); }
+
+  .mobile-menu .mobile-cta {
+    color: var(--white) !important;
+    background: var(--red);
+    text-align: center;
+    padding: 16px;
+    border-radius: 2px;
+    margin-top: 16px;
+    border-bottom: none;
+  }
+
+  /* ── TABLET ── */
+  @media (max-width: 1200px) {
+    .bento-grid { grid-template-columns: repeat(6, 1fr); }
+    .card-1 { grid-column: span 6; }
+    .card-2 { grid-column: span 6; }
+    .card-3 { grid-column: span 2; }
+    .card-4 { grid-column: span 2; }
+    .card-5 { grid-column: span 2; }
+    .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 60px 24px; }
+    .hero { padding: 100px 24px 60px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .card-1, .card-2, .card-3, .card-4, .card-5 { grid-column: span 1; }
+    .need-section { grid-template-columns: 1fr; }
+    .need-visual { display: none; }
+    .register-section { grid-template-columns: 1fr; }
+    .register-form { padding: 28px 20px; }
+    .schedule-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .hero-stats .stat-num { font-size: 36px; }
+    .mission-section { padding: 60px 24px; }
+    footer { padding: 40px 24px; }
+    .footer-inner { flex-direction: column; }
+    .bento-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="logo-emblem" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="21" fill="#CC0000" stroke="#fff" stroke-width="1.5"/>
+      <polygon points="26,6 14,24 21,24 18,38 30,20 23,20" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+      <text x="22" y="42" text-anchor="middle" font-family="Arial" font-weight="900" font-size="5" fill="white" letter-spacing="1">KICKBALL</text>
+    </svg>
+    <svg viewBox="0 0 160 28" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="22" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="26" fill="white" letter-spacing="1">SHE</text>
+      <text x="58" y="22" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="26" fill="#CC0000" letter-spacing="1">STRIKES</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#register" class="nav-cta">Join Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#schedule" onclick="closeMenu()">Schedule</a>
+  <a href="#register" onclick="closeMenu()">Register</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#register" class="mobile-cta" onclick="closeMenu()">Join Now ⚡</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-slashes">
+    <div class="hero-slashes-inner"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Military Women's Kickball Organization</div>
+    <h1 class="hero-headline fade-up delay-1">
+      SHE<br>
+      <span class="accent">STRIKES</span><br>
+      BACK
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      A community where military women connect, compete, and create meaningful impact through kickball. No apologies. All heart.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#register" class="btn-primary">Register Now</a>
+      <a href="#about" class="btn-secondary">Our Mission ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-stats fade-up delay-4">
+    <div>
+      <div class="stat-num">501<span style="font-size:28px;color:rgba(255,255,255,0.4)">(c)(7)</span></div>
+      <div class="stat-label">Registered Org</div>
+    </div>
+    <div>
+      <div class="stat-num">4</div>
+      <div class="stat-label">Founding Directors</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Military Community</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Kickball</span>
+    <span class="marquee-item">Community</span>
+    <span class="marquee-item">Compete</span>
+    <span class="marquee-item">Military Women</span>
+    <span class="marquee-item">She Strikes</span>
+    <span class="marquee-item">Empowerment</span>
+    <span class="marquee-item">Kickball</span>
+    <span class="marquee-item">Community</span>
+    <span class="marquee-item">Compete</span>
+    <span class="marquee-item">Military Women</span>
+    <span class="marquee-item">She Strikes</span>
+    <span class="marquee-item">Empowerment</span>
+  </div>
+</div>
+
+<!-- BENTO GRID -->
+<section class="bento-section" id="about">
+  <div class="bento-header">
+    <div>
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">More Than<br>Just A <span style="color:var(--red)">Game.</span></h2>
+    </div>
+    <p style="max-width:340px; color:rgba(255,255,255,0.55); font-size:15px; line-height:1.7;">
+      SSKC is a transparent, inclusive, member-driven community built to empower women to connect, compete, and create impact.
+    </p>
+  </div>
+
+  <div class="bento-grid">
+    <div class="bento-card card-1 dark-red">
+      <div class="card-tag">Our Mission</div>
+      <div class="card-title">Cultivate. Connect.<br>Compete.</div>
+      <div class="card-body">We create safe, welcoming spaces for military women to build authentic friendships, reduce isolation, and foster belonging across all backgrounds and skill levels.</div>
+      <div class="card-slash"></div>
+    </div>
+    <div class="bento-card card-2 red">
+      <div class="card-tag">Community</div>
+      <div class="card-big-num">∞</div>
+      <div class="card-title">Sisterhood<br>First</div>
+      <div class="card-slash-red"></div>
+    </div>
+    <div class="bento-card card-3">
+      <div class="card-tag">Athletic Growth</div>
+      <div class="card-big-num" style="font-size:56px;">100%</div>
+      <div class="card-body">Structured, competitive play for women — without apology.</div>
+    </div>
+    <div class="bento-card card-4 red">
+      <div class="card-tag">Leadership</div>
+      <div class="card-title">Women<br>Lead Here</div>
+      <div class="card-body" style="margin-top:8px;">Transparent governance. Member accountability. Shared power.</div>
+      <div class="card-slash-red"></div>
+    </div>
+    <div class="bento-card card-5">
+      <div class="card-tag">Why Kickball</div>
+      <div class="card-title">A Game We<br>All Love</div>
+      <div class="card-body">Our founders know what it's like to move to a new community. SSKC was built to make that transition easier.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERYTHING YOU NEED -->
+<section id="programs">
+  <div class="need-section">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Everything<br>You <span style="color:var(--red)">Need.</span></h2>
+      <ul class="need-list">
+        <li class="need-item">
+          <div class="need-icon">⚡</div>
+          <div>
+            <div class="need-item-title">League Play</div>
+            <div class="need-item-desc">Competitive seasons with structured schedules, standings, and playoffs.</div>
+          </div>
+        </li>
+        <li class="need-item">
+          <div class="need-icon">📅</div>
+          <div>
+            <div class="need-item-title">Upcoming Events</div>
+            <div class="need-item-desc">Games, practices, socials, and community gatherings all in one place.</div>
+          </div>
+        </li>
+        <li class="need-item">
+          <div class="need-icon">🤝</div>
+          <div>
+            <div class="need-item-title">Team Registration</div>
+            <div class="need-item-desc">Sign up as a team or as a free agent — we'll find you a home.</div>
+          </div>
+        </li>
+        <li class="need-item">
+          <div class="need-icon">🏆</div>
+          <div>
+            <div class="need-item-title">Coaching & Development</div>
+            <div class="need-item-desc">Resources to grow your game and build leadership on and off the field.</div>
+          </div>
+        </li>
+        <li class="need-item">
+          <div class="need-icon">💬</div>
+          <div>
+            <div class="need-item-title">Community Network</div>
+            <div class="need-item-desc">A built-in support system for military women wherever you're stationed.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="need-visual">
+      <div class="need-photo-mock">
+        <svg class="field-svg" viewBox="0 0 280 220" width="280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Field -->
+          <rect x="20" y="20" width="240" height="180" rx="4" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <!-- Diamond -->
+          <polygon points="140,40 220,110 140,180 60,110" fill="none" stroke="rgba(204,0,0,0.6)" stroke-width="2"/>
+          <!-- Bases -->
+          <rect x="130" y="30" width="20" height="20" rx="2" fill="#CC0000"/>
+          <rect x="210" y="100" width="20" height="20" rx="2" fill="#CC0000"/>
+          <rect x="130" y="170" width="20" height="20" rx="2" fill="#CC0000"/>
+          <rect x="50" y="100" width="20" height="20" rx="2" fill="#CC0000"/>
+          <!-- Pitcher circle -->
+          <circle cx="140" cy="110" r="18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+          <!-- Ball -->
+          <circle cx="140" cy="110" r="10" fill="#CC0000" opacity="0.8"/>
+          <!-- Field lines -->
+          <line x1="60" y1="110" x2="20" y2="20" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="220" y1="110" x2="260" y2="20" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <!-- Text -->
+          <text x="140" y="215" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="14" fill="rgba(204,0,0,0.8)" letter-spacing="3">KICKBALL FIELD</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section" id="schedule">
+  <div class="section-label">Season Calendar</div>
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; margin-bottom:0;">
+    <h2 class="section-title">Upcoming<br><span style="color:var(--red)">Games.</span></h2>
+    <a href="#" class="btn-secondary" style="margin-bottom:8px;">View Full Schedule →</a>
+  </div>
+  <div class="schedule-grid">
+    <div class="game-card">
+      <div class="game-badge">Upcoming</div>
+      <div class="game-date">Sat, May 10 · 10:00 AM</div>
+      <div class="game-teams">Strike Force<br><span style="color:var(--red)">vs</span> Red Rockets</div>
+      <div class="game-meta"><span>📍 Field A</span><span>Season Opener</span></div>
+    </div>
+    <div class="game-card">
+      <div class="game-badge">Upcoming</div>
+      <div class="game-date">Sat, May 17 · 11:00 AM</div>
+      <div class="game-teams">Boots & Balls<br><span style="color:var(--red)">vs</span> Valor Vixens</div>
+      <div class="game-meta"><span>📍 Field B</span><span>Week 2</span></div>
+    </div>
+    <div class="game-card">
+      <div class="game-badge">Upcoming</div>
+      <div class="game-date">Sat, May 24 · 9:00 AM</div>
+      <div class="game-teams">She Kicks Hard<br><span style="color:var(--red)">vs</span> Strike Force</div>
+      <div class="game-meta"><span>📍 Field A</span><span>Week 3</span></div>
+    </div>
+    <div class="game-card">
+      <div class="game-badge">Upcoming</div>
+      <div class="game-date">Sat, May 31 · 10:30 AM</div>
+      <div class="game-teams">Red Rockets<br><span style="color:var(--red)">vs</span> Valor Vixens</div>
+      <div class="game-meta"><span>📍 Field C</span><span>Week 4</span></div>
+    </div>
+    <div class="game-card">
+      <div class="game-badge">Upcoming</div>
+      <div class="game-date">Sat, Jun 7 · 9:00 AM</div>
+      <div class="game-teams">Boots & Balls<br><span style="color:var(--red)">vs</span> She Kicks Hard</div>
+      <div class="game-meta"><span>📍 Field B</span><span>Week 5</span></div>
+    </div>
+    <div class="game-card" style="border-left-color: rgba(255,255,255,0.15); opacity:0.6;">
+      <div class="game-badge" style="background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.4);">TBD</div>
+      <div class="game-date" style="color:rgba(255,255,255,0.3);">More games coming soon</div>
+      <div class="game-teams" style="color:rgba(255,255,255,0.4);">Season<br>Continues</div>
+      <div class="game-meta" style="color:rgba(255,255,255,0.2);"><span>Stay tuned</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION BANNER -->
+<div class="mission-section">
+  <div class="mission-quote">
+    "Empowering Women to Connect, Compete & Create Meaningful Impact"
+  </div>
+  <p class="mission-sub">
+    At She Strikes Kickball Club, we're more than a league. We're a registered 501(c)(7) organization built on the belief that every woman deserves a team.
+  </p>
+  <a href="#register" class="btn-primary" style="background:var(--black); color:var(--white);">Join the Club →</a>
+</div>
+
+<!-- REGISTER -->
+<section id="register">
+  <div class="register-section">
+    <div>
+      <div class="section-label">Get In The Game</div>
+      <h2 class="section-title">Ready To<br><span style="color:var(--red)">Strike?</span></h2>
+      <p style="color:rgba(255,255,255,0.55); font-size:15px; line-height:1.7; margin-top:20px; max-width:400px;">
+        Sign up quickly and securely for upcoming seasons and events. Whether you're joining as a team or a free agent, there's a spot for you.
+      </p>
+      <div style="margin-top:40px; padding:28px; background:var(--charcoal); border-radius:4px; border-left:3px solid var(--red);">
+        <div style="font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:20px; margin-bottom:8px;">Questions?</div>
+        <a href="mailto:shestrikeskb@gmail.com" class="footer-email" style="font-size:14px;">shestrikeskb@gmail.com</a>
+      </div>
+    </div>
+    <div class="register-form">
+      <div class="form-title">Register<br><span style="color:var(--red)">Now</span></div>
+      <div class="form-row">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" placeholder="Your name">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="you@email.com">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" placeholder="(555) 000-0000">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Registration Type</label>
+        <select class="form-select">
+          <option>Individual / Free Agent</option>
+          <option>Full Team</option>
+          <option>Sponsor Inquiry</option>
+          <option>Volunteer</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Military Branch</label>
+        <select class="form-select">
+          <option>Army</option>
+          <option>Navy</option>
+          <option>Air Force</option>
+          <option>Marine Corps</option>
+          <option>Coast Guard</option>
+          <option>Space Force</option>
+          <option>National Guard</option>
+          <option>Veteran / Dependent</option>
+        </select>
+      </div>
+      <button class="form-submit">Submit Registration ⚡</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 200 32" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="16" r="13" fill="#CC0000"/>
+        <polygon points="17,5 10,17 14,17 12,27 20,15 16,15" fill="white"/>
+        <text x="32" y="23" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="26" fill="white" letter-spacing="1">SHE <tspan fill="#CC0000">STRIKES</tspan></text>
+      </svg>
+      <p>A 501(c)(7) kickball organization built by and for military women. Compete. Connect. Belong.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Organization</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#about">Mission Statement</a></li>
+        <li><a href="#about">Board Members</a></li>
+        <li><a href="#about">Coaching Staff</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Play</h4>
+      <ul>
+        <li><a href="#schedule">Upcoming Events</a></li>
+        <li><a href="#schedule">Season Schedule</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#">Sponsors</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:shestrikeskb@gmail.com">shestrikeskb@gmail.com</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Member Login</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 She Strikes Kickball Club · All rights reserved</p>
+    <a href="mailto:shestrikeskb@gmail.com" class="footer-email">shestrikeskb@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+</body>
+</html>
